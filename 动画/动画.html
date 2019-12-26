@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style>
+        .box{
+            width: 174px;
+            height: 126px;
+            margin-top: 100px;
+            background: url("3.png");
+            animation: donghua 10s steps(12) infinite alternate;
+
+        }
+
+
+
+        @keyframes donghua {
+
+            0%{
+                background-position:0 0;
+            }
+
+            50%{
+                  background-position:0 1512px;
+            }
+            100%{
+                margin-left: 700px;
+
+            }
+
+        }
+
+        .box1{
+            width: 509px;
+            height: 270px;
+            background: url("2.png");
+            animation: donghua1 10s steps(12) infinite alternate;
+
+        }
+        @keyframes donghua1 {
+
+            0%{
+                background-position:0 0;
+            }
+
+            50%{
+                  background-position:0 3240px;
+            }
+            100%{
+                margin-left: 700px;
+
+            }
+
+        }
+
+        .box2{
+            width: 180px;
+            height: 300px;
+            float: right;
+            background: url("4.png");
+            animation: donghua2 10s steps(7) infinite alternate;
+        }
+
+           @keyframes donghua2 {
+
+               0% {
+                   background-position: 0 0;
+               }
+
+               50% {
+                   background-position: 1260px 0px;
+               }
+               75%{
+                   margin-top: -300px;
+                   margin-right: 300px;
+               }
+
+               100%{
+                   margin-top: -400px;
+                   margin-right: 500px;
+               }
+
+               }
+
+
+        .box3{
+            width: 156px;
+            height: 156px;
+            background: url("foxtail.png");
+            animation:donghua3 10s steps(45) infinite alternate ;
+        }
+
+          @keyframes donghua3 {
+
+               0% {
+                   background-position: 0 0;
+               }
+
+               50% {
+                   background-position: 7020px 0px;
+               }
+               100% {
+                   margin-left: 400px;
+
+               }
+           }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位样式作业</title>
+    <style>
+
+        ul{
+            list-style: none;
+            padding-left: 0;
+        }
+        .demo{
+            position: relative;
+            width: 1513px;
+            height: 342px;
+            margin: 200px auto;
+            background: #67abff;
+
+        }
+
+        .demo>ul{
+            position: absolute;
+            left: 100px;
+            top: -64px;
+            width: 208px;
+            height: 390px;
+            background: #272a38;
+        }
+
+        .demo>ul>li[class='title']{
+            width: 208px;
+            height: 50px;
+            background: blue;
+            text-align: center;
+            line-height: 50px;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .demo>ul>li[class='list1']{
+            width: 208px;
+            height: 68px;
+            color: white;
+            font-size: 18px;
+
+
+        }
+
+
+
+        .demo>ul>li>a{
+            padding-left: 30px;
+            line-height: 68px;
+        }
+
+        .demo>ul>li>a>i{
+            padding-right: 10px;
+        }
+
+        .demo>ul>li>ul{
+            display: none;
+            position: absolute;
+            left: 208px;
+            top: 48px;
+            width: 449px;
+            height: 340px;
+            background: white;
+        }
+
+        .list1:hover .gvg-list {
+            display: block;
+        }
+
+        .gvg-list{
+            border: 1px solid black;
+            color: #272a38;
+            font-size: 14px;
+        }
+
+
+
+          .tsxt-title{
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 130px;
+            font-size: 14px;
+            float:left ;
+        }
+
+          .list2{
+              overflow: hidden;
+          }
+
+
+
+        .list2>a{
+
+            display: inline-block;
+            border-left: 1px solid #55595c;
+            padding-left: 10px;
+            margin-left: 10px;
+            margin-bottom: 15px;
+            height: 15px;
+            line-height: 15px;
+            color: #55595c;
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <ul class="list">
+
+            <li class="title" >
+                <img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAYAAADphp8SAAAAK0lEQVQ4jWP8////
+                    fwYqACZqGEJVg1gYGBgYqWHQ4PTaaKzhB4PTa8M01gC9XAYiqCKvCQAAAABJRU5ErkJggg==">
+                    <span>课程分类</span>
+            </li>
+
+            <li class="list1">
+                    <a >
+                            <i>
+                                <img src="1.png" alt="IT互联网">
+                            </i>
+                             IT互联网
+                    </a>
+                <ul class="gvg-list">
+                    <li>
+                                <a class="tsxt-title">编程语言</a>
+                                <div class="list2">
+                                <a>C</a>
+                                <a>PHP</a>
+                                <a>python</a>
+                                <a>C++</a>
+                                <a>JAVA</a>
+                                <a>LIUNX</a>
+                                </div>
+                             </li>
+
+                         <li>
+                                <a class="tsxt-title">互联网运营</a>
+                                <div class="list2">
+                                <a>淘宝运营</a>
+                                <a>新媒体运营</a>
+                                <a>SEO</a>
+                                <a>SEW</a>
+                                <a>网络运营</a>
+                                <a>天猫运营</a>
+                                <a>营销实战</a>
+                                </div>
+                        </li>
+
+
+
+                            <li>
+                                <a class="tsxt-title">前端开发</a>
+                                <div class="list2">
+                                    <a>javaScript</a>
+                                    <a>DIV</a>
+                                </div>
+                            </li>
+
+
+                        <li>
+                                <a class="tsxt-title">移动开发</a>
+                                <div class="list2">
+                                    <a>andrond</a>
+                                    <a>ios</a>
+                                </div>
+                        </li>
+
+                         <li>
+                                <a class="tsxt-title">游戏开发 </a>
+                                <div class="list2">
+                                    <a>Cocos2d-x游戏开发</a>
+                                    <a>Unity3d游戏开发</a>
+                                </div>
+                        </li>
+
+
+                         <li>
+
+                                <a class="tsxt-title">云计算大数据</a>
+                                <div class="list2">
+                                    <a>大数据</a>
+                                    <a>区快链</a>
+                                    <a>人工智能</a>
+                                </div>
+                        </li>
+
+                </ul>
+            </li>
+
+            <li class="list1">
+                 <a>
+                    <i><img src="2.png" alt="设计创作"></i>
+                    设计创作
+                </a>
+                <ul class="gvg-list">
+                    <li>
+                        <a class="tsxt-title">视觉设计</a>
+                        <div class="list2">
+                             <a>平面设计</a>
+                             <a>UI设计</a>
+                             <a>Photoshop</a>
+                             <a>形象设计</a>
+                             <a>服装设计</a>
+                             <a>淘宝美工</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="tsxt-title">游戏动漫</a>
+                        <div class="list2">
+                            <a>游戏模型</a>
+                            <a>插画</a>
+                            <a>游戏原画</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">摄影</a>
+                        <div class="list2">
+                            <a>影视后期</a>
+                            <a>摄影拍摄</a>
+                            <a>后期修图</a>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <a class="tsxt-title">环境艺术</a>
+                        <div class="list2">
+                            <a>室内设计</a>
+                            <a>建筑设计</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">工艺设计</a>
+                        <div class="list2">
+                            <a>塑胶模型设计</a>
+                            <a>五金磨具设计</a>
+                            <a>机械设计</a>
+                            <a>UG产品设计</a>
+                            <a>CAD设计</a>
+                            <a> UG编程</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list1">
+                <a>
+                    <i> <img src="3.png"alt="实用外语"></i>
+                    实用外语
+                </a>
+                <ul class="gvg-list">
+                    <li>
+                        <a class="tsxt-title">英语</a>
+                        <div class="list2">
+                            <a>基础英语</a>
+                            <a>英语口语</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">日语</a>
+                        <div class="list2">
+                            <a>日语零基础</a>
+                            <a>日语初级</a>
+                            <a>日语中级</a>
+                            <a>韩语高级</a>
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">法语</a>
+                        <div class="list2">
+                            <a>法语初级</a>
+                            <a>法语中级</a>
+                            <a>法语高级</a>
+                            <a>法语发音班</a>
+                            <a>法语零基础</a>
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">泰语</a>
+                        <div class="list2">
+                            <a> 泰语中级</a>
+                            <a>泰语高级</a>
+                            <a>泰语初级</a>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <a class="tsxt-title">西班牙语</a>
+                        <div class="list2">
+                            <a>西班牙语初级</a>
+                            <a>西班牙语高级</a>
+                            <a>西班牙语中级</a>
+                        </div>
+
+                    </li>
+
+
+                    <li>
+                        <a class="tsxt-title">德语</a>
+
+                          <div class="list2">
+
+                                  <a>德语零基础</a>
+
+                          </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">对外汉语</a>
+                        <div class="list2">
+                            <a>基础汉语</a>
+                            <a>高级汉语</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li class="list1" id="avg-list1">
+                  <a>
+                    <i><img src="4.png"alt='兴趣艺术'></i>
+                    兴趣艺术
+                </a>
+                  <ul class="gvg-list">
+                        <li>
+                        <a class="tsxt-title">美术</a>
+                        <div class="list2">
+                            <a>素描</a>
+                            <a>彩铅</a>
+                            <a>水彩</a>
+                            <a>手绘</a>
+                            <a>绘画</a>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <a class="tsxt-title">音乐</a>
+                        <div class="list2">
+                            <a>钢琴</a>
+                            <a>古筝</a>
+                            <a>声乐</a>
+                            <a>二胡</a>
+
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <a class="tsxt-title">生活百科</a>
+                        <div class="list2">
+                            <a>生活技巧</a>
+                            <a>生活爱好</a>
+                        </div>
+                    </li>
+
+
+
+                    <li>
+                        <a class="tsxt-title">播音主持</a>
+                        <div class="list2">
+                            <a>主持朗诵</a>
+                            <a>配音</a>
+                            <a>普通话</a>
+                            <a>声乐美话</a>
+                        </div>
+
+                    </li>
+
+
+
+                    <li>
+                        <a class="tsxt-title">成人教育</a>
+                        <div class="list2">
+                            <a>高升专</a>
+                            <a>专升本</a>
+                            <a>本升研</a>
+                            <a>自考</a>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">职业资格证</a>
+                        <div class="list2">
+                            <a>教师资格证</a>
+                            <a>注册消防工程师</a>
+                            <a>其他考证</a>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <a class="tsxt-title">中小幼教育</a>
+                        <div class="list2">
+                            <a>美育</a>
+                            <a>书法</a>
+                            <a>趣味语文</a>
+                            <a>趣味数学</a>
+                            <a>趣味英语</a>
+                            <a>亲子课堂</a>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <a class="tsxt-title">财务课堂</a>
+                        <div class="list2">
+                            <a>会计培训</a>
+                            <a>零基础会计</a>
+                        </div>
+                    </li>
+
+                  </ul>
+
+            </li>
+
+            <li class="list1">
+
+                <a>
+                    <i> <img src="5.png"alt="农业生产"></i>
+                    农业生产
+                </a>
+
+                  <ul class="gvg-list">
+                      <li>
+                        <a class="tsxt-title">种植</a>
+                        <div class="list2">
+                            <a>蔬菜种植</a>
+                            <a>果树种植</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title"> 水产养殖</a>
+                        <div class="list2">
+                            <a>小龙虾养殖</a>
+                            <a>南北白龙虾养殖</a>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">养殖技术</a>
+                        <div class="list2">
+                            <a>对虾养殖</a>
+                            <a>养猪</a>
+                            <a>养鸡</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="tsxt-title">经营管理</a>
+                        <div class="list2">
+                            <a >水稻防虫</a>
+                            <a>农资经营</a>
+                        </div>
+                    </li>
+
+                  </ul>
+
+            </li>
+
+
+        </ul>
+    </div>
+
+
+</body>
+</html>
