@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+  // url转码
+  // 我们如果往url里面填写任意内容 => & = 引起歧义
+  // 假设 data1的值是 value1&data2=value2
+  // 往后台传入的数据 变成了 data1=value1 data2=value2 引起歧义啊
+  // 非常危险: url转码 所有危险的字符转换成没有歧义的字符 encodeURI
+  // 将输入的一些可能存在编码错误的编码转义成为无歧义的编码
+
+  // let input = document.querySelector(".search")
+  // let listDiv = document.querySelector(".list")
+  // input.oninput = (function () {
+  //   // 做一个节流的
+  //   let timer = null
+  //   return function(){
+  //     clearTimeout(timer)
+  //     timer = setTimeout(()=>{
+  //       searchData(input.value)
+  //     },700)
+  //   }
+  // })()
+
+
+  function searchData(keyword){
+    const url = `https://s.search.bilibili.com/main/suggest?jsoncallback=render&func=suggest&suggest_type=accurate&sub_type=tag&main_ver=v1&highlight=&bangumi_acc_num=1&special_acc_num=1&topic_acc_num=1&upuser_acc_num=3&tag_num=10&special_num=10&bangumi_num=10&upuser_num=3&term=${encodeURI(keyword)}&rnd=0.7192233136438737&_=1576933283545`
+    let script = document.createElement("script")
+    script.src = url
+    document.body.appendChild(script)
+    script.onload = function () {
+      document.body.removeChild(script)
+    }
+
+  }
+
+  function render(data){
+    const list = data.result && data.result.tag || []
+    console.log(list)
+    // listDiv.innerHTML = ""
+    // let str = ""
+    // list.forEach(item => {
+    //    str += `<p>${item.name}</p>`
+    // })
+    // listDiv.innerHTML = str
+    // // 在页面中渲染list
+  }
+
+
+
+</script>
+</body>
+</html>

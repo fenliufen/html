@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+
+
+
+
+
+<script>
+
+    
+    function Foo(name,age,say) {
+        let o=new Object()
+        o.name=name
+        o.age=age
+        o.say=say
+        o.sayName = function() {
+            content.log(this.name)
+        }
+
+        return o
+    }
+
+
+    let yinshi=new Foo('银时','18','男')
+    let  xiaofeng = new  Foo('小刘','22','女')
+
+
+
+
+
+</script>
+</body>
+</html>

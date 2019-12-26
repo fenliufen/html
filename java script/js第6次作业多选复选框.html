@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            padding: 10px;
+        }
+
+        .quanxuan{
+            border-bottom:1px solid #cccccc ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="quanxuan">
+            <input type="checkbox"> 全选
+        </div>
+
+        <div class="fuxuan">
+
+            <p><input type="checkbox" > 选项一</p>
+            <p><input type="checkbox" > 选项二</p>
+            <p><input type="checkbox" > 选项三</p>
+            <p><input type="checkbox" > 选项四</p>
+            <p><input type="checkbox" > 选项五</p>
+            <p><input type="checkbox" > 选项六</p>
+            <p><input type="checkbox" > 选项七</p>
+            <p><input type="checkbox" > 选项八</p>
+            <p><input type="checkbox" > 选项九</p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let quan = document.querySelector('.quanxuan input')
+        let  fu = document.querySelectorAll('.fuxuan input')
+        let count = 0
+
+        quan.onclick = function () {
+            if (count<1){
+                   count++
+            for (let i = 0;i<fu.length;i++){
+                fu[i].checked = true
+            }
+            }
+
+
+
+            else {
+                count--
+                for (let i = 0; i < fu.length; i++) {
+                    fu[i].checked = false
+
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

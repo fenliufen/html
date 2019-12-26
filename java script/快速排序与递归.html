@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快速排序与递归</title>
+</head>
+<body>
+
+
+<script>
+
+
+
+        function shuzhu(n) {          //生成一个随机的并且打乱的顺序的数组
+            let arr = new Array(n).fill(0)      //生成一个长度为n的数组，并填充为0
+            arr.forEach(function (item, index, array) {         //循环数组，在每个数组下标加一
+                arr[index] = index + 1
+            })
+           arr.sort(()=>Math.random()-.5);     //打乱数组顺序
+            return arr
+        }
+
+         let n = 100
+         let  arr=shuzhu(n)
+
+
+
+
+         //冒泡排序
+         //和相邻的数据进行比较，比较数据大则交换位置
+          function swap(arr, i, j) {
+            let temp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = temp
+          }
+
+
+          function bubbleSort(arr) {
+            for (let j = 0; j < arr.length; j++) {
+              // 先将最小的寄到右边
+              for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i] < arr[i + 1]) {
+                  // 交换i和i+1的位置
+                  swap(arr, i, i + 1)
+                }
+              }
+            }
+            return arr
+          }
+
+
+        bubbleSort(arr)
+        console.log(arr)
+
+
+
+</script>
+
+
+
+</body>
+</html>

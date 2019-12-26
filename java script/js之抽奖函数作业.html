@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖函数作业</title>
+
+    <style>
+
+
+        .demo {
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #cccccc;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="demo">
+        <input type="button" value="点击抽奖">
+        <p><span id="text"></span> <span id="text1"></span></p>
+    </div>
+
+
+    <script>
+        function shuzhu(n) { //生成一个随机的并且打乱的顺序的数组
+
+            let arr = new Array(n).fill(0) //生成一个长度为n的数组，并填充为0
+            arr.forEach(function(item, index, array) { //循环数组，在每个数组下标加一
+                arr[index] = index + 1
+            })
+
+            arr.sort(() => Math.random() - .5); //打乱数组顺序
+
+            return arr
+        }
+
+
+        let arr = shuzhu(100)
+
+        let spen1 = document.querySelector('#text')
+        let spen2 = document.querySelector('#text1')
+
+        function choujiang() {
+
+
+            let index = Math.floor(Math.random() * arr.length); //随机从数组上取一个整数
+
+            if (index === 1) {
+
+                spen1.innerHTML = `您抽中的是${index}`
+                spen2.innerHTML = '恭喜您中了1等奖，奖励银时老师女装直播观看卷一张'
+
+            }
+
+            if (index > 1 && index < 4) {
+                spen1.innerHTML = `您抽中的是${index}`
+                spen2.innerHTML = '恭喜您中了2等奖，奖励银时老师么么哒一次'
+            }
+
+            if (index >= 4 && index <= 10) {
+                spen1.innerHTML = `您抽中的是${index}`
+                spen2.innerHTML = '恭喜您中了3等奖，奖励银时老师照片一张'
+            }
+
+            if (index > 10) {
+
+                spen1.innerHTML = `您抽中的是${index}`
+                spen2.innerHTML = '请再接再厉，奖励银时老师布置作业一份'
+            }
+
+
+        }
+
+
+        let but = document.querySelector('.demo input')
+        but.onclick = choujiang
+
+
+    </script>
+
+</body>
+
+</html>

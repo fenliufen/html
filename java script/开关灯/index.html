@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>开关灯小游戏简易版</title>
+    <style>
+        .titer {
+            margin: auto;
+            text-align: center;
+            line-height: 100px;
+            color: blue;
+        }
+        
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            width: 540px;
+            height: 540px;
+        }
+        
+        .list div {
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 0 3px #999 inset;
+            text-align: center;
+            line-height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" id="shuru" value="4">
+    <input type="submit" value="生成地图">
+    <h1 class="titer">开关灯小游戏</h1>
+    <div class="list"></div>
+
+
+    <script>
+        //生成标签的函数
+        let zhubiao = document.querySelector('.list')
+
+        function tanjia(n) {
+            let str = ''
+            for (let i = 0; i < n * n; i++) {
+                let dev = `<div></div>`
+                str += dev
+            }
+            zhubiao.innerHTML = str
+            zhubiao.style.width = n * 60 + "px"
+            zhubiao.style.height = n * 60 + "px"
+        }
+
+
+
+
+
+        //对标签颜色进行修改
+
+        function ystj(index) {
+
+            if (boxList[index].style.background === "red") {
+                boxList[index].style.background = "transparent"
+
+            } else {
+                boxList[index].style.background = "red"
+            }
+
+        }
+
+        let  jishu = document.querySelector('#shuru')
+        let  tijiao = document.querySelector('input[type="submit"]')
+        tijiao.onclick=function () {
+            let geshu = jishu.value
+
+
+        }
+
+
+
+        //点击盒子对其颜色进行修改，排除上下左右边角的情况
+        function change(index) {
+            // 修改自身, 对自身的状态进行判断
+            ystj(index)
+                // 修改周围, 周围的情况进行判断
+                // 序号如果大于0才能切换
+            if (index - n >= 0) {
+                ystj(index - n)
+            }
+            // 对左边进行维护
+            if (index - 1 >= 0) {
+                // 当前点击的不是最左边那一排
+                if (index % n != 0) {
+                    ystj(index - 1)
+                }
+            }
+            // 排除下面添加不存在的情况
+            if (index + n < n * n) {
+                ystj(index + n)
+            }
+            // 排除右边和右下角的情况
+            if (index + 1 < n * n) {
+                if (index % n != n - 1) {
+                    ystj(index + 1)
+                }
+            }
+        }
+
+
+
+        //绑定点击事件，生成放格的操作
+        let n
+        function initGame(mm) {
+            // 生成棋盘
+           n = mm
+            tanjia(n)
+            boxList = document.querySelectorAll(".list>div")
+                // 给棋盘绑定点击事件
+            for (let i = 0; i < boxList.length; i++) {
+                // 初始化 每一个小盒子的颜色
+                boxList[i].style.background = "transparent"
+                boxList[i].onclick = function() {
+                    // 修改编号为i的这个盒子,相关的内容
+                    change(i)
+
+
+                }
+            }
+        }
+
+
+
+
+
+        let  sc = document.querySelector('#shuru')
+        let  tj =document.querySelector('input[type="submit"]')
+
+
+        tj.onclick = function () {
+            let   shuju = sc.value
+            initGame(shuju)
+
+        }
+
+    </script>
+
+</body>
+
+</html>

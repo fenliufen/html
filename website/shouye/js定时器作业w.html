@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>月亮</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+        
+        .demo {
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1000px;
+            height: 1000px;
+            margin: auto;
+            border: 1px solid #272a38;
+            border-radius: 50%;
+            transform: rotateY(142deg) rotatex(122deg) rotatez(0deg);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            background: radial-gradient(transparent 62%, #D0CCB1 78%);
+            box-shadow: 0 0 0 0 #000 inset;
+        }
+        
+        .demo1 {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border-radius: 50%;
+            border: 1px solid #272a38;
+            background-color: #fff;
+            transform: rotateX(70deg) rotateY(150deg);
+            box-shadow: 0 0 39px 10px rgb(255, 230, 0) inset, 0 0 100px 22px rgb(255, 0, 0);
+        }
+        
+        .demo2 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transform: translate(0, -500px);
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="demo">
+        <div class="demo1"></div>
+        <div class="demo2"></div>
+
+    </div>
+
+    <script>
+        let dot = document.querySelector('.demo2')
+        const step = Math.PI / 60
+        let cord = 0;  //渲染角度坐标
+
+
+        setInterval(function() {
+            var sin = Math.sin(`${cord}`) * 500
+            var cos = Math.cos(`${cord}`) * 500
+            // dot.style.transform = "translate(" + `${sin}` + "px" + "," + ` ${cos}` + "px)"
+
+              dot.style.transform = "translate("+ `${sin}` + "px" + "," + `${cos}` + "px)"
+            cord += step;
+        }, 1000 / 60)
+
+
+    </script>
+</body>
+
+
+
+
+</html>

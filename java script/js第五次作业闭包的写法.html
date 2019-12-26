@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包写法样式</title>
+    <style>
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        
+        .demo {
+            margin: 50px auto;
+            width: 600px;
+        }
+        
+        .list {
+            display: flex;
+            justify-content: center;
+            width: 400px;
+            height: 100px;
+            border: 1px solid #cccccc;
+        }
+        
+        .list>li {
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            border: 1px solid #cccccc;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+        .list2 {
+            display: flex;
+            justify-content: center;
+            width: 400px;
+            height: 100px;
+            border: 1px solid #cccccc;
+        }
+        
+        .list2>li {
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            border: 1px solid #cccccc;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demo">
+        <input type="button" id="but1" value="闭包写法1">
+        <input type="button" id="but2" value="闭包写法2">
+        <div class="demo1">
+
+        </div>
+        <ul class="list">
+
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+
+        <ul class="list2">
+
+        </ul>
+    </div>
+    <script>
+        let li = document.querySelectorAll('.list li')
+        let list = document.querySelector('.list2')
+        let bb = 0
+        let but1 = document.querySelector('#but1')
+        let but2 = document.querySelector('#but2')
+        let di = document.querySelector('.demo1')
+
+
+        //
+        // for(var i = 0; i < li.length;i++){        //第一种写法
+        //     li[i].onclick=(function () {
+        //         var mig = i+1
+        //         return function () {
+        //             console.log(mig)
+        //         }
+        //
+        //     })()
+        //
+        // }
+
+
+        for (let y = 0; y < li.length; y++) { //let 是es6的方法  let 的特性是什么? 是块作用域！
+            let count = y + 1
+
+            li[y].onclick = function() {
+                console.log(count)
+                let dome = `<li>${count}</li>`
+
+                if (bb < 6) {
+                    bb++
+                    list.innerHTML += dome
+                } else {
+                    alert('请对我温柔点，不要在点了！')
+                }
+
+            }
+        }
+
+        but1.onclick = function() {
+            let xiefa1 = `<p>for(var i = 0; i < li.length;i++){        //第一种写法<br>
+            li[i].onclick=(function () {<br>
+                var mig = i+1<br>
+                return function () {<br>
+                    console.log(mig)<br>
+                }<br>
+
+            })()<br>
+
+        }</p>`
+
+            di.innerHTML = xiefa1
+
+        }
+
+        but2.onclick = function() {
+
+            let xiefa2 = `<p>
+            for (let y = 0;y < li.length;y++){    //let 是es6的方法  let 的特性是什么? 是块作用域！<br>
+            let count = y + 1<br>
+
+            li[y].onclick = function () {<br>
+                console.log(count)<br>
+                }<br>
+             }<br>
+
+                </p>`
+
+
+            di.innerHTML = xiefa2
+
+        }
+    </script>
+
+</body>
+
+</html>

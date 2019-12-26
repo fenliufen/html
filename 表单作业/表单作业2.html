@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单作业2</title>
+    <style>
+
+            input{
+                outline: none;
+            }
+
+            input:nth-of-type(1):focus{
+                border: 1px solid red;
+             }
+
+              input:nth-of-type(2):focus{
+                border: 1px solid red;
+              }
+
+
+            input:nth-of-type(3):focus{
+                border: 1px solid red;
+             }
+
+            input:nth-of-type(4):focus{
+                border: 1px solid red;
+           }
+
+
+            input:nth-of-type(5):focus{
+                border: 1px solid red;
+        }
+
+
+
+
+
+        .biaodan{
+            width: 500px;
+            height: 536px;
+            margin: 50px auto;
+            border-radius: 9px;
+            text-align: center;
+            border: 1px solid #cccccc;
+            background: aliceblue;
+
+
+
+        }
+
+        .biaodan>p>input{
+            width: 292px;
+            height: 42px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            text-indent: 1em;
+
+
+        }
+
+
+
+        .account{
+            padding-top: 40px;
+
+
+        }
+
+        .biaodan>p:nth-child(2){
+            text-indent: 1em;
+            padding-top: 10px;
+        }
+
+        .biaodan>p:nth-child(3){
+            text-indent: -1em;
+            padding-top: 10px;
+        }
+
+            .biaodan>p:nth-child(4){
+            padding-top: 10px;
+                text-indent: 10px;
+        }
+
+        .biaodan>p:nth-child(5){
+            text-indent: 1em;
+            padding-top: 10px;
+
+        }
+
+
+
+        #register{
+            width: 80px;
+            height: 40px;
+            background: #3c6cb1;
+            border-radius: 3px;
+            border: 1px solid #3c6cb1;
+            font-size: 16px;
+            margin-left: 70px;
+            margin-top: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #denglu{
+            width: 170px;
+            height: 40px;
+            font-size: 16px;
+            background: #3c6cb1;
+            border: 1px solid #3c6cb1;
+            border-radius: 3px;
+            margin-top: 20px;
+            margin-left: 30px;
+            color: white;
+            font-weight: bold;
+
+        }
+
+        .txet{
+            display: none;
+             color: white;
+        }
+
+
+        #account:hover ~.txet{
+            display: block;
+            position: absolute;
+            background: #67abff;
+            margin-top: -35px;
+            margin-left: 440px;
+        }
+
+
+        #password:hover ~.txet{
+            display: block;
+            position: absolute;
+            background: #67abff;
+            margin-top: -35px;
+            margin-left: 440px;
+        }
+
+          #password1:hover ~.txet{
+            display: block;
+            position: absolute;
+            background: #67abff;
+            margin-top: -35px;
+            margin-left: 440px;
+
+        }
+
+
+          #email:hover ~.txet{
+            display: block;
+            position: absolute;
+            background: #67abff;
+            margin-top: -35px;
+            margin-left: 440px;
+        }
+
+
+        #nickname:hover ~.txet{
+            display: block;
+            position: absolute;
+            background: #67abff;
+            margin-top: -35px;
+            margin-left: 440px;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <form class="biaodan" action="">
+
+        <p class="account"><span>用户名：</span><input type="text" name="account" placeholder="输入英文或者数字" id="account">
+            <span class="txet">用户名必须是6—12位数字或者是英文字母！</span>
+        </p>
+
+        <p class="password"><span>密码：</span><input type="password" name="password" placeholder="填写密码" id="password">
+            <span class="txet">密码必须6-12位字母数字组合！</span>
+        </p>
+
+        <p class="password1"><span>确认密码：</span><input type="password" name="password" placeholder="确认密码" id="password1">
+            <span class="txet">请认真确认密码！</span>
+        </p>
+
+        <p class="email"><span>Email：</span><input type="email" name="email" placeholder="填写邮箱地址" id="email" >
+            <span class="txet">填写完检查邮箱是否正确！</span>
+        </p>
+
+        <p class="nickname"><span>昵称：</span><input type="text" name="nickname" placeholder="填写昵称" id="nickname" >
+            <span class="txet">字母或者字符组成！</span>
+        </p>
+
+        <input type="button" name="register" id="register" value="注册">
+        <input type="submit" name="denglu" id="denglu" value="我有账号，我要登录">
+
+    </form>
+
+</body>
+</html>

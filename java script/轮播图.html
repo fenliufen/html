@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝轮播</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .container {
+            width: 600px;
+            height: 375px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .list {
+            width: 4200px;
+            height: 375px;
+            position: absolute;
+        }
+        
+        .list img {
+            width: 600px;
+            height: 375px;
+            overflow: hidden;
+            float: left;
+        }
+        
+        .cursor {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            bottom: 10px;
+            left: 250px;
+        }
+        
+        .cursor span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: dimgray;
+        }
+        
+        .cursor .on {
+            background: yellow;
+        }
+        
+        .cursor span:hover {
+            cursor: pointer;
+        }
+        
+        .arrow {
+            font: 30px/50px '宋体';
+            color: white;
+            position: absolute;
+            top: 45%;
+            width: 30px;
+            height: 55px;
+            background: rgba(17, 17, 17, .3);
+            text-decoration: none;
+            line-height: 55px;
+            text-align: center;
+            display: none;
+        }
+        
+        .container:hover .arrow {
+            display: block;
+        }
+        
+        #prev {
+            left: 0;
+        }
+        
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="list" style="left:-600px;">
+            <img src="images/6.jpg" alt="1">
+            <img src="images/1.jpg" alt="2">
+            <img src="images/3.jpg" alt="3">
+            <img src="images/4.jpg" alt="4">
+            <img src="images/5.jpg" alt="5">
+            <img src="images/6.jpg" alt="6">
+            <img src="images/1.jpg" alt="7">
+        </div>
+        <div class="cursor">
+            <span class="on"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="#" id="prev" class="arrow">&lt;</a>
+        <a href="#" id="next" class="arrow">&gt;</a>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const prevEle = document.getElementById("prev");
+            const nextEle = document.getElementById("next");
+            const container = document.getElementsByClassName("container")[0];
+            const listEle = document.getElementsByClassName("list")[0];
+            const cursors = document.getElementsByTagName("span");
+
+            let timer = null; //定时器
+
+            let animated = true; //控制动画执行
+            let index = 1; //指示器序号
+
+            //指示器
+            function showCursor() {
+                for (let k = 0; k < cursors.length; k++) {
+                    const element = cursors[k];
+                    if ((index - 1) === k) {
+                        element.className = "on";
+                    } else {
+                        element.className = "";
+                    }
+                }
+            }
+
+            //指示器点击事件
+            // alert(`key ${key}`);//阻塞式，当弹框时，程序停止执行
+            for (let key = 0; key < cursors.length; key++) {
+                cursors[key].onclick = function() {
+                    index = key + 1;
+                    showCursor();
+                    listEle.style.left = (-600 * key) + "px"; //向左移动len长度
+                }
+            }
+
+            //动画
+            function animation(offset) { //offset: 600,
+                const len = offset > 0 ? 20 : -20; //每次移动长度,正负表示，向左或向右移动
+                const speend = 10;
+                const newLeft = parseInt(listEle.style.left) + offset; //移动到显示下张图片左边距离
+                function go() {
+                    if (parseInt(listEle.style.left) > newLeft || parseInt(listEle.style.left) < newLeft) {
+                        listEle.style.left = parseInt(listEle.style.left) + len + "px"; //向左移动len长度
+                        setTimeout(go, speend);
+                    } else {
+
+                        //显示完第一次图片后，切换到倒数第二张图片
+                        if (newLeft > -600) {
+                            listEle.style.left = -3000 + "px";
+                        }
+                        //显示完最后一张图片后，切换到正数第一张图片
+                        if (newLeft < -3000) {
+                            listEle.style.left = -600 + "px";
+                        }
+                    }
+                }
+                go();
+            }
+            //上一页
+            function prev() {
+                if (index === 1) { //index: 1, 2 ,3 ,4, 5
+                    index = 5;
+                } else {
+                    index = index - 1; // index:1, 2 ,3 ,4, 5
+                }
+                showCursor();
+                animation(600); //[left: 0, -600, -1200, -1800, -2400, ]
+            }
+
+
+            //下一页
+            function next() {
+                if (index === 5) { //index: 1, 2 ,3 ,4, 5
+                    index = 1;
+                } else {
+                    index = index + 1; // index: 2 ,3 ,4, 5
+                }
+                showCursor();
+                animation(-600); //[left: 0, -600, -1200, -1800, -2400, ]
+            }
+            //上一页点击事
+            prevEle.onclick = function() {
+                    prev();
+                }
+                //下一页点击事件
+            nextEle.onclick = function() {
+                next();
+            }
+
+            //播放
+            function play() {
+                timer = setInterval(function() {
+                    next();
+                }, 2000);
+            }
+            //停止
+            function stop() {
+                clearInterval(timer);
+            }
+
+            play();
+            container.onmouseover = stop; //鼠标移入停止滚动
+            container.onmouseout = play; //揿出继续滚动
+
+        }
+    </script>
+</body>
+
+</html>

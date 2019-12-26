@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>椭圆设计与渐变色作业</title>
+    <style>
+
+        body{
+            background-color: #cccccc;
+            margin: 0;
+        }
+
+        .pg{
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            border-radius: 50%;
+            background-image:linear-gradient(to top,black 50%,white 50%);
+            font-size: 0;
+            transform-style: preserve-3d;
+            animation:xuanzhuan 1s linear infinite ;
+
+
+
+        }
+
+        .pg>div{
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin-top: 100px ;
+
+
+
+        }
+
+        .bg1{
+            border-radius: 50%;
+            background-color: black;
+
+        }
+
+        .pg2{
+            border-radius: 50%;
+            background-color: white;
+
+        }
+
+
+        .pg1{
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: white;
+            margin: 50% auto;
+        }
+
+
+        .pg2>div{
+             width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: black;
+            margin: 50% auto;
+
+        }
+
+        @keyframes xuanzhuan{
+            0%{
+
+            }
+
+            100%{
+                transform: rotate(360deg);
+
+            }
+
+        }
+
+
+        .pg:hover{
+            transform: rotate(360deg);
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+        <div class="pg">
+
+                <div class="bg1">
+                    <div class="pg1"></div>
+                </div>
+                <div class="pg2">
+                    <div ></div>
+                </div>
+
+
+
+        </div>
+
+</body>
+</html>

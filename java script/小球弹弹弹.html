@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .screen {
+            position: relative;
+            width: 1800px;
+            height: 900px;
+        }
+        
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #666 inset;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="screen"></div>
+
+
+    <script>
+        let screen = document.querySelector(".screen")
+
+        function createBall() {
+            let obj = {
+                //随机x y坐标
+                x: Math.random() * 1700,
+                y: Math.random() * 800,
+
+                //每次渲染移动多少像素
+                vx: Math.random() * 2 + 2,
+                vy: Math.random() * 3 + 2,
+                yanse:getRandomColor(),
+                update: function() {
+
+                    // 下边界// 上边界
+                    if (this.y > 800 || this.y < 0) {
+                        // 反弹回来
+                        this.vy *= -1
+                    }
+                    // 右边界// 左边界
+                    if (this.x > 1700 || this.x < 0) {
+                        this.vx *= -1
+                    }
+
+
+                    // 数据更新
+                    this.x += this.vx
+                    this.y += this.vy
+                }
+            }
+
+
+            return obj
+        }
+
+
+
+        // 拿一个数组存起来
+        let ballList = []
+            // 重新获取页面的元素节点.存到ballList当中的某个属性里面
+        screen.onclick = function() {
+            ballList.push(createBall())
+        }
+
+
+
+
+        // 动画效果的实现
+        function animation() {
+            ballList.forEach(function(ball) {
+                ball.update()
+            })
+
+            // 渲染多个小球,执行函数
+            render()
+            requestAnimationFrame(animation) //渲染关键帧
+        }
+
+        animation() //执行渲染动画函数
+
+
+        // 渲染多个小球
+        function render() {
+            let str = ""
+            ballList.forEach(function(ball) {
+
+                str += `
+              <div
+              class="ball"
+              style="
+              left: ${ball.x}px;
+              top: ${ball.y}px;
+              box-shadow: 0 0 20px ${ball.yanse} inset;"
+               ></div>`
+
+            })
+
+            // 每一次render都在将screen里面的东西擦了重写
+            screen.innerHTML = str
+        }
+
+
+
+
+
+        // 返回 颜色字符串 rgb的格式
+        function getRandomColor() {
+
+            return `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`
+        }
+    </script>
+</body>
+
+</html>

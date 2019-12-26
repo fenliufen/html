@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>排序算法课堂笔记</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //选择排序，打乱数组里边的排序
+        function getRandom(n) {
+            // fill 是全部添加0
+            let arr = new Array(n).fill(0)
+            arr.forEach((item, index, arr) => {
+                    arr[index] = index + 1
+                })
+                // 排序这个数组, 一会正序一会儿倒序排列, 打乱数组的操作
+            arr.sort(() => Math.random() - .5)
+            return arr
+        }
+        // 生成一个长度为1000的打乱之后的数组
+        let n = 50000
+        let arr = getRandom(n)
+        console.log(arr)
+
+
+
+        function chooseSort(arr) {
+            // 找到数组中最小那个数的下标
+            // 先去给一个初始值, 再遍历数组, 如果遇到比ans小的数,就修改下标i和ans的值
+            let newArr = []
+                // 当我们数组有东西的时候去遍历
+            while (arr.length) {
+                // 从数组中找到最小的数, 删除并添加到新数组中了
+                let i = 0
+                let ans = arr[0]
+                    // 遍历arr数组, 一旦找到比之前的数ans大的就替换掉
+                arr.forEach((item, index) => {
+                        if (ans > item) {
+                            i = index
+                            ans = item
+                        }
+                    })
+                    // 从数组中删除掉 添加到新数组中
+                arr.splice(i, 1)
+                newArr.push(ans)
+            }
+            return newArr
+        }
+
+
+
+
+
+        // 冒泡排序
+        //就好像气泡一样的对待每一个数,让数和数相邻的比较,交换位置
+        function swap(arr, i, j) {
+            // 初级方法数组交换位置的方法:
+            let temp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = temp
+        }
+
+        function bubbleSort(arr) {
+            for (let j = 0; j < arr.length; j++) {
+                // 先将最小的寄到右边
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        // 交换i和i+1的位置
+                        swap(arr, i, i + 1)
+                    }
+                }
+            }
+        }
+
+        arr = getRandom(n)
+        bubbleSort(arr)
+
+
+    </script>
+</body>
+
+</html>

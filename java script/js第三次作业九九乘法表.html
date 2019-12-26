@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js第三次作业99乘法表</title>
+    <style>
+        .demo p {
+            display: block;
+        }
+        
+        .demo p span {
+            background: yellow;
+            margin-left: 5px;
+            padding-left: 5px;
+            border: 1px solid #272a38;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" value="9" id="shuru">
+    <input type="submit" value="计算" id='jisuan'>
+    <div class="demo"></div>
+
+    <script>
+        let input = document.querySelector('#shuru')
+        let submit = document.querySelector('#jisuan')
+        let demo = document.querySelector('.demo')
+
+        function jjcf(n) {
+            demo.innerHTML = "" //初始化标签
+            let jg = "" //容器
+            for (let i = 0; i < n; i++) {
+                let p = `<p>`
+                for (let j = 0; j < i + 1; j++) {
+                    let str = `${j + 1} × ${i + 1} = ${(i + 1) * (j + 1)}`
+                    str = `<span>${str}</span>`
+                    p += str //把span标签放到p标签里面
+                }
+
+                p += `</p>` //标签结尾
+
+                jg += p //p标签赋值给jg ，每执行触发循环
+
+                demo.innerHTML = jg //把p标签展示出来
+            }
+
+            return '代码执行完成'
+        }
+
+        submit.onclick = function() {
+
+            let val = input.value
+            if (val == '') {
+                alert('不能为空')
+            } else if (val < 1) {
+                alert('不能小于1')
+            } else if (val > 9) {
+                alert('不能超过数字9，请重新输入！')
+            } else {
+
+                jjcf(val)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

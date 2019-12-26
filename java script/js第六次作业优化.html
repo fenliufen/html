@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js第六次作业优化版</title>
+    <style>
+        .demo {
+            width: 130px;
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            padding: 10px;
+        }
+        
+        .top-titer {
+            border-bottom: 1px solid #cccccc;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+
+        <div class="top-titer">
+            <input type="checkbox"> <span></span> <a>反选</a>
+        </div>
+
+        <div class="list">
+
+
+        </div>
+
+    </div>
+    <script>
+        //定义对象，用来存放数据
+        let shuju = {
+            titer: {
+                check: false,
+                content: '全选'
+            },
+
+            data: [
+
+                {
+                    check: false,
+                    content: '1'
+                }, {
+                    check: false,
+                    content: '2'
+                }, {
+                    check: false,
+                    content: '3'
+                }, {
+                    check: false,
+                    content: '4'
+                }, {
+                    check: false,
+                    content: '5'
+                }, {
+                    check: false,
+                    content: '6'
+                }, {
+                    check: false,
+                    content: '5'
+                }, {
+                    check: false,
+                    content: '6'
+                },
+
+
+
+
+
+            ]
+        }
+
+
+        //往数组添加数据自动生成标签
+        let list = document.querySelector('.list')
+
+        function tianja() {
+         {
+                let jj = `
+               <label> <p><input type="checkbox" checked=${shuju.data.check}>
+                <span>${shuju.data.content}</span></p>
+                </label>
+               `
+                list.innerHTML += jj
+            }
+        }
+
+        tianja()
+
+
+
+
+
+
+        //全局变量区，用于调用
+        let quan = document.querySelector('.top-titer input ')
+        let dan = document.querySelectorAll('.list p input')
+        let qw = document.querySelector('.top-titer span')
+        let dw = document.querySelectorAll('.list p span')
+        let fan = document.querySelector('.top-titer a')
+
+
+        function bangdig() { //数据绑定
+            quan.checked = shuju.titer.check
+            qw.innerHTML = shuju.titer.content
+            let arr = shuju.data
+            for (let i = 0; i < arr.length; i++) {
+                dan[i].checked = arr[i].check
+                dw[i].innerHTML = arr[i].content
+            }
+        }
+
+        bangdig()
+
+
+        quan.onclick = function() {
+            let state = !shuju.titer.check //取反就是=true
+            shuju.titer.check = state
+            shuju.titer.content = state ? "取消全选" : "全选"   //三目运算
+            for (let i = 0; i < shuju.data.length; i++) {
+                shuju.data[i].check = state
+
+            }
+
+            bangdig() //注意一定要执行函数重新渲染数据
+
+        }
+
+
+        //单选全部选中的情况
+        function danxuan(list) {
+            let state = true
+            for (let i = 0; i < list.length; i++) {
+                if (!list[i].check) {
+                    state = false
+                    break
+                }
+            }
+            shuju.titer.check = state
+            shuju.titer.content = state ? "取消全选" : "全选"
+        }
+
+
+
+        // // 维护全选状态的表现
+        for (let i = 0; i < shuju.data.length; i++) {
+            dan[i].onclick = function() {  //单选的绑定事件
+                shuju.data[i].check = !shuju.data[i].check
+                danxuan(shuju.data)
+                bangdig()  //重新新渲染
+            }
+        }
+
+
+
+
+        //修改对应的状态
+        fan.onclick = function() {
+            for (let i = 0; i < shuju.data.length; i++) {
+                shuju.data[i].check = !shuju.data[i].check
+            }
+            danxuan(shuju.data)
+            bangdig()
+        }
+    </script>
+</body>
+
+</html>

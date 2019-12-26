@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>动画样式</title>
+    <style>
+        .dome {
+            width: 1000px;
+            height: 200px;
+            background: white;
+            border-bottom: 1px solid black;
+            margin: 10px auto;
+        }
+        
+        .wheel {
+            width: 200px;
+            height: 200px;
+            background: green;
+            border-radius: 50%;
+            animation: donghua2 3s linear infinite alternate;
+        }
+        
+        .dome1 {
+            width: 1000px;
+            height: 200px;
+            background: white;
+            border-bottom: 1px solid black;
+            margin: 100px auto;
+        }
+        
+        .wheel-1 {
+            width: 200px;
+            height: 200px;
+            background: green;
+            border-radius: 50%;
+            animation: donghua1 2s linear infinite alternate;
+        }
+        
+        @keyframes donghua1 {
+            from {
+                margin-left: 0%;
+                transform: rotate(360deg);
+            }
+            to {
+                margin-left: 800px;
+                background: yellow;
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes donghua2 {
+            0% {
+                transform-origin: bottom left;
+                transform: rotate(360deg);
+            }
+            50% {
+                margin-left: 800px;
+                transform: rotateX(360deg);
+            }
+            100% {
+                background: #67abff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dome">
+        <div class="wheel"></div>
+    </div>
+
+    <div class="dome1">
+        <div class="wheel-1"></div>
+    </div>
+
+</body>
+
+</html>

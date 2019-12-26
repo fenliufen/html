@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>圆形时钟</title>
+    <style type="text/css">
+        #div1 {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            border-radius: 50%;
+            margin: auto;
+            position: relative;
+        }
+        
+        .clockPanel {
+            width: 500px;
+            border-top: 1px solid black;
+            position: absolute;
+            margin-top: 250px;
+            transform: rotate(0deg);
+        }
+        
+        #div2 {
+            width: 470px;
+            height: 470px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            margin: 15px;
+        }
+        
+        .shuzi {
+            width: 10px;
+            height: 470px;
+            position: absolute;
+            margin-left: 245px;
+            margin-top: 15px;
+        }
+        
+        #div3 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: blue;
+            position: absolute;
+            margin: 235px;
+        }
+        
+        #hourPoint {
+            height: 300px;
+            position: absolute;
+            margin-left: 250px;
+            margin-top: 100px;
+            transform: rotate(0deg);
+        }
+        
+        #hourPoint div {
+            height: 150px;
+            border-left: 8px solid black;
+            position: absolute;
+            margin-left: -8px;
+            transform: rotate(0deg);
+        }
+        
+        #minutePoint {
+            height: 360px;
+            position: absolute;
+            margin-left: 250px;
+            margin-top: 70px;
+            transform: rotate(0deg);
+        }
+        
+        #minutePoint div {
+            height: 180px;
+            border-left: 5px solid black;
+            position: absolute;
+            margin-left: -5px;
+            transform: rotate(0deg);
+        }
+        
+        #secondPoint {
+            height: 420px;
+            position: absolute;
+            margin-left: 250px;
+            margin-top: 40px;
+            transform: rotate(0deg);
+        }
+        
+        #secondPoint div {
+            height: 210px;
+            border-left: 2px solid black;
+            position: absolute;
+            margin-left: -2px;
+        }
+        
+        p {
+            font: 20px bold;
+        }
+
+        .demo1{
+            width: 500px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 50px auto;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="div1">
+
+        <div id="div2"></div>
+
+        <div class="shuzi">
+            <p>12</p>
+            <p style="margin-top: 390px;">6</p>
+
+        </div>
+        <div class="shuzi" style="transform: rotate(30deg);">
+            <p style="transform: rotate(-30deg);">1</p>
+            <p style="margin-top: 390px; transform: rotate(-30deg);">7</p>
+        </div>
+        <div class="shuzi" style="transform: rotate(60deg);">
+            <p style="transform: rotate(-60deg);">2</p>
+            <p style="margin-top: 390px; transform: rotate(-60deg);">8</p>
+        </div>
+        <div class="shuzi" style="transform: rotate(90deg);">
+            <p style="transform: rotate(-90deg);">3</p>
+            <p style="margin-top: 390px;transform: rotate(-90deg);">9</p>
+        </div>
+        <div class="shuzi" style="transform: rotate(120deg);">
+            <p style="transform: rotate(-120deg);">4</p>
+            <p style="margin-top: 390px;transform: rotate(-120deg);">10</p>
+        </div>
+        <div class="shuzi" style="transform: rotate(150deg);">
+            <p style="transform: rotate(-150deg);">5</p>
+            <p style="margin-top: 395px;transform: rotate(-150deg);">11</p>
+        </div>
+
+        <div id="hourPoint">
+            <div></div>
+        </div>
+        <div id="minutePoint">
+            <div></div>
+        </div>
+        <div id="secondPoint">
+            <div></div>
+        </div>
+        <div id="div3"></div>
+
+    </div>
+
+    <div class="demo1"></div>
+
+
+    <script>
+
+        var minute;
+        var hour;
+        var second;
+
+        function createClock() {
+            var circle = document.getElementById("div1");
+            var smallcircle = document.getElementById("div2");
+            var angle = 0;
+            for (var i = 0; i < 30; i++) {
+                var clockPanel = document.createElement("div");
+                clockPanel.setAttribute("class", "clockPanel");
+                circle.appendChild(clockPanel);
+                circle.insertBefore(clockPanel, smallcircle);
+                clockPanel.style.transform = "rotate(" + angle + "deg)";
+                angle += 6;
+                if (i % 5 == 0) {
+                    clockPanel.style.border = "2px solid black";
+                }
+            }
+        }
+
+        function getDate() {
+            var date = new Date();//获取当前时间
+            hour = date.getHours();   //获取时
+            minute = date.getMinutes();//获取分
+            second = date.getSeconds();//获取秒
+        }
+
+
+        var angle1 = 6;
+        var angle2 = 6;
+        var angle3 = 6;
+
+
+        //动画效果，分别对时分秒进行同步循环
+        function secondPointFresh() {
+            second++;
+            if (second == 60) {
+                second = 0;
+                minute++;
+                if (minute == 60) {
+                    minute = 0;
+                    hour++;
+                    if (hour == 12)
+                        hour = 0;
+                }
+            }
+            angle1 = second * 6;
+            var secondPoint = document.getElementById("secondPoint");
+            secondPoint.style.transform = "rotate(" + angle1 + "deg)";
+            angle2 = (minute * 6);
+            var minutePoint = document.getElementById("minutePoint");
+            minutePoint.style.transform = "rotate(" + angle2 + "deg)";
+            angle3 = ((hour % 12) * 30) + (minute * 0.5);
+            var hourPoint = document.getElementById("hourPoint");
+            hourPoint.style.transform = "rotate(" + angle3 + "deg)";
+        }
+
+        createClock();
+        getDate();
+        secondPointFresh();
+        setInterval("secondPointFresh()", 1000);
+
+
+
+
+
+
+            function panduan(date) {
+
+            if (date < 10) {
+                return "0" + date;
+
+            } else {
+                return date
+            }
+
+        }
+
+
+
+
+         function date() {
+            let time = new Date()
+            let nian = time.getFullYear()
+            let yue = time.getMonth() + 1
+            let ri = time.getDate()
+            let tian = time.getDay()
+            let wond = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+            let week = wond[tian]
+            let shi = time.getHours()
+            let fen = time.getMinutes()
+            let miao = time.getSeconds()
+            newDate = panduan(nian) + "-" + panduan(yue) + "-" + panduan(ri) + " " + panduan(shi) + ":" + panduan(fen) + ":" + panduan(miao);
+           return "当前时间:" + newDate + "  " + week
+
+        }
+
+         let p = document.querySelector('.demo1')
+
+
+        setInterval(function() {
+            p.innerHTML=date()
+
+        }, 1000)
+    </script>
+
+</body>

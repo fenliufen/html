@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js第一次作业</title>
+    <style>
+
+        ul{
+            list-style: none;
+            padding: 0;
+
+        }
+        .demo{
+            display: flex;
+            flex-direction:column ;
+            width: 400px;
+            height: 500px;
+            border: 1px solid#cccccc;
+            margin: 50px auto;
+
+        }
+        .demo ul {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 200px;
+            margin-top: 20px;
+        }
+
+        .demo ul li{
+            width: 60px;
+            height: 30px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 30px;
+            background: #cccccc;
+
+        }
+
+        .demo .bug{
+            width: 100%;
+            height: 300px;
+
+
+        }
+
+        .bug span{
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <ul class="list">
+            <li>单击</li>
+            <li>双击</li>
+            <li>移动</li>
+            <li>按下</li>
+        </ul>
+        <div class="bug"></div>
+    </div>
+
+
+    <script>
+       let bot = document.querySelectorAll('.demo .list li')
+       let  hezi = document.querySelector('.demo .bug')
+
+
+
+        bot[0].onclick=function(){    //鼠标单击
+                hezi.style.backgroundColor='red'
+                bot[0].style.backgroundColor='red'
+                bot[3].style.backgroundColor='white'
+                var a ='<span>我是大帅逼,</span>'
+                hezi.innerHTML=a
+            }
+
+
+
+            bot[1].ondblclick=function(){   //鼠标双击
+                    hezi.style.backgroundColor='#cccc'
+                    bot[1].style.backgroundColor='#cccc'
+                    bot[0].style.backgroundColor='white'
+                    var b = '<span>这个大家都知道的事,</span>'
+                    hezi.innerHTML=hezi.innerHTML+b
+            }
+
+
+            bot[2].onmouseover=function(){   //当鼠标移动到某对象范围的上方时触发的事件
+                hezi.style.backgroundColor='yellow'
+                bot[2].style.backgroundColor='yellow'
+                bot[1].style.backgroundColor='white'
+                 var c = '<span>全世界都知道了,</span>'
+                 hezi.innerHTML=hezi.innerHTML+c
+            }
+
+
+             bot[3].onmousedown=function(){   //鼠标上的按钮被按下了
+                hezi.style.backgroundColor='pink';
+                bot[3].style.backgroundColor='pink'
+                 bot[2].style.backgroundColor='white'
+                 var d = '<span>就你不知道。</span>'
+                 hezi.innerHTML=hezi.innerHTML+d
+                 // hezi.style.cssText='color:white;background:black;'
+            }
+
+
+
+
+            function xiao(b) {
+                var a=3
+                // console.log(a+b)
+                console.log('执行成功')
+                return a+b;
+
+            }
+
+
+           var xiaofeng = {
+
+               xiaohong:{
+
+                   name:'小峰',
+                   avg:18
+               },
+
+                 xiaoming:{
+                   name1:'小虎',
+                   avg2:20
+                }
+
+            }
+
+
+            var obp = {
+                sudu:'xiao',
+                huan:10
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

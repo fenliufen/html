@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3d旋转</title>
+    <style>
+        .emgs {
+            width: 750px;
+            height: 150px;
+            margin: 50px auto;
+            background: white;
+        }
+        
+        .emgs1 {
+            width: 250px;
+            height: 150px;
+            transform-style: preserve-3d;
+            animation: yangshi1 10s linear infinite alternate;
+            /*<!--永久旋转 导过来转-->*/
+        }
+        
+        .emgs2 {
+            width: 250px;
+            height: 150px;
+            margin: -150px 0 0 250px;
+            transform-style: preserve-3d;
+            animation: yangshi1 10s linear infinite alternate;
+            /*<!--永久旋转 导过来转-->*/
+        }
+        
+        .emgs3 {
+            width: 250px;
+            height: 150px;
+            margin: -150px 0 0 500px;
+            transform-style: preserve-3d;
+            animation: yangshi1 10s linear infinite alternate;
+            /*<!--永久旋转 导过来转-->*/
+        }
+        
+        .deme1 {
+            position: absolute;
+            width: 250px;
+            height: 150px;
+            perspective-origin: 100% 100%;
+            transform: rotateY(180deg);
+        }
+        
+        .deme2 {
+            position: absolute;
+            width: 250px;
+            height: 150px;
+        }
+        
+        .emgs1:hover {
+            transition-duration: 3s;
+            transform: rotateY(180deg);
+            transform-style: preserve-3d
+        }
+        
+        .emgs2:hover {
+            transition-duration: 3s;
+            transform: rotateY(180deg);
+            transform-style: preserve-3d
+        }
+        
+        .emgs3:hover {
+            transition-duration: 3s;
+            transform: rotateY(180deg);
+            transform-style: preserve-3d;
+            perspective-origin: 50% 50%;
+        }
+        
+        @keyframes yangshi1 {
+            0% {}
+            100% {
+                transform: rotateY(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="emgs">
+        <div class="emgs1">
+            <div class="deme1"><img src="1.jpg"></div>
+            <div class="deme2"><img src="2.jpg"></div>
+        </div>
+
+        <div class="emgs2">
+            <div class="deme1"><img src="3.jpg"></div>
+            <div class="deme2"><img src="4.jpg"></div>
+
+        </div>
+
+        <div class="emgs3">
+            <div class="deme1"><img src="5.jpg"></div>
+            <div class="deme2"><img src="6.jpg"></div>
+
+        </div>
+    </div>
+</body>
+
+</html>

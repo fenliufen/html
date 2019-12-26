@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单计算器</title>
+    <style>
+        .demo {
+            width: 500px;
+            height: 608px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+            background: #f2f2f2;
+        }
+        
+        .xianshi {
+            width: 432px;
+            height: 90px;
+            background: black;
+            margin: 50px auto 0 auto;
+            color: white;
+            line-height: 90px;
+            text-indent: 2em;
+        }
+        
+        .but {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 500px;
+            height: 354px;
+            background: #f2f2f2;
+            margin: 50px auto 0 auto;
+        }
+        
+        .but input {
+            width: 72px;
+            height: 48px;
+            margin: 0 17px 26px 17px;
+        }
+        
+        .but input:nth-of-type(1) {
+            width: 186px;
+            height: 50px;
+        }
+        
+        .but input:nth-of-type(15) {
+            width: 74px;
+            height: 125px;
+        }
+        
+        .but input:nth-of-type(16) {
+            position: absolute;
+            width: 186px;
+            height: 50px;
+            bottom: -17px;
+            left: 36px;
+        }
+        
+        .but input:nth-of-type(17) {
+            position: absolute;
+            bottom: -17px;
+            right: 144px;
+        }
+        
+        .
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="xianshi"></div>
+        <div class="but">
+            <input type="button" value="C" id="qingchu">
+            <input type="button" value="/">
+            <input type="button" value="*">
+            <input type="button" value="1">
+            <input type="button" value="2">
+            <input type="button" value="3">
+            <input type="button" value="-">
+            <input type="button" value="4">
+            <input type="button" value="5">
+            <input type="button" value="6">
+            <input type="button" value="+">
+            <input type="button" value="7">
+            <input type="button" value="8">
+            <input type="button" value="9">
+            <input type="button" value="=" id="dengyu">
+            <input type="button" value="0">
+            <input type="button" value=".">
+        </div>
+
+    </div>
+
+    <script>
+        let dengyu = document.querySelector('#dengyu')
+        let but = document.querySelectorAll('.but input')
+        let xianshi = document.querySelector('.xianshi')
+        let qingchu = document.querySelector('#qingchu')
+
+
+
+
+        //获取键盘的value
+        let sun = ''
+
+        for (let i = 0; i < but.length; i++) {
+            but[i].onclick = function() {
+                sun = but[i].value
+                xianshi.innerHTML += sun
+
+            }
+        }
+
+
+
+
+        //将获取的value进行转换成nb类型，点击==进行运算
+        dengyu.onclick = function() {
+            sun = eval(xianshi.innerHTML)
+            xianshi.innerHTML = sun
+
+        }
+
+        qingchu.onclick = function() {
+            xianshi.innerHTML = ''
+
+        }
+    </script>
+
+</body>
+
+</html>

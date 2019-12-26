@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>排序作业</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+        
+        body {
+            margin: 0;
+            background: #ffffee;
+        }
+        
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        
+        .list {
+            width: 1200px;
+            margin: 50px auto;
+        }
+        
+        .demo {
+            width: 100%;
+        }
+        
+        .list_01 {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            width: 1200px;
+            margin: 50px auto;
+            border: 1px solid #cccccc;
+        }
+        
+        .list_01 li:hover {
+            margin-top: -5px;
+        }
+        
+        .list_01 li {
+            width: 222px;
+            height: 225px;
+            box-shadow: 0 0 5px #cccccc inset;
+            margin: 10px auto 10px auto;
+            border: 1px solid #cccccc;
+            background: white;
+            transition-duration: 0.5s;
+        }
+        
+        .list_01 li img {
+            width: 222px;
+            height: 136px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+
+        <div class="list">
+
+            <input type="button" value="价钱升降排序" id="but1">
+            <input type="button" value="人气升降排序" id="but2">
+            <ul class="list_01">
+            </ul>
+
+        </div>
+    </div>
+
+
+    <script>
+
+        //定义对象，用来存放数据
+        let shuju = {
+            data: [
+
+                {
+                    ja: 100,
+                    rq: 200,
+                    url: '10.jpg'
+
+
+                }, {
+                    ja: 100,
+                    rq: 30,
+                    url: '9.jpg'
+                }, {
+                    ja: 900,
+                    rq: 100,
+                    url: '8.jpg'
+                }, {
+                    ja: 300,
+                    rq: 70,
+                    url: '7.jpg'
+                }, {
+                    ja: 200,
+                    rq: 80,
+                    url: '6.jpg'
+                }, {
+                    ja: 308,
+                    rq: 100,
+                    url: '3.jpg'
+                }, {
+                    ja: 30,
+                    rq: 700,
+                    url: '1.jpg'
+                }, {
+                    ja: 308,
+                    rq: 16,
+                    url: '5.jpg'
+                }, {
+                    ja: 210,
+                    rq: 10,
+                    url: '4.jpg'
+                }, {
+                    ja: 108,
+                    rq: 20,
+                    url: '2.jpg'
+                },
+            ]
+        }
+
+
+        //往数组添加数据自动生成标签
+        let list = document.querySelector('.list_01')
+        function tianja() {
+            for (let i = 0; i < shuju.data.length; i++) {
+                let jj = `
+                <li>
+                <img src="${shuju.data.url}">
+                <span>价格￥</span>
+                <span  class="test1">${shuju.data.ja}</span><br>
+                <span>人气：</span>
+                <span class="test2">${shuju.data.rq}</span></li>
+               `
+                list.innerHTML += jj
+            }
+        }
+
+        tianja()
+
+
+
+
+
+
+        //全局变量区，用于调用
+        let test1 = document.querySelectorAll('.test1 ')
+        let test2 = document.querySelectorAll('.test2')
+        let img = document.querySelectorAll('.list_01 li img')
+
+
+
+        function bangdig() { //数据绑定
+            let arr = shuju.data
+            for (let i = 0; i < arr.length; i++) {
+                test1[i].innerHTML = arr[i].ja
+                test2[i].innerHTML = arr[i].rq
+                img[i].src = arr[i].url
+
+            }
+        }
+
+        bangdig()
+
+
+
+        //全局变量,点击事件
+        let but1 = document.querySelector('#but1')
+        let but2 = document.querySelector('#but2')
+
+
+
+        //绑定事件
+        let count = 0 //计算
+        but1.onclick = function() {
+            if (count < 0) {
+                count++
+                shuju.data.sort(function(a, b) {
+                    return a.ja - b.ja
+                })
+                bangdig()
+
+            } else {
+                count--
+                shuju.data.sort(function(a, b) {
+                    return b.ja - a.ja
+                })
+                bangdig()
+            }
+        }
+
+
+
+
+
+
+        but2.onclick = function() {
+            if (count < 0) {
+                count++
+                shuju.data.sort(function(a, b) {
+                    return a.rq - b.rq
+                })
+                bangdig()
+
+            } else {
+                count--
+                shuju.data.sort(function(a, b) {
+                    return b.rq - a.rq
+                })
+                bangdig()
+            }
+        }
+    </script>
+
+</body>
+
+</html>

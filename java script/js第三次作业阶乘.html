@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .demo {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid #cccccc;
+            background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571589445412&di=f8ed8c32e1b38cbf0621b6aef8440eb5&imgtype=0&src=http%3A%2F%2Fimgup02.sj88.com%2F2018-10%2F25%2F10%2F15404358223998_3.gif");
+            background-repeat: no-repeat;
+            background-position: 40px 100px;
+            box-shadow: 0 0 100px #cccccc inset;
+        }
+        
+        .demo h1 {
+            text-align: center;
+        }
+        
+        .demo input[type='number'] {
+            margin-left: 100px;
+            border: 1px solid #cccccc;
+        }
+        
+        .demo>p {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+        <h1>阶乘计算器</h1>
+        <input type="number" value="" id="shuru">
+        <input type="button" value="计算" id="but">
+        <p class="jieguo"></p>
+    </div>
+
+    <script>
+        let input = document.querySelectorAll('.demo input')
+        let p = document.querySelector('.jieguo')
+
+
+        function factorial(n) {
+            let sun = 1
+            if (n < 0) {
+                return '请不要输入负数，请重新输入!'
+            } else {
+                for (let i = 0; i < n; i++) {
+                    sun *= i + 1 //i定义了为o 所以正确阶乘的结果需要往上累加才是正确的
+                }
+            }
+            return sun
+
+        }
+        
+
+        input[1].onclick = function() {
+            let val = input[0].value //获取input的内容
+            if (val == '') { //为空弹出弹框
+                alert('请输入内容在点击')
+            } //else if (val < 0) {
+            //alert('负数不可进行阶乘运算，请重新输入!')
+            else {
+                p.innerText = `${val}阶乘的结果是:` + factorial(val) //将结果返回给p标签
+            }
+        }
+    </script>
+</body>
+
+</html>

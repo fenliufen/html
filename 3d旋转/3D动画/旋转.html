@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D旋转</title>
+    <style>
+
+        body{
+            background: #67abff;
+        }
+
+        ul{
+            list-style: none;
+            padding:0px;
+        }
+
+
+        .dome{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            animation:donghua1 5s linear infinite;
+            transform-style:preserve-3d ;
+
+        }
+
+        @keyframes donghua1 {
+
+                from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+
+        }
+
+        .dome>li{
+            perspective: 1000px;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background:url("sucai/1.jpg")300px 300px;
+           border: 1px solid #cccccc;
+        }
+
+
+        .dome>li:nth-of-type(1){
+            transform: rotateX(90deg) translateZ(150px) ;
+
+
+        }
+
+         .dome>li:nth-of-type(2){
+            transform: rotateX(-90deg) translateZ(150px) ;
+
+
+        }
+
+          .dome>li:nth-of-type(3){
+            transform: rotateY(-90deg) translateZ(150px) ;
+
+
+        }
+
+          .dome>li:nth-of-type(4){
+            transform: rotateY(90deg) translateZ(150px) ;
+
+
+        }
+
+           .dome>li:nth-of-type(5){
+            transform: rotateY(180deg) translateZ(150px) ;
+
+
+        }
+
+         .dome>li:nth-of-type(6){
+            transform: rotateY(0deg) translateZ(150px) ;
+
+
+        }
+
+        .dome:hover li:nth-of-type(1){
+            transform: rotateX(90deg) translateZ(250px);
+        }
+         .dome:hover li:nth-of-type(2){
+            transform: rotateX(-90deg) translateZ(250px);
+        }
+
+         .dome:hover li:nth-of-type(3){
+            transform: rotateY(-90deg) translateZ(250px);
+        }
+
+         .dome:hover li:nth-of-type(4){
+            transform: rotateY(90deg) translateZ(250px);
+        }
+
+          .dome:hover li:nth-of-type(5){
+            transform: rotateY(180deg) translateZ(250px);
+        }
+
+          .dome:hover li:nth-of-type(6){
+            transform: rotateY(0deg) translateZ(250px);
+        }
+
+
+
+
+
+
+
+    </style>
+
+</head>
+
+    <ul class="dome">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</body>
+</html>
