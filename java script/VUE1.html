@@ -4,34 +4,85 @@
     <meta charset="UTF-8">
     <title>vue1</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <style>
+        #dome{
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #cccccc;
+        }
+    </style>
 </head>
 <body>
 
-    <div id="dome"></div>
+    <div id="dome">
+
+
+        <input type="text" v-model="value" >
+        <br>男<input type="radio"value="男" v-model="sex">
+            女<input type="radio"value="女" v-model="sex">
+        <br><select v-model="name">
+            <option value="小王">小王</option>
+            <option value="小虎">小虎</option>
+            <option value="小天">小天</option>
+        </select>
+        <br>小小<input type="checkbox" value="小小" v-model="chek">
+        <br>小宏<input type="checkbox" value="小宏" v-model="chek">
+        <br>小黄<input type="checkbox" value="小黄" v-model="chek">
+
+
+    </div>
+
 
 
 
 <script>
 
             vml =new Vue({
-                el:'#dome',  //属性名不可更改
-                data:{        //属性名不可更改
-                    a:1,
-                    b:2,
-                    c:3,
-                    obj:{
 
+                el:'#dome',  //属性名不可更改 获取dom节点
+                create:{
+                    //ajax请求数据区域
+                },
+
+                methods:{    //放置点击事件的处理函数
+                    fn(){
+                        console.log('你好')
                     }
+
+                },
+
+                data:{        //对象名不可更改
+                    value:'小王',
+                    sex:'',
+                    name:'',
+                    chek:[]
                 }
             })
 
+
+
             //vue获取属性的3种方法
-            let c=vml.$data.a
-            let b=vml.b
-            vml.$set(vml.obj,'d','4') //添加响应式的属性值
-            let a=vml.$data
+            let c=vml.$data.a       //获取对象属性
+            let b=vml.b             //获取对象属性
+            let a=vml.$data        //获取对象节点
             console.log(a)
             let  div=document.querySelector('#dome')
+
+
+                //vue常用指令
+                //v-on:click="fn  绑定click事件，对应的函数为fn
+                //v-on:click.once="fn  绑定click事件，对应的函数为fn 一次性的点击事件
+                //v-model="name"用于表单事件，用于收集表单的value值存在字符串中
+                //v-model.number="name"限定用户必须输入数字，把用户输入的转换为nember类型
+                //v-model.lazy="name"  当文本框失去焦点的时候响应视图的变化
+                //v-model.trim="name"  把数据进行处理响应的js中，就是处理空格
+                //v-if
+                //v-else-if
+                //v-else
+                //这三个其实就是判断表达式，跟if判断一样，值可以是数据，也可以是表达式
+
+
 
 
 
