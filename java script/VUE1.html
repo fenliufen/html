@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>vue1</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <style>
-        #dome{
+        #dome {
             width: 500px;
             height: 500px;
             margin: 50px auto;
@@ -13,22 +14,33 @@
         }
     </style>
 </head>
+
 <body>
 
     <div id="dome">
 
 
-        <input type="text" v-model="value" >
-        <br>男<input type="radio"value="男" v-model="sex">
-            女<input type="radio"value="女" v-model="sex">
+        <input type="text" v-model="value"> 男:
+        <input type="radio" value="男" v-model="sex"> 女:
+        <input type="radio" value="女" v-model="sex">
+
+
         <br><select v-model="name">
             <option value="小王">小王</option>
             <option value="小虎">小虎</option>
             <option value="小天">小天</option>
-        </select>
-        <br>小小<input type="checkbox" value="小小" v-model="chek">
-        <br>小宏<input type="checkbox" value="小宏" v-model="chek">
-        <br>小黄<input type="checkbox" value="小黄" v-model="chek">
+        </select> 小小:
+
+
+        <input type="checkbox" value="小小" v-model="chek"> 小宏:
+        <input type="checkbox" value="小宏" v-model="chek"> 小黄:
+        <input type="checkbox" value="小黄" v-model="chek">
+
+        <br><input type="button" value="点击打印对象" v-on:click="fn">
+
+        <ul>
+            <li v-for="item in chek">{{item}}</li>
+        </ul>
 
 
     </div>
@@ -36,60 +48,104 @@
 
 
 
-<script>
+    <script>
+        vml = new Vue({
 
-            vml =new Vue({
+            el: '#dome', //属性名不可更改 获取dom节点
+            create: {
+                //ajax请求数据区域
+            },
 
-                el:'#dome',  //属性名不可更改 获取dom节点
-                create:{
-                    //ajax请求数据区域
-                },
+            methods: { //放置点击事件的处理函数
+                fn() {
 
-                methods:{    //放置点击事件的处理函数
-                    fn(){
-                        console.log('你好')
-                    }
-
-                },
-
-                data:{        //对象名不可更改
-                    value:'小王',
-                    sex:'',
-                    name:'',
-                    chek:[]
+                    console.log(this.$data)
                 }
-            })
+
+            },
+
+            compated: {
+
+                cn() {
+                    console.log("用于计算属性一些特殊字符的处理逻辑")
+                }
+            },
+
+            data: { //对象名不可更改
+                value: '',
+                sex: '',
+                name: '',
+                chek: [1, 2, 3, 4, 5]
+            },
+
+            update: {
+
+            }
+
+        })
 
 
 
-            //vue获取属性的3种方法
-            let c=vml.$data.a       //获取对象属性
-            let b=vml.b             //获取对象属性
-            let a=vml.$data        //获取对象节点
-            console.log(a)
-            let  div=document.querySelector('#dome')
-
-
-                //vue常用指令
-                //v-on:click="fn  绑定click事件，对应的函数为fn
-                //v-on:click.once="fn  绑定click事件，对应的函数为fn 一次性的点击事件
-                //v-model="name"用于表单事件，用于收集表单的value值存在字符串中
-                //v-model.number="name"限定用户必须输入数字，把用户输入的转换为nember类型
-                //v-model.lazy="name"  当文本框失去焦点的时候响应视图的变化
-                //v-model.trim="name"  把数据进行处理响应的js中，就是处理空格
-                //v-if
-                //v-else-if
-                //v-else
-                //这三个其实就是判断表达式，跟if判断一样，值可以是数据，也可以是表达式
+        //vue获取属性的3种方法
+        // let c = vml.$data.a //获取对象属性
+        // let b = vml.b //获取对象属性
+        // let a = vml.$data //获取对象节点
+        // console.log(a)
+        // let div = document.querySelector('#dome')
 
 
 
 
+        //vue表单获取数据常用指令
+        //v-model="name"用于表单事件，用于收集表单的value值存在字符串中
+        //v-model.number="name"限定用户必须输入数字，把用户输入的转换为nember类型
+        //v-model.lazy="name"  当文本框失去焦点的时候响应视图的变化
+        //v-model.trim="name"  把数据进行处理响应的js中，就是处理空格
+
+
+
+        //绑定点击事件装饰指令
+        //v-on:click="fn  绑定click事件，对应的函数为fn
+        //v-on:click.once="fn  绑定click事件，对应的函数为fn 一次性的点击事件
+        //v-on:click.stop="fn    .stop 用于阻止冒泡
+        //v-on:click.captare="fn   .captare 捕获阶段触发指令
+
+
+
+        //键盘事件绑定
+        //v-on:keyup.13='submit' 也可以写 v-on:keyup.enter='submit' 表示按下enter触发的事件  对应的键盘键值对百度
 
 
 
 
 
-</script>
+        //元素显示控制指令
+        //v-if='3'或者v-if='3>2'
+        //v-else-if
+        //v-else
+        //这三个其实就是判断表达式，跟if判断一样，值可以是数据，也可以是表达式
+
+
+
+        //遍历数组和对象的数据，字符串也能进行遍历跟js的for in是一样的
+        //v-for='item in arr'
+        //数组值 item index
+        //对象 item key value
+        //其他同理
+
+
+
+
+        //生命周期函数，需要了解
+        //beforcreate  vue实例状态，data没有数据
+        //create       vue实例状态，但是数据未挂载到视图中，data中已经有数据，使用ajax请求数据写在这里，只有数据更新均会执行该函数
+        //befomethod  根节点已经存在，但是数据未挂到跟节点
+        //method      此时数据挂载完成可以操作数据
+        //befoupdate   在数据改变之前触发
+        // update     在数据改变之后触发
+        // beforeDestroy   在数据删除前触发
+        // destroyed 在数据删除后触发
+    </script>
 </body>
+
 </html>
