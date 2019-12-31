@@ -3,8 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #canvas{
+            display: block;
+            margin: 50px auto;
+            background: #cccccc;
+        }
+    </style>
 </head>
 <body>
+<canvas id="canvas" width="1000px" height="800px"></canvas>
 
+<script>
+   //绘制一个跌在一起的矩形,并带有边框
+    let canvas=document.querySelector('#canvas')
+    let ctx=canvas.getContext('2d')
+        ctx.beginPath()                        //开始绘制
+        ctx.fillStyle = "rgb(200,0,0)";    //颜色填充
+        ctx.fillRect (10, 10, 55, 50);       //绘制一个填充的矩形  基本用法fillRect(x, y, width, height)
+        ctx.strokeRect(10, 10, 55,50)
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (30, 30, 55, 50)//绘制一个填充的矩形
+        ctx.strokeRect(30, 30, 55,50)   //strokeRect(x, y, width, height)绘制一个矩形的边框
+        ctx.closePath()   //结束绘制
+
+        //绘制三角形
+        ctx.beginPath();
+        ctx.moveTo(400, 100);    //将笔触移动到指定的坐标x以及y上。moveTo(x, y)
+        ctx.lineTo(300, 200);
+        ctx.lineTo(300, 60);
+        ctx.fill()
+
+
+
+
+
+
+
+
+
+
+
+      //其他方法
+     //stroke()通过线条来绘制图形轮廓。
+    //fill()通过填充路径的内容区域生成实心的图形
+    //注意：当你调用fill()函数时，所有没有闭合的形状都会自动闭合，所以你不需要调用closePath()函数。但是调用stroke()时不会自动闭合。
+
+
+
+</script>
 </body>
+
+
 </html>
