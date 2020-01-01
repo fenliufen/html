@@ -15,7 +15,6 @@
         
         #add {
             width: 1200px;
-            height: 800px;
             margin: 50px auto;
         }
         
@@ -55,10 +54,8 @@
                         <input type="checkbox" v-on:change="quanxuan" v-model="ischkd">
                     </label>
                 </td>
-                <td>
-                    商品
-                </td>
-                <td>商品描述</td>
+                <td>商品图片</td>
+                <td>商品名称</td>
                 <td>单价</td>
                 <td>数量</td>
                 <td>小计</td>
@@ -87,149 +84,123 @@
 
     </div>
     <script>
-        vml = new Vue({
 
-            el: '#add', //属性名不可更改 获取dom节点
-            create: {
-                //ajax请求数据区域
+        // "use strict";
+
+        var vml = new Vue({
+            el: '#add',
+            //属性名不可更改 获取dom节点
+            create: { //ajax请求数据区域
             },
-
-
-            methods: { //放置点击事件的处理函数
-
+            methods: {
+                //放置点击事件的处理函数
                 //全选的表现
-                quanxuan() {
-                    this.product.forEach((item) => {
-                        item.chkd = this.ischkd
+                quanxuan: function quanxuan() {
+                    var _this = this;
 
-                    })
-                    console.log(this.ischkd)
+                    this.product.forEach(function(item) {
+                        item.chkd = _this.ischkd;
+                    });
+                    console.log(this.ischkd);
                 },
-
                 //维护单项选择的表现，所有的勾上就是全选
-                checkeds() {
-                    this.ischkd = this.product.every((product) => {
-                        return product.chkd
-                    })
-
+                checkeds: function checkeds() {
+                    this.ischkd = this.product.every(function(product) {
+                        return product.chkd;
+                    });
                 },
-
-
                 //移除事件
-                remove(index) {
-                    this.product.splice(index, 1)
-
+                remove: function remove(index) {
+                    this.product.splice(index, 1);
                 }
             },
-
-
-
-
-            data: { //对象名不可更改
+            data: {
+                //对象名不可更改
                 ischkd: false,
-                product: [
-
-                    {
-                        chkd: false,
-                        producturl: './images/12.jpg',
-                        describe: '小姐姐的贴心服务1次',
-                        price: 54.66,
-                        amount: 1
-                    }, {
-                        chkd: false,
-                        producturl: './images/11.jpg',
-                        describe: '小帅哥的签名照片',
-                        price: 58.66,
-                        amount: 1
-                    },
-
-                    {
-                        chkd: false,
-                        producturl: './images/13.jpg',
-                        describe: '小朋友的签名照片',
-                        price: 51.66,
-                        amount: 0
-                    },
-
-                    {
-                        chkd: false,
-                        producturl: './images/14.jpg',
-                        describe: '小姐姐的签名照',
-                        price: 99.66,
-                        amount: 1
-                    }, {
-                        chkd: false,
-                        producturl: './images/15.jpg',
-                        describe: '小姐姐同款衬衫',
-                        price: 59.66,
-                        amount: 1
-                    },
-                    {
-                        chkd: false,
-                        producturl: './images/16.jpg',
-                        describe: '小姐姐同款衬衫',
-                        price: 58.66,
-                        amount: 1
-                    },
-                    {
-                        chkd: false,
-                        producturl: './images/17.jpg',
-                        describe: '小姐姐同款衬衫',
-                        price: 551.66,
-                        amount: 1
-                    },
-                    {
-                        chkd: false,
-                        producturl: './images/18.jpg',
-                        describe: '小姐姐同款衬衫',
-                        price: 51.66,
-                        amount: 1
-                    },
-                ],
-
+                product: [{
+                    chkd: false,
+                    producturl: './images/12.jpg',
+                    describe: '小姐姐的贴心服务1次',
+                    price: 54.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/11.jpg',
+                    describe: '小帅哥的签名照片',
+                    price: 58.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/13.jpg',
+                    describe: '小朋友的签名照片',
+                    price: 51.66,
+                    amount: 0
+                }, {
+                    chkd: false,
+                    producturl: './images/14.jpg',
+                    describe: '小姐姐的签名照',
+                    price: 99.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/15.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 59.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/16.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 58.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/17.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 551.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/18.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 51.66,
+                    amount: 1
+                }],
                 arrc: []
-
             },
-
-
             filters: {
                 //保留2位小数
-                numFilter(value) {
-                    let realVal = ''
+                numFilter: function numFilter(value) {
+                    var realVal = '';
+
                     if (value) {
                         // 截取当前数据到小数点后两位 parseFloat(value)返回解析后的数字。 toFixed(2)保留两位小数
-                        realVal = "￥" + parseFloat(value).toFixed(3) + '元'
+                        realVal = "￥" + parseFloat(value).toFixed(3) + '元';
                     } else {
-                        realVal = '--'
+                        realVal = '--';
                     }
-                    return realVal
+
+                    return realVal;
                 }
             },
-
             computed: {
-
                 //勾选求总价
-                sun() {
-                    let arr = []
-                    this.product.forEach((item) => {
+                sun: function sun() {
+                    var arr = [];
+                    this.product.forEach(function(item) {
                         if (item.chkd == true) {
-                            arr.push(item) //把符合条件的数据装进新的数组
+                            arr.push(item); //把符合条件的数据装进新的数组
                         }
-                    })
-
-                    return arr.reduce((a, b) => {
-                        return a + (b.price * b.amount) //累计项 +  价格乘以数量的值
-                    }, 0)
-
-                },
-
+                    });
+                    console.log(arr);
+                    return arr.reduce(function(a, b) {
+                        return a + b.price * b.amount; //累计项 +  价格乘以数量的值
+                    }, 0);
+                }
             },
-
             watch: { //数据监听
             }
-
-
-        })
+        });
     </script>
 </body>
 

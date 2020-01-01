@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>文章</title>
-   <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_etxp9llkd7.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_etxp9llkd7.css">
     <script src="gundongtiao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <style>
         /*样式初始化区域*/
         
         body {
-            margin: 0;
+            margin: 0 0 0 0;
         }
         
         ul {
@@ -121,12 +122,13 @@
             color: pink;
         }
         /*内容区域*/
-        .jianrong{
-            min-width:1263px ;
+        
+        .jianrong {
+            min-width: 1263px;
             height: 100%;
             overflow: hidden;
         }
-
+        
         .demo1 {
             position: relative;
             padding-top: 80px;
@@ -135,8 +137,8 @@
             margin-right: auto;
             background: rgb(0, 0, 0, 0);
             overflow: auto;
-            overflow-x:hidden;
-             overflow-y:hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
             /*火狐去掉滚动条*/
             scrollbar-width: none;
         }
@@ -148,6 +150,7 @@
         
         .zhanshi {
             width: 960px;
+            min-height: 800px;
             height: 100%;
         }
         
@@ -317,8 +320,8 @@
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
             background-color: grey;
         }
-
-        .doahang-tlter ul{
+        
+        .doahang-tlter ul {
             width: 209px;
             z-index: 100;
             position: absolute;
@@ -326,7 +329,6 @@
             top: 65px;
             background: aliceblue;
         }
-
         
         .doahang-tlter label {
             position: absolute;
@@ -511,7 +513,7 @@
 
 <body>
 
-    <div class="demo">
+    <div class="demo" id="content-test">
 
         <!--标题栏-->
         <div class="titer">
@@ -555,209 +557,136 @@
         </div>
 
         <div class="jianrong">
-        <div class="demo1">
+            <div class="demo1">
 
 
-            <!--文章展示区-->
-            <div class="zhanshi">
-                <ul class="list">
-                    <li>
-                        <div class="content-1">
-                            <h5 class="list-title">
-                                <span>【原创】</span>
-                                <a>web端用户体验性测试方法</a>
-                            </h5>
-                            <div class="tome">
-                                <span>09</span>
-                                <span>12月</span>
-                                <span>2019</span>
-                            </div>
-                            <div class="content">
-                                <a href="../易用性测试/yiyongx.html">
-                                    <img src="http://img.zcool.cn/community/01d49b5a25087da80120ba387f341f.png@1280w_1l_2o_100sh.png">
-                                </a>
-                                <span>
-                                    1.易用性标准简介 1.1易用性定义 GB/T 16260-2006定义: 在指定条件下使用时,软件产品被理解、学习、使用和吸引用户的能力。
-                                    简单说就是:易懂、易学、易用、吸引人。易用性对消费类的产品显得尤为重要...
-                                    2.易用性常见原则 2.1尼尔森可用性原则 1.状态可见原则用户在网页上的任何操作,不论是单击、滚动还是按下键盘,页面应即时给出反馈。
-                                    “即时”是指,页面响应时间小于用户能忍受的等待时间。 2.环境贴切原则 网页...
+                <!--文章展示区-->
+                <div class="zhanshi" >
+                    <ul class="list">
+                        <li v-for="(data_tsxt,index) in data_tsxt">
+                            <div class="content-1">
+                                <h5 class="list-title">
+                                    <span>【原创】</span>
+                                    <a>{{data_tsxt.title}}</a>
+                                </h5>
+                                <div class="tome">
+                                    <span>{{data_tsxt.day}}</span>
+                                    <span>{{data_tsxt.month}}</span>
+                                    <span>{{data_tsxt.year}}</span>
+                                </div>
+                                <div class="content">
+                                    <a :href="data_tsxt.zhuan">
+                                        <img :src="data_tsxt.msg_url">
+                                    </a>
+                                    <span>
+                                    {{data_tsxt.content_wen}}
                                 </span>
-                            </div>
-                            <div class="read-more">
+                                </div>
+                                <div class="read-more">
+                                    <div></div>
+                                    <a :href="data_tsxt.zhuan">立即阅读</a>
+                                </div>
                                 <div></div>
-                                <a href="../易用性测试/yiyongx.html">立即阅读</a>
-                            </div>
-                            <div></div>
 
-                        </div>
-                    </li>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-                    <li>
-                        <div class="content-1">
-                            <h5 class="list-title">
-                                <span>【原创】</span>
-                                <a>web压力测试教程</a>
-                            </h5>
-                            <div class="tome">
-                                <span>13</span>
-                                <span>12月</span>
-                                <span>2019</span>
-                            </div>
-                            <div class="content">
-                                <a href="../压力测试/ylce.html">
-                                    <img src="images/1.jpg">
-                                </a>
-                                <span>
-                                    软件压力测试是一种基本的质量保证行为，它是每个重要软件测试工作的一部分。软件压力测试的基本思路很简单：
-                                    不是在常规条件下运行手动或自动测试，而是在计算机数量较少或系统资源匮乏的条件下运行测试。
-                                    通常要进行软件压力测试的资源包括内部内存、CPU 可用性、磁盘空间和网络带宽。
-                                </span>
-                            </div>
-                            <div class="read-more">
-                                <div></div>
-                                <a href="../压力测试/ylce.html">立即阅读</a>
-                            </div>
-                            <div></div>
 
+
+                <!--导航栏-->
+                <div class="daohanglan">
+
+                    <div class="doahang1">
+                        <div id="gotop" class="top">
+                            <img id="img" src="images/Top.jpg" />
                         </div>
 
-                    </li>
+                        <div class="doahang-tlter">
 
-
-
-                    <li>
-                        <div class="content-1">
-                            <h5 class="list-title">
-                                <span>【原创】</span>
-                                <a>HTTP协议内容详解</a>
-                            </h5>
-                            <div class="tome">
-                                <span>16</span>
-                                <span>12月</span>
-                                <span>2019</span>
-                            </div>
-                            <div class="content">
-                                <a href="../http协议内容/http.html">
-                                    <img src="images/2.png">
-                                </a>
-                                <span>
-                                    http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什
-                                    么样的消息以及得到什么样的响应。请求和响应消息的头以ASCII码形式给出；而消息内容则具有
-                                    一个类似MIME的格式。这个简单模型是早期Web成功的有功之臣，因为它使得开发和部署是那么的直截了当。
-                                </span>
-                            </div>
-                            <div class="read-more">
-                                <div></div>
-                                <a href="../http协议内容/http.html">立即阅读</a>
-                            </div>
-                            <div></div>
-
-                        </div>
-
-                    </li>
-
-
-                </ul>
-            </div>
-
-
-
-            <!--导航栏-->
-            <div class="daohanglan">
-
-                <div class="doahang1">
-                    <div id="gotop" class="top">
-                        <img id="img" src="images/Top.jpg" />
-                    </div>
-
-                    <div class="doahang-tlter">
-
-                        <label>
-                            <input type="text" placeholder="输入关键字搜索">
-                            <span class="iconfont icon-search"></span>
+                            <label>
+                            <input type="text" placeholder="输入关键字搜索" v-model="chauxun" >
+                            <span class="iconfont icon-search"@click="guolu"></span>
                         </label>
-                        <ul>
+                            <ul>
+
+                            </ul>
+
+
+                        </div>
+                        <ul class="daohang-list" >
+                            <li>
+                                <a href="../文章/wenzhang.html">全部文章</a>
+                            </li>
+
+                            <li>
+                                <a>网站测试</a>
+                            </li>
+
+                            <li>
+                                <a>网站开发</a>
+                            </li>
+
+                            <li>
+                                <a>操作系统</a>
+                            </li>
+
+                            <li>
+                                <a>深度学习</a>
+                            </li>
+
+                            <li>
+                                <a>程序算法</a>
+                            </li>
+
+                            <li>
+                                <a>其他</a>
+                            </li>
+
 
                         </ul>
 
 
-                    </div>
-                    <ul class="daohang-list">
-                        <li>
-                            <a>全部文章</a>
-                        </li>
+                        <div class="daohang2">
+                            <h5>热门文章</h5>
+                            <div>
+                                <ul>
+                                    <li>
 
-                        <li>
-                            <a>网站测试</a>
-                        </li>
+                                        <a href="../易用性测试/yiyongx.html"><span>1.</span> web端易用性测试教程</a>
+                                    </li>
 
-                        <li>
-                            <a>网站开发</a>
-                        </li>
+                                    <li>
 
-                        <li>
-                            <a>操作系统</a>
-                        </li>
+                                        <a href="../压力测试/ylce.html"><span>2.</span> 压力测试教程详细</a>
+                                    </li>
 
-                        <li>
-                            <a>深度学习</a>
-                        </li>
+                                    <li>
 
-                        <li>
-                            <a>程序算法</a>
-                        </li>
+                                        <a href="../http协议内容/http.html"> <span>3.</span>HTTP协议内容详解</a>
+                                    </li>
 
-                        <li>
-                            <a>其他</a>
-                        </li>
+                                    <li>
 
+                                        <a> <span>4.</span> stm32实现简单wifi通信</a>
+                                    </li>
 
-                    </ul>
+                                    <li>
+                                        <a><span>5.</span> web前端常用的易用性测试方法详解</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-
-                    <div class="daohang2">
-                        <h5>热门文章</h5>
-                        <div>
-                            <ul>
-                                <li>
-
-                                    <a href="../易用性测试/yiyongx.html"><span>1.</span> web端易用性测试教程</a>
-                                </li>
-
-                                <li>
-
-                                    <a href="../压力测试/ylce.html"><span>2.</span> 压力测试教程详细</a>
-                                </li>
-
-                                <li>
-
-                                    <a href="../http协议内容/http.html"> <span>3.</span>HTTP协议内容详解</a>
-                                </li>
-
-                                <li>
-
-                                    <a> <span>4.</span> stm32实现简单wifi通信</a>
-                                </li>
-
-                                <li>
-                                    <a><span>5.</span> web前端常用的易用性测试方法详解</a>
-                                </li>
-                            </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-
-
-
-
 
 
         <!--结尾备案号和提示-->
-         <div class="yqts">
+        <div class="yqts">
             <div class="dsi">
                 <div class="list1">
                     <div class="iconfont icon-github"></div>
@@ -775,36 +704,90 @@
     </div>
 
     <script>
-
         var input = document.querySelector('.doahang-tlter label input')
         var list = document.querySelector('.doahang-tlter ul')
-        var but= document.querySelector('.doahang-tlter label span')
+        var but = document.querySelector('.doahang-tlter label span')
 
-        input.onclick = function() {
-            alert('该功能还在开发中')
+        // "use strict";
 
-        }
-
-
-
-         var keywords=[" HTTP协议内容详解"," web压力测试教程"," web端用户体验性测试方法","前端开发",
-             "网站测试","linux","数学算法","java","程序算法","其他"]
-
-
-
-
-
-
-
-
-
-
+        var vml = new Vue({
+            el: '#content-test', //获取dom节点
+            create: { //ajax请求数据区域
+            },
+            methods: {
+                //点击事件放置
+                guolu(){
+                    if (this.chauxun==''){
+                        alert('请输入对应的内容')
+                    }
+                    this.data_tsxt = this.data_tsxt.filter((item)=>{
+                        return item.title.includes(this.chauxun)
+                    })
+                    console.log(this.data_tsxt)
+                    this.chauxun=''
 
 
 
+                },
+
+
+            },
+            data: {
+                //数据放置
+                chauxun:'',
+                data_tsxt: [{
+                    title: 'web端用户体验性测试方法',
+                    msg_url: 'http://img.zcool.cn/community/01d49b5a25087da80120ba387f341f.png@1280w_1l_2o_100sh.png',
+                    content_wen: '1.易用性标准简介 1.1易用性定义 GB/T 16260-2006定义: 在指定条件下使用时,软件产品被理解、学习、' +
+                        '使用和吸引用户的能力。 简单说就是:易懂、易学、易用、吸引人。易用性对消费类的产品显得尤为重要... 2.易用性常见原则 ' +
+                        '2.1尼尔森可用性原则 1.状态可见原则用户在网页上的任何操作,不论是单击、滚动还是按下键盘,页面应即时给出反馈。 “即时”是指,' +
+                        '页面响应时间小于用户能忍受的等待时间。 2.环境贴切原则 网页...',
+                    year: '2019',
+                    month: '12',
+                    day: '09',
+                    zhuan: '../易用性测试/yiyongx.html'
 
 
 
+                }, {
+                    title: 'web压力测试教程',
+                    msg_url: './images/1.jpg',
+                    content_wen: ' 软件压力测试是一种基本的质量保证行为，它是每个重要软件测试工作的一部分。软件压力测试的基本思路很简单：\n' +
+                        '                        不是在常规条件下运行手动或自动测试，而是在计算机数量较少或系统资源匮乏的条件下运行测试。\n' +
+                        '                        通常要进行软件压力测试的资源包括内部内存、CPU 可用性、磁盘空间和网络带宽。',
+                    year: '2019',
+                    month: '12',
+                    day: '13',
+                    zhuan: '../压力测试/ylce.html'
+
+
+
+                }, {
+                    title: 'HTTP协议内容详解',
+                    msg_url: './images/2.png',
+                    content_wen: ' http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什\n' +
+                        '                        么样的消息以及得到什么样的响应。请求和响应消息的头以ASCII码形式给出；而消息内容则具有\n' +
+                        '                        一个类似MIME的格式。这个简单模型是早期Web成功的有功之臣，因为它使得开发和部署是那么的直截了当',
+                    year: '2019',
+                    month: '12',
+                    day: '19',
+                    zhuan: '../http协议内容/http.html'
+
+                },
+
+                ]
+
+            },
+            filters: {
+                //对数据进行操作
+
+            },
+            computed: { //放置计算属性
+
+            },
+            watch: { //数据监听
+            }
+        });
     </script>
 
 </body>
