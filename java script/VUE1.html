@@ -49,38 +49,46 @@
 
 
     <script>
-        vml = new Vue({
 
-            el: '#dome', //属性名不可更改 获取dom节点
+        // vue模板
+       var vml = new Vue({
+
+            el: '', //获取dom节点
+
+
             create: {
-                //ajax请求数据区域
+                //ajax数据请求和发送请求
             },
 
-            methods: { //放置点击事件的处理函数
-                fn() {
+            methods: { //点击事件控制区
 
-                    console.log(this.$data)
-                }
 
             },
 
-            compated: {
+            computed: { //逻辑计算处理数据，过滤数据
 
-                cn() {
-                    console.log("用于计算属性一些特殊字符的处理逻辑")
-                }
+
             },
 
-            data: { //对象名不可更改
-                value: '',
-                sex: '',
-                name: '',
-                chek: [1, 2, 3, 4, 5]
+            data: {  //你的数据
+
             },
 
-            update: {
 
-            }
+            watch:{ //数据监控
+
+            },
+
+
+           filters:{ //处理特殊情况
+
+           },
+
+           directives:{ //自定义事件
+
+           }
+
+
 
         })
 
