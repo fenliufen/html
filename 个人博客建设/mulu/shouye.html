@@ -7,7 +7,7 @@
 
     <style>
         body {
-            margin: 0 0 0 0 ;
+            margin: 0 0 0 0;
         }
         
         a {
@@ -83,10 +83,8 @@
             background: #3385ff;
             border-bottom: 1px solid #2d78f4;
             outline: medium;
-            padding-right: 0 ;
-            margin-right:0 ;
-
-
+            padding-right: 0;
+            margin-right: 0;
         }
         
         .list {
@@ -203,8 +201,7 @@
 
 
     <script>
-
-        // "use strict";
+        "use strict";
 
         //encodeURI() 方法是转码
         var divlist = document.querySelector('.list ul');
@@ -250,9 +247,9 @@
             } else {
                 window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
             }
-        }; //失去焦点初始化
+        };
 
-
+        //失去焦点初始化
         input.onblur = function() {
             setTimeout(function() {
                 divlist.innerHTML = '';
@@ -260,15 +257,13 @@
         };
 
         document.onkeydown = function(event) {
-            var e = event || window.event || arguments.callee.caller.arguments[0];
-
+            var e = event || window.event
             if (e && e.keyCode == 13) {
-                // enter 键
                 window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
             }
-        }; //导航列表
+        };
 
-
+        //导航列表
         var demo1 = document.querySelector('.demo1');
         var demo2 = document.querySelector('.demo2');
         var count = 0;

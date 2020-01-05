@@ -166,6 +166,13 @@
             min-height: 800px;
             height: 100%;
         }
+
+        .zhanshi .tisi{
+            font-size: 25px;
+            font-weight: bold;
+            color: green;
+            text-align: center;
+        }
         
         .zhanshi .list {
             display: flex;
@@ -575,6 +582,7 @@
 
                 <!--文章展示区-->
                 <div class="zhanshi">
+                    <p class="tisi"v-if="data_tsxt==''">暂无内容!</p>
                     <ul class="list">
                         <li v-for="(data_tsxt,index) in data_tsxt">
                             <div class="content-1">
