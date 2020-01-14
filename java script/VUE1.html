@@ -20,27 +20,15 @@
     <div id="dome">
 
 
-        <input type="text" v-model="value"> 男:
-        <input type="radio" value="男" v-model="sex"> 女:
-        <input type="radio" value="女" v-model="sex">
 
 
-        <br><select v-model="name">
-            <option value="小王">小王</option>
-            <option value="小虎">小虎</option>
-            <option value="小天">小天</option>
-        </select> 小小:
 
 
-        <input type="checkbox" value="小小" v-model="chek"> 小宏:
-        <input type="checkbox" value="小宏" v-model="chek"> 小黄:
-        <input type="checkbox" value="小黄" v-model="chek">
 
-        <br><input type="button" value="点击打印对象" v-on:click="fn">
 
-        <ul>
-            <li v-for="item in chek">{{item}}</li>
-        </ul>
+
+         <som></som>
+
 
 
     </div>
@@ -50,15 +38,22 @@
 
     <script>
 
+                // 子组件
+                var  som = {
+                    template: '<h1>tian天我的ashsjdaskdjasl</h1>'
+                }
+
+
+                // Vue.component('runoob', {
+                //   template: '<h1>自定义组件!</h1>'
+                // })
+
+
         // vue模板
        var vml = new Vue({
 
-            el: '', //获取dom节点
+            el: '#dome', //获取dom节点
 
-
-            create: {
-                //ajax数据请求和发送请求
-            },
 
             methods: { //点击事件控制区
 
@@ -73,6 +68,12 @@
             data: {  //你的数据
 
             },
+
+
+           components:{ //注册子组件
+                som
+
+           },
 
 
             watch:{ //数据监控

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_etxp9llkd7.css">
     <script src="gundongtiao.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
-    <style>
+        <style>
         /*样式初始化区域*/
         
         body {
@@ -34,6 +34,7 @@
         .demo {
             margin: 0 auto;
             width: 100%;
+            height: 100%;
 
         }
         
@@ -612,6 +613,7 @@
                             </div>
                         </li>
                     </ul>
+
                 </div>
 
 
@@ -638,31 +640,31 @@
                         </div>
                         <ul class="daohang-list">
                             <li>
-                                <a href="../文章/wenzhang.html">全部文章</a>
+                                <a @click="quanbu">全部文章</a>
                             </li>
 
                             <li>
-                                <a>网站测试</a>
+                                <a @click="ceshi"> 网站测试</a>
                             </li>
 
                             <li>
-                                <a>网站开发</a>
+                                <a @click="kaifa">网站开发</a>
                             </li>
 
                             <li>
-                                <a>操作系统</a>
+                                <a @click="xitong">操作系统</a>
                             </li>
 
                             <li>
-                                <a>深度学习</a>
+                                <a @click="xuexi">深度学习</a>
                             </li>
 
                             <li>
-                                <a>程序算法</a>
+                                <a @click="suanfa">程序算法</a>
                             </li>
 
                             <li>
-                                <a>其他</a>
+                                <a @click="qita">其他</a>
                             </li>
 
 
@@ -690,11 +692,11 @@
 
                                     <li>
 
-                                        <a> <span>4.</span> stm32实现简单wifi通信</a>
+                                        <a href="../购物车案例/gowuche.html"> <span>4.</span> 购物车实现案例</a>
                                     </li>
 
                                     <li>
-                                        <a><span>5.</span> web前端常用的易用性测试方法详解</a>
+                                        <a href="../备忘录/index.html"><span>5.</span> 简易版备忘录vue小实战</a>
                                     </li>
                                 </ul>
                             </div>
@@ -734,8 +736,11 @@
         var vml = new Vue({
             el: '#content-test',
             //获取dom节点
-            create: { //ajax请求数据区域
+            created(){
+                this.mydataa=this.data_tsxt
+                console.log(this.mydataa)
             },
+
             methods: {
                 //点击事件放置
                 guolu: function guolu() {
@@ -745,16 +750,98 @@
                         alert('请输入对应的内容');
                     }
 
-                    this.data_tsxt = this.data_tsxt.filter(function(item) {
+                    this.data_tsxt = this.mydataa.filter(function(item) {
                         return item.title.includes(_this.chauxun);
                     });
                     console.log(this.data_tsxt);
                     this.chauxun = '';
+                },
+
+                quanbu:function quanbu() {
+                    return this.data_tsxt=this.mydataa
+
+                },
+
+
+                ceshi:function ceshi() {
+                    var arr=[]
+                    this.mydataa.forEach((itme)=>{
+                        if (itme.kind==='网站测试'){
+                            arr.push(itme)
+                        }
+                    })
+
+                    this.data_tsxt=arr
+                },
+
+
+                kaifa:function  kaifa() {
+                    var arr=[]
+                    this.mydataa.forEach((itme)=> {
+                        if (itme.kind === '网站开发') {
+                            arr.push(itme)
+                        }
+
+                    })
+                    this.data_tsxt=arr
+                },
+
+                xitong:function xitong() {
+                     var arr=[]
+                    this.mydataa.forEach((itme)=> {
+                        if (itme.kind === '操作系统') {
+                            arr.push(itme)
+                        }
+
+                    })
+                    this.data_tsxt=arr
+
+                },
+
+                xuexi:function xuexi() {
+                     var arr=[]
+                    this.mydataa.forEach((itme)=> {
+                        if (itme.kind === '深度学习') {
+                            arr.push(itme)
+                        }
+
+                    })
+                    this.data_tsxt=arr
+
+                },
+
+                suanfa:function  suanfa() {
+                     var arr=[]
+                    this.mydataa.forEach((itme)=> {
+                        if (itme.kind === '程序算法') {
+                            arr.push(itme)
+                        }
+
+                    })
+
+                    this.data_tsxt=arr
+
+                },
+
+                qita:function qita() {
+                     var arr=[]
+                    this.mydataa.forEach((itme)=> {
+                        if (itme.kind === '其他') {
+                            arr.push(itme)
+                        }
+
+                    })
+                    this.data_tsxt=arr
                 }
+
+
+
+
             },
             data: {
                 //数据放置
                 chauxun: '',
+                mydataa:[],
                 data_tsxt: [{
                     title: 'web端用户体验性测试方法',
                     msg_url: 'http://img.zcool.cn/community/01d49b5a25087da80120ba387f341f.png@1280w_1l_2o_100sh.png',
@@ -762,7 +849,8 @@
                     year: '2019',
                     month: '12',
                     day: '09',
-                    zhuan: '../易用性测试/yiyongx.html'
+                    zhuan: '../易用性测试/yiyongx.html',
+                    kind:'网站测试'
                 }, {
                     title: 'web压力测试教程',
                     msg_url: './images/1.jpg',
@@ -770,7 +858,10 @@
                     year: '2019',
                     month: '12',
                     day: '13',
-                    zhuan: '../压力测试/ylce.html'
+                    zhuan: '../压力测试/ylce.html',
+                    kind:'网站测试'
+
+
                 }, {
                     title: 'HTTP协议内容详解',
                     msg_url: './images/2.png',
@@ -778,7 +869,8 @@
                     year: '2019',
                     month: '12',
                     day: '19',
-                    zhuan: '../http协议内容/http.html'
+                    zhuan: '../http协议内容/http.html',
+                    kind:'网站测试'
                 }, {
                     title: '购物车小案例',
                     msg_url: './images/3.png',
@@ -786,7 +878,21 @@
                     year: '2020',
                     month: '01',
                     day: '01',
-                    zhuan: '../购物车案例/gowuche.html'}
+                    zhuan: '../购物车案例/gowuche.html',
+                    kind:'网站开发'
+
+                }, {
+                    title: '简易版的备忘录vue小实战',
+                    msg_url: './images/4.jpg',
+                    content_wen:'主要设计模式：在页面不刷新的情况下对后台传过来的数据进行筛选，根据不同转态进行无缝切换',
+                    year: '2020',
+                    month: '01',
+                    day: '14',
+                    zhuan: '../备忘录/index.html',
+                    kind:'网站开发'
+
+                },
+
                 ]
             },
             filters: { //对数据进行操作

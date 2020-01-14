@@ -39,6 +39,10 @@
             height: 50px;
             line-height: 50px;
         }
+
+        .table{
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -46,8 +50,9 @@
 
     <div id="add">
         <h1>购物车简洁版本</h1>
-        <table>
+        <table class="table">
             <tr>
+                <td>编号</td>
                 <td>
                     <label>
                         <span>全选</span>
@@ -63,14 +68,14 @@
             </tr>
 
             <tr v-for="(product,index) in product ">
-
+                 <td>{{index+1}}</td>
                 <td> <input type="checkbox" v-model="product.chkd" @change="checkeds"></td>
                 <td><img :src="product.producturl"></td>
                 <td>{{product.describe}}</td>
-                <td>{{product.price}}</td>
+                <td>{{product.price+"元"}}</td>
                 <td><input type="number" v-model.number="product.amount" class="number" oninput="value=value.replace(/[^\d]/g,'')"></td>
                 <td>{{ product.price * product.amount| numFilter}}</td>
-                <td><input type="button" value="移除" @click="remove"></td>
+                <td><input type="button" value="移除" @click="remove(index)"></td>
 
             </tr>
 
@@ -175,7 +180,7 @@
 
                     if (value) {
                         // 截取当前数据到小数点后两位 parseFloat(value)返回解析后的数字。 toFixed(2)保留两位小数
-                        realVal = "￥" + parseFloat(value).toFixed(3) + '元';
+                        realVal = "￥" + parseFloat(value).toFixed(2) + '元';
                     } else {
                         realVal = '--';
                     }
