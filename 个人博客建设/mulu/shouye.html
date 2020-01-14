@@ -176,12 +176,12 @@
                 <img src="images/1.png" class="img-responsive">
             </div>
 
-            <form class="form-inline">
+            <div class="form-inline">
             <div class="shousuo">
                 <input type="text" class="form-control" placeholder="请输入百度的内容">
                 <button type="button" class="btn btn-info">百度一下</button>
             </div>
-            </form>
+            </div>
 
             <div class="list">
                 <ul>
@@ -264,12 +264,14 @@
             }, 1000);
         };
 
+
         document.onkeydown = function(event) {
             var e = event || window.event
             if (e && e.keyCode == 13) {
-                window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
+               window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
             }
         };
+
 
         //导航列表
         var demo1 = document.querySelector('.demo1');
