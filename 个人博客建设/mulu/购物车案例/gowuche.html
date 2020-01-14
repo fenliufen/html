@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue购物车案列</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px aliceblue solid;
+            border-collapse: collapse;
+        }
+        
+        #add {
+            width: 1200px;
+            margin: 50px auto;
+        }
+        
+        #add h1 {
+            text-align: center;
+            color: green;
+        }
+        
+        #add table {
+            width: 100%;
+        }
+        
+        #add table tr td img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .sun_div {
+            border-bottom: 1px solid aliceblue;
+            border-right: 1px solid aliceblue;
+            border-left: 1px solid aliceblue;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .mynew{
+            text-align: center;
+            font-size:25px ;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="add">
+        <h1>购物车</h1>
+        <table>
+            <tr>
+                <td>
+                    <label>
+                        <span>全选</span>
+                        <input type="checkbox" v-on:change="quanxuan" v-model="ischkd">
+                    </label>
+                </td>
+                <td>商品图片</td>
+                <td>商品名称</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>小计</td>
+                <td>操作</td>
+            </tr>
+
+            <tr v-for="(product,index) in product ">
+
+                <td> <input type="checkbox" v-model="product.chkd" @change="checkeds"></td>
+                <td><img :src="product.producturl"></td>
+                <td>{{product.describe}}</td>
+                <td>{{product.price}}</td>
+                <td><input type="number" v-model.number="product.amount" class="number" oninput="value=value.replace(/[^\d]/g,'')"></td>
+                <td>{{ product.price * product.amount| numFilter}}</td>
+                <td><input type="button" value="移除" @click="remove(index)"></td>
+
+            </tr>
+
+        </table>
+        <p class="mynew" v-if="product==''">请添加商品到您的购物车！</p>
+        <div class="sun_div">
+            <p><span>总计:</span>{{sun|numFilter}}</p>
+
+        </div>
+
+
+    </div>
+    <script>
+
+        // "use strict";
+
+        var vml = new Vue({
+            el: '#add',
+            //属性名不可更改 获取dom节点
+            create: { //ajax请求数据区域
+            },
+            methods: {
+                //放置点击事件的处理函数
+                //全选的表现
+                quanxuan: function quanxuan() {
+                    var _this = this;
+
+                    this.product.forEach(function(item) {
+                        item.chkd = _this.ischkd;
+                    });
+                    console.log(this.ischkd);
+                },
+                //维护单项选择的表现，所有的勾上就是全选
+                checkeds: function checkeds() {
+                    this.ischkd = this.product.every(function(product) {
+                        return product.chkd;
+                    });
+                },
+                //移除事件
+                remove: function remove(index) {
+                    this.product.splice(index, 1);
+                }
+            },
+            data: {
+                //对象名不可更改
+                ischkd: false,
+                product: [{
+                    chkd: false,
+                    producturl: './images/12.jpg',
+                    describe: '小姐姐的贴心服务1次',
+                    price: 54.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/11.jpg',
+                    describe: '小帅哥的签名照片',
+                    price: 58.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/13.jpg',
+                    describe: '小朋友的签名照片',
+                    price: 51.66,
+                    amount: 0
+                }, {
+                    chkd: false,
+                    producturl: './images/14.jpg',
+                    describe: '小姐姐的签名照',
+                    price: 99.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/15.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 59.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/16.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 58.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/17.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 551.66,
+                    amount: 1
+                }, {
+                    chkd: false,
+                    producturl: './images/18.jpg',
+                    describe: '小姐姐同款衬衫',
+                    price: 51.66,
+                    amount: 1
+                }],
+                arrc: []
+            },
+            filters: {
+                //保留2位小数
+                numFilter: function numFilter(value) {
+                    var realVal = '';
+
+                    if (value) {
+                        // 截取当前数据到小数点后两位 parseFloat(value)返回解析后的数字。 toFixed(2)保留两位小数
+                        realVal = "￥" + parseFloat(value).toFixed(2) + '元';
+                    } else {
+                        realVal = '--';
+                    }
+
+                    return realVal;
+                }
+            },
+            computed: {
+                //勾选求总价
+                sun: function sun() {
+                    var arr = [];
+                    this.product.forEach(function(item) {
+                        if (item.chkd == true) {
+                            arr.push(item); //把符合条件的数据装进新的数组
+                        }
+                    });
+                    return arr.reduce(function(a, b) {
+                        return a + b.price * b.amount; //累计项 +  价格乘以数量的值
+                    }, 0);
+                }
+            },
+            watch: { //数据监听
+                product(){
+                   if (this.product==""){
+                       console.log('你的数据删完了')
+                   }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
