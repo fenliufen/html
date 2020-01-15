@@ -58,7 +58,6 @@
     <div id="add" class="table-responsive">
         <h1>购物车</h1>
         <table class="table table-bordered">
-            <tr> 合计:</span>{{sun|numFilter}}</tr>
             <tr>
                 <td>
                     <label>
@@ -73,6 +72,7 @@
                 <td>小计</td>
                 <td>操作</td>
             </tr>
+
             <tr v-for="(product,index) in product ">
 
                 <td> <input type="checkbox" v-model="product.chkd" @change="checkeds"></td>
@@ -85,14 +85,16 @@
 
             </tr>
 
-
+            <tr> 总计:{{sun|numFilter}}</tr>
 
         </table>
         <p class="mynew" v-if="product==''">请添加商品到您的购物车！</p>
 
+
     </div>
     <script>
 
+        // "use strict";
 
         var vml = new Vue({
             el: '#add',
@@ -212,8 +214,6 @@
                 }
             }
         });
-
-
     </script>
 </body>
 
