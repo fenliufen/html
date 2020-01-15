@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文章</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_etxp9llkd7.css">
+    <script src="../gundongtiao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <style>
+        /*样式初始化区域*/
+        
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+        
+        input {
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        
+        .demo {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .demo:before {
+            content: ' ';
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /*background:#a4daff ;*/
+            background-image: url("./images/3.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        /*标题导航栏区域*/
+        
+        .titer {
+            width: 100%;
+            min-height: 60px;
+            opacity: 0.9;
+            position: fixed;
+            background-color: rgba(255, 255, 255, 1);
+            z-index: 11002;
+            top: 0;
+            left: 0;
+            border-bottom: 1px solid #e8e9e7;
+            font-size: 14px;
+        }
+        
+        .libiao {
+            width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        
+        .hang {
+            margin-left: 10px;
+            margin-right: 10px;
+            position: relative;
+        }
+        
+        .hang a:nth-of-type(1) {
+            font-size: 200%;
+            font-family: 'STXingkai';
+            color: #444647;
+            line-height: 60px;
+            text-align: center;
+            position: absolute;
+            left: 0;
+        }
+        
+        .daohang li {
+            display: block;
+            float: right;
+            margin: 10px 10px;
+            position: relative;
+        }
+        
+        .daohang li:nth-of-type(1) {
+            margin-right: 250px;
+        }
+        
+        .daohang li a {
+            display: block;
+            line-height: 32px;
+            padding: 4px 28px;
+            color: #212220;
+            font-weight: 400;
+            font-size: 15px;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
+            -webkit-transition: all .2s;
+            transition: all .2s;
+        }
+        
+        .daohang li a:hover {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        .dengru {
+            right: 0;
+            position: absolute;
+            line-height: 60px;
+            font-size: 24px;
+        }
+        
+        .dengru i {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-rendering: auto;
+            font-size: 30px;
+        }
+        
+        .dengru i:hover {
+            color: pink;
+        }
+        /*内容区域*/
+        
+        .jianrong {
+            min-width: 1263px;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .demo1 {
+            position: relative;
+            padding-top: 80px;
+            width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.2);
+            overflow: auto;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            /*火狐去掉滚动条*/
+            scrollbar-width: none;
+        }
+        
+        .demo1::-webkit-scrollbar {
+            display: none;
+        }
+        /*文章展示区域样式*/
+        
+        .zhanshi {
+            width: 960px;
+            min-height: 800px;
+            height: 100%;
+        }
+        
+        .zhanshi .tisi {
+            font-size: 25px;
+            font-weight: bold;
+            color: green;
+            text-align: center;
+        }
+        
+        .zhanshi .list {
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 960px;
+            height: 100%;
+        }
+        
+        .zhanshi .list li {
+            position: relative;
+            margin-bottom: 20px;
+            width: 960px;
+            background-color: #fff;
+            animation-duration: 3s;
+            animation-name: donghua;
+        }
+        
+        @keyframes donghua {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .list li .content-1 .list-title {
+            line-height: 30px;
+            padding: 5px 130px 5px 0;
+            border-bottom: 1px solid #e8e9e7;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        
+        .content-1 {
+            padding-left: 30px;
+        }
+        
+        .list li .content-1 .list-title span {
+            font-size: 16px;
+            font-weight: 400;
+            display: inline-block;
+            vertical-align: bottom;
+            color: #2ea7e0;
+        }
+        
+        .list li .content-1 .list-title a {
+            color: #212220;
+        }
+        
+        .list li .content-1 .tome {
+            font-family: SourceCodeProRegular, Menlo, Monaco, Consolas, "Courier New", monospace, 'Helvetica Neue', Arial, sans-serif;
+            position: absolute;
+            right: 0px;
+            top: 10px;
+            background-color: #fff;
+            padding: 0 20px 5px 20px;
+            line-height: 32px;
+        }
+        
+        .list li .content-1 .tome span:nth-of-type(1) {
+            display: block;
+            text-align: center;
+            font-weight: 700;
+            font-size: 40px;
+            color: #6bc30d;
+            position: relative;
+            top: 2px;
+        }
+        
+        .list li .content-1 .tome span:nth-of-type(2) {
+            color: #989997;
+            font-size: 18px;
+        }
+        
+        .list li .content-1 .tome span:nth-of-type(3) {
+            color: #989997;
+            font-size: 18px;
+        }
+        
+        .list li .content-1 .content {
+            margin: 20px 0 0 0;
+            line-height: 28px;
+            position: relative;
+            min-height: 200px;
+            font-size: 14px;
+            color: #515250;
+            text-align: justify;
+            padding-right: 10px;
+        }
+        
+        .list li .content-1 .content a {
+            display: block;
+            width: 300px;
+            height: 180px;
+            border: 1px solid #e8e9e7;
+            overflow: hidden;
+            float: left;
+            margin-right: 20px;
+            color: #3e8bc7;
+        }
+        
+        .list li .content-1 .content a img {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        .list li .content-1 .read-more {
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+        }
+        
+        .list li .content-1 .read-more div {
+            display: inline-block;
+            height: 1px;
+            top: 20px;
+            left: 100px;
+            right: 0;
+            position: absolute;
+            background-color: #d0d0d0;
+        }
+        
+        .list li .content-1 .read-more a {
+            font-weight: bold;
+            font-size: 14px;
+            color: #383937;
+            padding-left: 6px;
+        }
+        
+        .list li .content-1 .read-more a:hover {
+            font-weight: bold;
+            color: red;
+        }
+        /*导航栏样式*/
+        
+        .daohanglan {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-top: 80px;
+            width: 300px;
+            float: right;
+        }
+        
+        .doahang1 {
+            width: 300px;
+            height: 405px;
+            background-color: #fff;
+        }
+        
+        @media all and (max-height:1200px) {
+            .doahang1 {
+                position: fixed;
+            }
+        }
+        
+        .doahang-tlter {
+            position: relative;
+            width: 300px;
+            height: 85px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            background-color: grey;
+        }
+        
+        .doahang-tlter ul {
+            width: 209px;
+            z-index: 100;
+            position: absolute;
+            left: 44px;
+            top: 65px;
+            background: aliceblue;
+        }
+        
+        .doahang-tlter label {
+            position: absolute;
+            display: block;
+            height: 40px;
+            padding: 0 20px;
+            background-color: #fff;
+            border-radius: 40px;
+            left: 40px;
+            top: 20px;
+            z-index: 5;
+        }
+        
+        .doahang-tlter label input {
+            border: none;
+            height: 40px;
+            line-height: 40px;
+            width: 100%;
+            box-shadow: none;
+            background-color: transparent;
+            outline: none;
+        }
+        
+        .doahang-tlter label span {
+            font-size: 18px;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            right: 5px;
+            top: 5px;
+            color: #787977;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            cursor: pointer;
+        }
+        
+        .daohang-list {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            opacity: 0.9;
+        }
+        
+        .daohang-list li {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .daohang-list li a {
+            display: block;
+            margin: 0 30px;
+            padding: 0 20px;
+            height: 39px;
+            border-bottom: 1px solid #f8f9f7;
+            transition: none;
+            text-decoration: none;
+            color: #787977;
+            font-size: 14px;
+        }
+        
+        .daohang-list li a:hover {
+            font-weight: bold;
+            color: green;
+        }
+        
+        .daohang2 {
+            position: relative;
+            width: 300px;
+            background-color: #fff;
+            top: 330px;
+        }
+        
+        .daohang2 h5 {
+            margin: 10px 20px;
+            padding: 5px;
+            line-height: 30px;
+            font-weight: 400;
+            border-bottom: 1px solid #e8e9e7;
+            color: #383937;
+            position: relative;
+            font-size: 18px;
+        }
+        
+        .daohang2 div {
+            margin: 0 20px;
+            padding-bottom: 10px;
+        }
+        
+        .daohang2 div ul {
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        
+        .daohang2 div ul li {
+            height: 40px;
+            width: 352px;
+            line-height: 32px;
+            position: relative;
+            margin: 3px 0;
+            overflow: hidden;
+            word-wrap: normal !important;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #787977;
+            font-size: 14px;
+        }
+        
+        .daohang2 div ul li a {
+            height: 40px;
+            width: 100%px;
+            border-bottom: 1px solid #f8f9f7;
+            color: #787977;
+            font-size: 14px;
+        }
+        
+        .daohang2 div ul li :hover {
+            font-weight: bold;
+            color: green;
+        }
+        /*结尾，网站信息友情提示等*/
+        
+        .yqts {
+            width: 100%;
+            height: 100px;
+            background: #212220;
+        }
+        
+        .dsi {
+            position: relative;
+            width: 1280px;
+            height: 100px;
+            margin: 0 auto;
+            background: #212220;
+            text-align: center;
+        }
+        
+        .list1 {
+            display: flex;
+            background-color: #212220;
+            justify-content: center;
+            width: 250px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        
+        .dsi .list1 div {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 10px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: #565755;
+        }
+        
+        .dsi p {
+            display: block;
+            color: #565755;
+        }
+        /*返回顶部*/
+        
+        .top {
+            position: fixed;
+            right: 50px;
+            bottom: 100px;
+        }
+        
+        .top:hover {
+            cursor: pointer
+        }
+        
+        a:hover {
+            cursor: pointer
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="demo" id="content-test">
+
+        <!--标题栏-->
+        <div class="titer">
+            <div class="libiao">
+
+                <div class="hang">
+                    <a>从小就疯了</a>
+                </div>
+
+                <div>
+                    <ul class="daohang">
+
+                        <li>
+                            <a href="../关于我/guanyu.html">关于</a>
+                        </li>
+
+                        <li>
+                            <a href="../留言/liuyan.html">留言板</a>
+                        </li>
+
+                        <li>
+                            <a href="../动态/dongtai.html">动态</a>
+                        </li>
+
+                        <li>
+                            <a href="../文章/wenzhang.html">文章</a>
+                        </li>
+
+                        <li>
+                            <a href="../shouye.html">首页</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <a class="dengru">
+                    <i class="iconfont icon-icon"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="jianrong">
+            <div class="demo1">
+
+
+                <!--文章展示区-->
+                <div class="zhanshi">
+                    <p class="tisi" v-if="data_tsxt==''">暂无内容!</p>
+                    <ul class="list">
+                        <li v-for="(data_tsxt,index) in data_tsxt">
+                            <div class="content-1">
+                                <h5 class="list-title">
+                                    <span>【原创】</span>
+                                    <a :href="data_tsxt.zhuan">{{data_tsxt.title}}</a>
+                                </h5>
+                                <div class="tome">
+                                    <span>{{data_tsxt.day}}</span>
+                                    <span>{{data_tsxt.month}}</span>
+                                    <span>{{data_tsxt.year}}</span>
+                                </div>
+                                <div class="content">
+                                    <a :href="data_tsxt.zhuan">
+                                        <img :src="data_tsxt.msg_url">
+                                    </a>
+                                    <span>
+                                    {{data_tsxt.content_wen}}
+                                </span>
+                                </div>
+                                <div class="read-more">
+                                    <div></div>
+                                    <a :href="data_tsxt.zhuan">立即阅读</a>
+                                </div>
+                                <div></div>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+
+                <!--导航栏-->
+                <div class="daohanglan visible-lg-*">
+
+                    <div class="doahang1">
+                        <div id="gotop" class="top">
+                            <img id="img" src="images/Top.jpg" />
+                        </div>
+
+                        <div class="doahang-tlter">
+
+                            <label>
+                            <input type="text" placeholder="输入关键字搜索" v-model="chauxun" @keyup.13="guolu">
+                            <span class="iconfont icon-search"@click="guolu" ></span>
+                        </label>
+                            <ul>
+
+                            </ul>
+
+
+                        </div>
+                        <ul class="daohang-list">
+                            <li>
+                                <a @click="quanbu">全部文章</a>
+                            </li>
+
+                            <li>
+                                <a @click="ceshi"> 网站测试</a>
+                            </li>
+
+                            <li>
+                                <a @click="kaifa">网站开发</a>
+                            </li>
+
+                            <li>
+                                <a @click="xitong">操作系统</a>
+                            </li>
+
+                            <li>
+                                <a @click="xuexi">深度学习</a>
+                            </li>
+
+                            <li>
+                                <a @click="suanfa">程序算法</a>
+                            </li>
+
+                            <li>
+                                <a @click="qita">其他</a>
+                            </li>
+
+
+                        </ul>
+
+
+                        <div class="daohang2">
+                            <h5>热门文章</h5>
+                            <div>
+                                <ul>
+                                    <li>
+
+                                        <a href="../易用性测试/yiyongx.html"><span>1.</span> web端易用性测试教程</a>
+                                    </li>
+
+                                    <li>
+
+                                        <a href="../压力测试/ylce.html"><span>2.</span> 压力测试教程详细</a>
+                                    </li>
+
+                                    <li>
+
+                                        <a href="../http协议内容/http.html"> <span>3.</span>HTTP协议内容详解</a>
+                                    </li>
+
+                                    <li>
+
+                                        <a href="../购物车案例/gowuche.html"> <span>4.</span> 购物车实现案例</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="../备忘录/index.html"><span>5.</span> 简易版备忘录vue小实战</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--结尾备案号和提示-->
+        <div class="yqts">
+            <div class="dsi">
+                <div class="list1">
+                    <div class="iconfont icon-github"></div>
+                    <div class="iconfont icon-youxiang"></div>
+                    <div class="iconfont icon-weixin"></div>
+                    <div class="iconfont icon-weibo"></div>
+                </div>
+
+                <p>Copyright © 2019 - 赣ICP备9678122号, All Rights Reserved Powered By 从小就疯了 1.0.0</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        "use strict";
+
+        var input = document.querySelector('.doahang-tlter label input');
+        var list = document.querySelector('.doahang-tlter ul');
+        var but = document.querySelector('.doahang-tlter label span');
+        var vml = new Vue({
+            el: '#content-test',
+            //获取dom节点
+            created: function created() {
+                this.mydataa = this.data_tsxt;
+                console.log(this.mydataa);
+            },
+            methods: {
+                //点击事件放置
+                guolu: function guolu() {
+                    var _this = this;
+
+                    if (this.chauxun == '') {
+                        alert('请输入查询内容');
+                    }
+
+                    this.data_tsxt = this.mydataa.filter(function(item) {
+                        return item.title.includes((_this.chauxun).trim()) || item.kind.includes((_this.chauxun).trim());
+                    });
+                    console.log(this.data_tsxt);
+                    this.chauxun = '';
+                },
+                quanbu: function quanbu() {
+                    return this.data_tsxt = this.mydataa;
+                },
+                ceshi: function ceshi() {
+                    var arr = [];
+                    this.mydataa.forEach(function(itme) {
+                        if (itme.kind === '网站测试') {
+                            arr.push(itme);
+                        }
+                    });
+                    this.data_tsxt = arr;
+                },
+                kaifa: function kaifa() {
+                    var arr = [];
+                    this.mydataa.forEach(function(itme) {
+                        if (itme.kind === '网站开发') {
+                            arr.push(itme);
+                        }
+                    });
+                    this.data_tsxt = arr;
+                },
+                xitong: function xitong() {
+                    var arr = [];
+                    this.mydataa.forEach(function(itme) {
+                        if (itme.kind === '操作系统') {
+                            arr.push(itme);
+                        }
+                    });
+                    this.data_tsxt = arr;
+                },
+                xuexi: function xuexi() {
+                    var arr = [];
+                    this.mydataa.forEach(function(itme) {
+                        if (itme.kind === '深度学习') {
+                            arr.push(itme);
+                        }
+                    });
+                    this.data_tsxt = arr;
+                },
+                suanfa: function suanfa() {
+                    var arr = [];
+                    this.mydataa.forEach(function(itme) {
+                        if (itme.kind === '程序算法') {
+                            arr.push(itme);
+                        }
+                    });
+                    this.data_tsxt = arr;
+                },
+                qita: function qita() {
+                    var arr = [];
+                    this.mydataa.forEach(function(itme) {
+                        if (itme.kind === '其他') {
+                            arr.push(itme);
+                        }
+                    });
+                    this.data_tsxt = arr;
+                }
+            },
+            data: {
+                //数据放置
+                chauxun: '',
+                mydataa: [],
+                data_tsxt: [{
+                    title: 'web端用户体验性测试方法',
+                    msg_url: 'http://img.zcool.cn/community/01d49b5a25087da80120ba387f341f.png@1280w_1l_2o_100sh.png',
+                    content_wen: '1.易用性标准简介 1.1易用性定义 GB/T 16260-2006定义: 在指定条件下使用时,软件产品被理解、学习、' + '使用和吸引用户的能力。 简单说就是:易懂、易学、易用、吸引人。易用性对消费类的产品显得尤为重要... 2.易用性常见原则 ' + '2.1尼尔森可用性原则 1.状态可见原则用户在网页上的任何操作,不论是单击、滚动还是按下键盘,页面应即时给出反馈。 “即时”是指,' + '页面响应时间小于用户能忍受的等待时间。 2.环境贴切原则 网页...',
+                    year: '2019',
+                    month: '12',
+                    day: '09',
+                    zhuan: '../易用性测试/yiyongx.html',
+                    kind: '网站测试'
+                }, {
+                    title: 'web压力测试教程',
+                    msg_url: './images/1.jpg',
+                    content_wen: ' 软件压力测试是一种基本的质量保证行为，它是每个重要软件测试工作的一部分。软件压力测试的基本思路很简单：\n' + '                        不是在常规条件下运行手动或自动测试，而是在计算机数量较少或系统资源匮乏的条件下运行测试。\n' + '                        通常要进行软件压力测试的资源包括内部内存、CPU 可用性、磁盘空间和网络带宽。',
+                    year: '2019',
+                    month: '12',
+                    day: '13',
+                    zhuan: '../压力测试/ylce.html',
+                    kind: '网站测试'
+                }, {
+                    title: 'HTTP协议内容详解',
+                    msg_url: './images/2.png',
+                    content_wen: ' http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什\n' + '                        么样的消息以及得到什么样的响应。请求和响应消息的头以ASCII码形式给出；而消息内容则具有\n' + '                        一个类似MIME的格式。这个简单模型是早期Web成功的有功之臣，因为它使得开发和部署是那么的直截了当',
+                    year: '2019',
+                    month: '12',
+                    day: '19',
+                    zhuan: '../http协议内容/http.html',
+                    kind: '网站测试'
+                }, {
+                    title: 'vue购物车小案例',
+                    msg_url: './images/3.png',
+                    content_wen: '主要设计思路在商品列表页，我们将点击添加的商品放入一个对象中，而后将该对象放入数组中，一个对象可以说就是一个商品。在购物车页面将数据从对象中读取出来，然后再渲染到页面中。即可完成购物车的操作。',
+                    year: '2020',
+                    month: '01',
+                    day: '01',
+                    zhuan: '../购物车案例/gowuche.html',
+                    kind: '网站开发'
+                }, {
+                    title: '简易版的备忘录vue小实战',
+                    msg_url: './images/4.jpg',
+                    content_wen: '主要设计模式：在页面不刷新的情况下对后台传过来的数据进行筛选，根据不同状态进行无缝切换',
+                    year: '2020',
+                    month: '01',
+                    day: '14',
+                    zhuan: '../备忘录/index.html',
+                    kind: '网站开发'
+                }, {
+                    title: 'linux常用命令集合',
+                    msg_url: './images/5.jpg',
+                    content_wen: '最近都在和Linux打交道，感觉还不错。我觉得Linux相比windows比较麻烦的就是很多东西都要用命令来控制，当然，这也是很多人喜欢linux的原因，比较短小但却功能强大。我将我了解到的命令列举一下，仅供大家参考：',
+                    year: '2020',
+                    month: '01',
+                    day: '15',
+                    zhuan: '../linux常用指令/index.html',
+                    kind: '操作系统'
+                }]
+            },
+            filters: { //对数据进行操作
+            },
+            computed: { //放置计算属性
+            },
+            watch: { //数据监听
+            }
+        });
+    </script>
+
+</body>
+
+</html>

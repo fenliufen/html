@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0 0 0 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        a {
+            text-decoration: none;
+            outline: none;
+            color: black;
+
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .demo {
+            position: relative;
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .demo1 {
+            position: fixed;
+            left: 55px;
+            top: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: black;
+            font-size: 25px;
+            text-align: center;
+            line-height: 40px;
+            z-index: 99;
+            overflow-x: hidden;
+        }
+        
+        .demo1:hover {
+            cursor: pointer
+        }
+        /*内容区域*/
+        
+        .baidu_shou {
+            margin: 50px auto;
+            width: 650px;
+            height: 191px;
+        }
+        
+        .log_top img {
+            display: block;
+            width: 270px;
+            height: 129px;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        
+        .baidu_shou .shousuo {
+            width: 656px;
+            margin: auto;
+        }
+        
+        .baidu_shou .shousuo input[type='text'] {
+            width: 540px;
+            max-width: 540px;
+            min-width: 0;
+
+        }
+        
+
+        
+        .list {
+            width: 100%;
+            display: block;
+            margin: auto;
+        }
+        
+        .list ul {
+            display: block;
+            width: 540px;
+            box-shadow: 0 0 100px aliceblue inset;
+        }
+        
+        .list ul list {
+            display: block;
+            margin: auto;
+        }
+        /*导航区域*/
+        
+        .demo2 {
+            opacity: 0;
+            position: absolute;
+            height: 100%;
+            width: 328px;
+            left: 0;
+            transition-duration: 1s;
+            background: aliceblue;
+        }
+        
+        .demo2 ul {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            z-index: 101;
+            font-size: 20px;
+        }
+        
+        .demo2 li {
+            display: block;
+            text-align: left;
+            line-height: 80px;
+        }
+        
+        .demo2 li a:hover {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        .demo2 li a {
+            color: #686967;
+            display: inline-block;
+            line-height: 46px;
+            padding: 10px 50px;
+            font-size: 20px;
+            text-decoration: none;
+            -webkit-transition: color .6s linear;
+            transition: color .6s linear;
+            position: relative;
+        }
+        
+        .demo2 h1 {
+            position: absolute;
+            display: block;
+            font-size: 200%;
+            font-family: 'STXingkai';
+            bottom: 0;
+            left: 20px;
+        }
+
+
+
+        .list_011 a{
+            text-decoration: none;
+            outline: none;
+            color: black;
+
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="demo">
+
+        <div class="demo1">
+            ☰
+        </div>
+
+        <div class="baidu_shou">
+            <div class="log_top">
+                <img src="images/1.png" class="img-responsive">
+            </div>
+
+            <div class="form-inline">
+            <div class="shousuo">
+                <input type="text" class="form-control" placeholder="请输入百度的内容">
+                <button type="button" class="btn btn-info">百度一下</button>
+            </div>
+            </div>
+
+            <div class="list">
+                <ul>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="demo2">
+            <ul>
+                <li><a href="shouye.html">首页</a></li>
+                <li><a href="文章/wenzhang.html">文章</a></li>
+                <li><a href="动态/dongtai.html">动态</a></li>
+                <li><a href="留言/liuyan.html">留言板</a></li>
+                <li><a href="关于我/guanyu.html">关于</a></li>
+            </ul>
+            <h1>从小就疯了</h1>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        "use strict";
+
+        //encodeURI() 方法是转码
+        var divlist = document.querySelector('.list ul');
+        var input = document.querySelector(' .baidu_shou .shousuo input[type=\'text\']');
+        var but = document.querySelector('.btn-info');
+
+        function searchData(keyword) {
+            var url = "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1421,21105,30210,30284&wd=" + ("" + encodeURI(keyword)) + "&req=2&bs=%E9%9C%88%E6%80%8E%E4%B9%88%E8%AF%BB&pbs=%E9%9C%88%E6%80%8E%E4%B9%88%E8%AF%BB&csor=4&pwd=%E9%9C%80&cb=fly&_=1577006650074";
+            var script = document.createElement("script"); //创建标签
+
+            script.src = url;
+            document.body.appendChild(script);
+
+            script.onload = function() {
+                document.body.removeChild(script); //加载完成移除标签
+            };
+        }
+
+        //函数定义
+        function fly(data) {
+            var list = data.g || [];
+            console.log(list)
+            divlist.innerHTML = '';
+            list.forEach(function(item) {
+                divlist.innerHTML += "<li class='list_011'><a href=\"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + item.q + "\">" + item.q + "</a></li>";
+            });
+        }
+
+        //输入监听
+        input.oninput = function() {
+            // 做一个节流的
+            var timer = null;
+            return function() {
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    searchData(input.value);
+                }, 700);
+            };
+        }();
+
+        but.onclick = function() {
+            if (input.value == '') {
+                alert('请输入内容在进行百度');
+            } else {
+                window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
+            }
+        };
+
+        //失去焦点初始化
+        input.onblur = function() {
+            setTimeout(function() {
+                divlist.innerHTML = '';
+            }, 1000);
+        };
+
+
+        document.onkeydown = function(event) {
+            var e = event || window.event
+            if (e && e.keyCode == 13) {
+               window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
+            }
+        };
+
+
+        //导航列表
+        var demo1 = document.querySelector('.demo1');
+        var demo2 = document.querySelector('.demo2');
+        var count = 0;
+
+        demo1.onclick = function() {
+            if (count === 0) {
+                count++;
+                demo2.style.opacity = 1;
+                demo1.style.backgroundColor = 'green';
+                demo1.innerHTML = '×';
+            } else {
+                count--;
+                demo2.style.opacity = 0;
+                demo1.style.backgroundColor = '';
+                demo1.innerHTML = '☰';
+            }
+        };
+    </script>
+</body>
+</html>
