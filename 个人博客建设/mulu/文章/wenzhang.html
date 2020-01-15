@@ -756,7 +756,7 @@ var vml = new Vue({
       }
 
       this.data_tsxt = this.mydataa.filter(function (item) {
-        return item.title.includes(_this.chauxun);
+        return item.title.includes((_this.chauxun).trim()) || item.kind.includes((_this.chauxun).trim());
       });
       console.log(this.data_tsxt);
       this.chauxun = '';

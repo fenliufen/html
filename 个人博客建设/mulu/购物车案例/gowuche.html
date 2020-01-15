@@ -111,7 +111,7 @@
                 },
                 //维护单项选择的表现，所有的勾上就是全选
                 checkeds: function checkeds() {
-                    this.ischkd = this.product.every(function(product) {
+                    this.ischkd = this.product.every(function(product) {   //.every是es6的语法,对每一项进行判断,条件满足返回true
                         return product.chkd;
                     });
                 },
