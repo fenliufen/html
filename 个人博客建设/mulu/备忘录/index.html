@@ -109,8 +109,8 @@
 <body>
     <div id="app">
         <div class="title_01">
-            <input type="text" placeholder="请输入内容按Enter保存" v-model="test" v-on:keyup.13="add">
-            <span>今天还有{{fnn}}件事情未完成</span>
+            <input type="text" placeholder="请输入内容按Enter保存" v-model="test" v-on:keyup.13="add" class="shuru">
+            <span>未完成{{fnn}}件事情!已完成{{fnn2}}件事</span>
         </div>
 
 
@@ -138,6 +138,8 @@
     </div>
 
     <script>
+
+
         // vue模板
         var vml = new Vue({
 
@@ -157,16 +159,23 @@
 
 
             methods: { //点击事件控制区
-                add() {
-                    this.mydata.push({
 
+                add() {
+                    if (this.test==''){
+                        alert('不能为空')
+                    } else {
+
+                       this.mydata.push({
                         checked: false,
                         content: this.test,
                         panding: false
 
                     })
+
                     console.log(this.mydata)
                     this.test = ''
+                    }
+
                 },
 
                 //移除事件
@@ -181,8 +190,8 @@
                 },
 
                 finish() {
-
-                    let mydatas = [];
+                    var mydatas = [];
+                    var span=document.querySelector('.title_01 span')
                     this.mydataa.forEach(item => {
                         if (item.checked) {
                             mydatas.push(item);
@@ -193,7 +202,7 @@
                 },
 
                 wei() {
-                    let mydatas = [];
+                    var mydatas = [];
                     this.mydataa.forEach(item => {
                         if (!item.checked) {
 
@@ -212,8 +221,20 @@
 
                 fnn() {
                     var arr = []
-                    this.mydata.forEach((item) => {
+                    this.mydataa.forEach((item) => {
                         if (item.checked == false) {
+                            arr.push(item)
+                        }
+                    })
+
+                    return arr.length
+
+                },
+
+                fnn2() {
+                    var arr = []
+                    this.mydataa.forEach((item) => {
+                        if (item.checked == true) {
                             arr.push(item)
                         }
                     })
@@ -226,9 +247,7 @@
 
             },
             data: { //你的数据
-
                 test: "",
-                mynewdata: [],
                 mydataa:'',
                 mydata: [{
                         checked: false,
