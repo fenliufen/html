@@ -48,10 +48,10 @@ window.onload = function() {
         function monitoring () {
             var width=window.innerWidth
               if (width<1200){
-                doahang.style.display='none'
+                doahang.style.display='none';
 
             }else if (width>=1200) {
-                doahang.style.display='block'
+                doahang.style.display='block';
             }
 
         }
@@ -59,8 +59,7 @@ window.onload = function() {
 
 
         window.onresize = function(){
-
-            monitoring ()
+          monitoring ()
         }
 
    }
