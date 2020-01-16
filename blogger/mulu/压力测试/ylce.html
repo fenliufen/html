@@ -592,6 +592,25 @@
     </div>
 
     <script>
+        var tishiii=document.querySelector('.yqts');
+                function monitoring () {
+                    var width=window.innerWidth
+                      if (width<1300){
+                             tishiii.style.display='none';
+                    }else if (width>=1300) {
+                        tishiii.style.display='block';
+                    }
+
+                }
+
+                  monitoring ();
+
+
+
+                window.onresize = function(){
+                   monitoring ();
+
+                }
 
     </script>
 
