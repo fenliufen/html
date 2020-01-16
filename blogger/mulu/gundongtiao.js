@@ -1,4 +1,5 @@
 window.onload = function() {
+
     var s = document.querySelector("body");
     var sidebar = document.querySelector(".demo1");
     sidebar.offsetWidth = s.style.width;
@@ -38,5 +39,29 @@ window.onload = function() {
                 clearInterval(timer);
             }
         }, 30);
+
+
+
     }
-  }
+
+       var doahang=document.querySelector('.daohanglan')
+        function monitoring () {
+            var width=window.innerWidth
+              if (width<1200){
+                doahang.style.display='none'
+
+            }else if (width>=1200) {
+                doahang.style.display='block'
+            }
+
+        }
+
+
+
+        window.onresize = function(){
+
+            monitoring ()
+        }
+
+   }
+
