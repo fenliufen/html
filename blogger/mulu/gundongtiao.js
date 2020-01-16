@@ -51,7 +51,7 @@ window.onload = function() {
                 doahang.style.display='none';
                 zhanshi.style.margin='auto'
 
-            }else if (width>=1200) {
+            }else if (width>=1300) {
                 doahang.style.display='block';
                 zhanshi.style.margin='0'
             }
