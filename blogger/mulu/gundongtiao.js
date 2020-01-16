@@ -43,15 +43,17 @@ window.onload = function() {
 
 
     }
-
+        var zhanshi=document.querySelector('.zhanshi')
        var doahang=document.querySelector('.daohanglan')
         function monitoring () {
             var width=window.innerWidth
               if (width<1200){
                 doahang.style.display='none';
+                zhanshi.style.margin='auto'
 
             }else if (width>=1200) {
                 doahang.style.display='block';
+                zhanshi.style.margin='0'
             }
 
         }
