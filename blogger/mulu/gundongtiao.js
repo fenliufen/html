@@ -40,19 +40,20 @@ window.onload = function() {
             }
         }, 30);
 
-
-
     }
+        var tishiii=document.querySelector('.yqts')
         var zhanshi=document.querySelector('.zhanshi')
         var doahang=document.querySelector('.daohanglan')
         function monitoring () {
             var width=window.innerWidth
               if (width<1300){
                 doahang.style.display='none';
-                zhanshi.style.margin='auto'
+                zhanshi.style.margin='auto';
+                tishiii.style.display='none';
 
             }else if (width>=1300) {
                 doahang.style.display='block';
+                tishiii.style.display='block';
                 zhanshi.style.margin='0'
             }
 
