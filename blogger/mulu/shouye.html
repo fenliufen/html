@@ -157,6 +157,28 @@
 
         }
 
+        .top {
+            position: fixed;
+            right: 50px;
+            bottom: 100px;
+            background: red;
+        }
+        .top img{
+            width: 300px;
+            height: 300px;
+        }
+
+        .sats{
+            position: absolute;
+            left: 0;
+           top: -40px;
+            font-size: 20px;
+            font-weight: bold;
+            background: red;
+            border-radius: 3px;
+        }
+
+
 
     </style>
 
@@ -167,11 +189,17 @@
 
     <div class="demo">
 
+        <div id="gotop" class="top">
+            <span class="sats">菜单栏在左上角点击打开即可</span>
+            <img src="images/2.jpg">
+        </div>
+
         <div class="demo1">
             ☰
         </div>
 
         <div class="baidu_shou">
+
             <div class="log_top">
                 <img src="images/1.png" class="img-responsive">
             </div>
