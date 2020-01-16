@@ -44,7 +44,7 @@ window.onload = function() {
 
     }
         var zhanshi=document.querySelector('.zhanshi')
-       var doahang=document.querySelector('.daohanglan')
+        var doahang=document.querySelector('.daohanglan')
         function monitoring () {
             var width=window.innerWidth
               if (width<1300){
@@ -58,10 +58,13 @@ window.onload = function() {
 
         }
 
+          monitoring ()
+
 
 
         window.onresize = function(){
-          monitoring ()
+           monitoring ()
+
         }
 
    }
