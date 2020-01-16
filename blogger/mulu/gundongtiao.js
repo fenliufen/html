@@ -47,7 +47,7 @@ window.onload = function() {
        var doahang=document.querySelector('.daohanglan')
         function monitoring () {
             var width=window.innerWidth
-              if (width<1200){
+              if (width<1300){
                 doahang.style.display='none';
                 zhanshi.style.margin='auto'
 
