@@ -729,11 +729,6 @@
 
 
     <script>
-        "use strict";
-
-        var input = document.querySelector('.doahang-tlter label input');
-        var list = document.querySelector('.doahang-tlter ul');
-        var but = document.querySelector('.doahang-tlter label span');
         var vml = new Vue({
             el: '#content-test',
             //获取dom节点
@@ -814,6 +809,7 @@
                     this.data_tsxt = arr;
                 }
             },
+
             data: {
                 //数据放置
                 chauxun: '',
@@ -882,9 +878,6 @@
                     zhuan: '../常见的黑盒测试方法/index.html',
                     kind: '网站测试'
                 }
-
-
-
                 ]
             },
             filters: { //对数据进行操作
@@ -916,9 +909,7 @@
 
           monitoring ()
 
-
-
-         window.onresize = function(){
+          window.onresize = function(){
            monitoring ()
 
          }

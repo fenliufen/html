@@ -57,6 +57,14 @@
 
         .list ul {
             - min-height: 300px;
+             max-height: 500px;
+             overflow: auto;
+            scrollbar-width: none;
+
+        }
+
+        .list ul::-webkit-scrollbar {
+            display: none;
         }
 
         .list ul li {
@@ -102,6 +110,10 @@
              cursor: pointer;
              background: darkorange;
          }
+
+        .yichu:hover{
+             cursor: pointer;
+        }
     </style>
 
 
