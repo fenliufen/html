@@ -6,67 +6,66 @@
     <title>vue小实战之简易版备忘录</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <style>
-
-        body{
+        body {
             margin: 0;
             height: 100%;
             width: 100%;
         }
-
+        
         ul {
             padding: 0;
             margin: 0;
             list-style: none;
         }
-
+        
         #app {
-
             width: 600px;
             border: 1px solid #cccccc;
             border-radius: 3px;
             padding: 10px;
             margin: 50px auto;
-
         }
-
+        
         .title_01 {
             position: relative;
             background: #ddedd7;
             width: 100%;
             height: 120px;
         }
-
-
-
+        
         .title_01 input {
             position: absolute;
             top: 50px;
             height: 20px;
             left: 20px;
-
         }
-
+        
         .title_01 span {
             position: absolute;
             top: 50px;
             right: 20px;
             color: red;
         }
-
-
-
+        
         .list ul {
-            - min-height: 300px;
-             max-height: 500px;
-             overflow: auto;
+            min-height: 300px;
+            max-height: 500px;
+            -ms-scroll-chaining: chained;
+            -ms-overflow-style: none;
+            -ms-content-zooming: zoom;
+            -ms-scroll-rails: none;
+            -ms-content-zoom-limit-min: 100%;
+            -ms-content-zoom-limit-max: 500%;
+            -ms-scroll-snap-type: proximity;
+            -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+            overflow: auto;
             scrollbar-width: none;
-
         }
-
+        
         .list ul::-webkit-scrollbar {
             display: none;
         }
-
+        
         .list ul li {
             line-height: 50px;
             width: 100%;
@@ -74,16 +73,14 @@
             border-top: 2px solid #cccccc;
             border-bottom: 1px solid #cccccc;
         }
-
+        
         .but {
             line-height: 80px;
             height: 80px;
             width: 100%;
             background: palegreen;
-
-
         }
-
+        
         .but a {
             width: 60px;
             height: 50px;
@@ -93,251 +90,190 @@
             padding: 10px;
             border-radius: 9px;
         }
-
+        
         .list ul li .yichu {
             float: right;
             padding-right: 20px;
             color: red;
         }
-
+        
         .onspen {
             text-decoration: line-through;
             color: green;
-
         }
-
-         a:hover{
-             cursor: pointer;
-             background: darkorange;
-         }
-
-        .yichu:hover{
-             cursor: pointer;
+        
+        a:hover {
+            cursor: pointer;
+            background: darkorange;
+        }
+        
+        .yichu:hover {
+            cursor: pointer;
         }
     </style>
 
 
 
-<body>
-    <div id="app">
-        <div class="title_01">
-            <input type="text" placeholder="请输入内容按Enter保存" v-model="test" v-on:keyup.13="add" class="shuru">
-            <span>未完成{{fnn}}件事情!已完成{{fnn2}}件事</span>
-        </div>
+    <body>
+        <div id="app">
+            <div class="title_01">
+                <input type="text" placeholder="请输入内容按Enter保存" v-model="test" v-on:keyup.13="add" class="shuru">
+                <span>未完成{{fnn}}件事情!已完成{{fnn2}}件事</span>
+            </div>
 
 
-        <div class="list">
-            <ul>
-                <li v-for="(mydata,index) in mydata">
-                    <label>
+            <div class="list">
+                <ul>
+                    <li v-for="(mydata,index) in mydata">
+                        <label>
                         <input type="checkbox" v-model="mydata.checked" :checked="mydata.checked">
                         <span v-bind:class="{onspen:mydata.checked===true}">{{mydata.content}}</span>
                     </label>
 
-                    <span class="yichu" v-on:click="remove(index)">移除</span>
-                </li>
+                        <span class="yichu" v-on:click="remove(index)">移除</span>
+                    </li>
 
-            </ul>
+                </ul>
 
+
+            </div>
+            <div class="but">
+                <a @click="quan">全部任务</a>
+                <a @click="finish">已完成</a>
+                <a @click="wei">未完成</a>
+            </div>
 
         </div>
-        <div class="but">
-            <a @click="quan" >全部任务</a>
-            <a @click="finish">已完成</a>
-            <a @click="wei">未完成</a>
-        </div>
 
-    </div>
+        <script>
+            // vue模板
+            "use strict";
 
-    <script>
+            var vml = new Vue({
+                el: '#app',
+                //获取dom节点
+                created: function created() {
+                    window.onhashchange = function() {
+                        this.mynewdata = window.location.hash;
+                        console.log(this.mynewdata);
+                    };
 
-
-        // vue模板
-        var vml = new Vue({
-
-            el: '#app', //获取dom节点
-
-            created() {
-                window.onhashchange=function () {
-                    this.mynewdata = window.location.hash
-                    console.log(this.mynewdata)
-                };
-
-                this.mydataa = this.mydata;
-
-            },
-
-
-
-
-            methods: { //点击事件控制区
-
-                add() {
-                    if (this.test==''){
-                        alert('不能为空')
-                    } else {
-
-                       this.mydata.push({
-                        checked: false,
-                        content: this.test,
-                        panding: false
-
-                    })
-
-                    console.log(this.mydata)
-                    this.test = ''
+                    this.mydataa = this.mydata;
+                },
+                methods: {
+                    //点击事件控制区
+                    add: function add() {
+                        if (this.test == '') {
+                            alert('不能为空');
+                        } else {
+                            this.mydata.push({
+                                checked: false,
+                                content: this.test,
+                                panding: false
+                            });
+                            console.log(this.mydata);
+                            this.test = '';
+                        }
+                    },
+                    //移除事件
+                    remove: function remove(index) {
+                        this.mydata.splice(index);
+                    },
+                    //全部任务事件
+                    quan: function quan() {
+                        this.mydata = this.mydataa;
+                    },
+                    finish: function finish() {
+                        var mydatas = [];
+                        var span = document.querySelector('.title_01 span');
+                        this.mydataa.forEach(function(item) {
+                            if (item.checked) {
+                                mydatas.push(item);
+                            }
+                        });
+                        this.mydata = mydatas;
+                    },
+                    wei: function wei() {
+                        var mydatas = [];
+                        this.mydataa.forEach(function(item) {
+                            if (!item.checked) {
+                                mydatas.push(item);
+                            }
+                        });
+                        this.mydata = mydatas;
                     }
-
                 },
-
-                //移除事件
-                remove: function remove(index) {
-                    this.mydata.splice(index);
+                computed: {
+                    //逻辑计算处理数据，过滤数据
+                    fnn: function fnn() {
+                        var arr = [];
+                        this.mydataa.forEach(function(item) {
+                            if (item.checked == false) {
+                                arr.push(item);
+                            }
+                        });
+                        return arr.length;
+                    },
+                    fnn2: function fnn2() {
+                        var arr = [];
+                        this.mydataa.forEach(function(item) {
+                            if (item.checked == true) {
+                                arr.push(item);
+                            }
+                        });
+                        return arr.length;
+                    }
                 },
-
-
-                //全部任务事件
-                quan() {
-                    this.mydata = this.mydataa;
-                },
-
-                finish() {
-                    var mydatas = [];
-                    var span=document.querySelector('.title_01 span')
-                    this.mydataa.forEach(item => {
-                        if (item.checked) {
-                            mydatas.push(item);
-                        }
-
-                    })
-                    this.mydata = mydatas;
-                },
-
-                wei() {
-                    var mydatas = [];
-                    this.mydataa.forEach(item => {
-                        if (!item.checked) {
-
-                            mydatas.push(item);
-                        }
-
-                    })
-
-                    this.mydata = mydatas;
-
-                }
-            },
-
-
-            computed: { //逻辑计算处理数据，过滤数据
-
-                fnn() {
-                    var arr = []
-                    this.mydataa.forEach((item) => {
-                        if (item.checked == false) {
-                            arr.push(item)
-                        }
-                    })
-
-                    return arr.length
-
-                },
-
-                fnn2() {
-                    var arr = []
-                    this.mydataa.forEach((item) => {
-                        if (item.checked == true) {
-                            arr.push(item)
-                        }
-                    })
-
-                    return arr.length
-
-                },
-
-
-
-            },
-            data: { //你的数据
-                test: "",
-                mydataa:'',
-                mydata: [{
+                data: {
+                    //你的数据
+                    test: "",
+                    mydataa: '',
+                    mydata: [{
                         checked: false,
                         content: "健身",
                         panding: false
-                    },
-
-                    {
+                    }, {
                         checked: false,
                         content: "游泳",
                         panding: false
-                    },
-
-                    {
+                    }, {
                         checked: false,
                         content: "吃饭",
                         panding: false
-                    },
-
-                    {
+                    }, {
                         checked: false,
                         content: "约会",
                         panding: false
-                    },
-                    {
+                    }, {
                         checked: false,
                         content: "游泳",
                         panding: false
-                    },
-
-                    {
+                    }, {
                         checked: false,
                         content: "爬山",
                         panding: false
-                    },
-                      {
+                    }, {
                         checked: false,
                         content: "约山",
                         panding: false
-                    },
-
-                      {
+                    }, {
                         checked: false,
                         content: "爬洛阳",
                         panding: false
-                    },
-
-                      {
+                    }, {
                         checked: false,
                         content: "看夕阳",
                         panding: false
-                    },
-
-
-
-
-                ]
-
-            },
-
-
-            watch: { //数据监控
-
-            },
-
-
-            filters: { //处理特殊情况
-
-            },
-
-            directives: { //自定义事件
-
-            }
-
-
-
-        })
-    </script>
-</body>
+                    }]
+                },
+                watch: { //数据监控
+                },
+                filters: { //处理特殊情况
+                },
+                directives: { //自定义事件
+                }
+            });
+        </script>
+    </body>
 
 </html>
