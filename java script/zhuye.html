@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>关于我</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_srd9nc3esze.css">
-    <link rel="stylesheet" href="../hint.css">
-    <script src="../gundongtiao.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
     <style>
 
         /*样式初始化*/
@@ -15,41 +15,26 @@
             width: 100%;
 
         }
-        
+
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        
+
         a {
             text-decoration: none;
             outline: none;
         }
-        
+
         .demo {
             margin: 0 auto;
             width: 100%;
             height: 100%;
         }
 
-        .demo:before {
-            content: ' ';
-            position: fixed;
-            z-index: -1;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            /*background:#a4daff ;*/
-            background-image: url("../images/3.jpg");
-            background-size: cover;
-            background-position:center ;
-
-        }
-
         /*标题导航栏*/
-        
+
         .titer {
             width: 100%;
             min-height: 60px;
@@ -62,20 +47,20 @@
             border-bottom: 1px solid #e8e9e7;
             font-size: 14px;
         }
-        
+
         .libiao {
             max-width: 1280px;
             margin-left: auto;
             margin-right: auto;
             position: relative;
         }
-        
+
         .hang {
             margin-left: 10px;
             margin-right: 10px;
             position: relative;
         }
-        
+
         .hang a:nth-of-type(1) {
             font-size: 200%;
             font-family: 'STXingkai';
@@ -85,18 +70,18 @@
             position: absolute;
             left: 0;
         }
-        
+
         .daohang li {
             display: block;
             float: right;
             margin: 10px 10px;
             position: relative;
         }
-        
+
         .daohang li:nth-of-type(1) {
             margin-right: 250px;
         }
-        
+
         .daohang li a {
             display: block;
             line-height: 32px;
@@ -108,33 +93,33 @@
             -webkit-transition: all .2s;
             transition: all .2s;
         }
-        
+
         .daohang li a:hover {
             color: blue;
             font-weight: bold;
         }
-        
+
         .dengru {
             right: 0;
             position: absolute;
             line-height: 60px;
             font-size: 24px;
         }
-        
+
         .dengru i {
             display: inline-block;
             font: normal normal normal 14px/1 FontAwesome;
             text-rendering: auto;
             font-size: 30px;
         }
-        
+
         .dengru i:hover {
             color: pink;
         }
 
 
         /*内容区*/
-        
+
         .demo1 {
             position: relative;
             margin-top: 90px;
@@ -144,44 +129,79 @@
             background: white;
             overflow: auto;
             scrollbar-width: none;
+            min-height: 1000px;
 
         }
-        
+
         .demo1::-webkit-scrollbar {
             display: none;
         }
-        
-        .wo {
-            padding: 20px;
+
+        .ztu_01{
+            width: 100%;
+            min-height:300px ;
         }
-        
-        .wo h1 {
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            border-left: .25rem solid #6bc30d;
-            font-weight: 700;
-            font-size: 1.5rem;
-            line-height: 1.5rem
-        }
-        
-        .wo p {
-            margin: 1.5rem 0;
-            padding-left: 18px;
-            font-family: Raleway, Segoe UI, Lucida Grande, Helvetica, Arial, Microsoft YaHei;
-            line-height: 1.75rem;
-        }
-        
-        .lianxi {
-            padding-top: 10px;
-        }
-        
-        .lianxi p {
-            line-height: 10px;
-        }
-        
-        .lianxi p span {
-            color: blue;
-        }
+
+
+
+
+
+
+/*提示区样式 */
+
+        .yqts {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    background: #212220;
+    color: #919290;
+    font-size: 14px;
+    padding: 20px 0 0 0;
+    position: relative;
+    clear: both;
+    line-height: 20px;
+    margin-top: 40px;
+    overflow: hidden;
+    zoom: 1;
+
+}
+
+
+
+.dsi {
+    position: relative;
+    max-width: 1280px;
+    min-height: 100px;
+    margin: auto;
+    background: #212220;
+    text-align: center;
+}
+
+.list1 {
+    display: flex;
+    background-color: #212220;
+    justify-content: center;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.dsi .list1 div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 10px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #565755;
+}
+
+.dsi p {
+    display: block;
+    color: #565755;
+}
+
 
     </style>
 
@@ -200,10 +220,10 @@
                 </div>
 
                 <div>
-                   <ul class="daohang">
+                    <ul class="daohang">
 
                         <li>
-                            <a href="../关于我/guanyu.html">关于我</a>
+                            <a href="../关于我/guanyu.html">关于</a>
                         </li>
 
                         <li>
@@ -215,7 +235,11 @@
                         </li>
 
                         <li>
-                            <a href="../首页/shouye.html">首页</a>
+                            <a href="../文章/article.html">文章</a>
+                        </li>
+
+                        <li>
+                            <a href="../shouye.html">首页</a>
                         </li>
 
                     </ul>
@@ -226,59 +250,18 @@
                 </a>
             </div>
         </div>
-
+        <!--填写内容区！-->
         <div class="demo1">
-            <div id="gotop" class="top">
-                <img id="img" src="images/Top.jpg"/>
-            </div>
-            <div class="wo">
-                <h1>关于我</h1>
-                <p>
-                    <span>昵称：从小就疯了</span>
-                    <br><span>职业：软件测试</span>
-                    <br><span>运用技术：纯手写scc  html  JavaScript</span>
-                    <br><span>服务器：阿里云 Ubuntu  18.04 64位</span>
-                    <br><span>用途：学习心得记录。</span>
-                </p>
-
-
-
-
-                <div class="lianxi">
-                    <p>以下联系方式可以联系到我</p>
-                    <p>微信：<span>liu1607187254</span></p>
-                    <p>QQ邮箱：<span>1607187254@qq.com</span></p>
-                    <p>QQ：<span>1607187254</span></p>
-                    <p>手机：<span>13058420123</span></p>
-                </div>
-
+            <div class="ztu_01">
+                <img src="images/z1.jpg">
             </div>
 
 
 
 
-            <div class="wo tishi">
-
-                <h1>特别提示</h1>
-                <p>
-                    本站所有内容仅代表个人观点，和任何组织或个人无关。 本站内容仅供学习交流，请勿用于任何形式商业行为。
-                    <br>对于本站原创文章，如需转载使用，请务必注明文章作者和来源. 本网站如无意中侵犯了某些组织或个人的知识产权，
-                    <br>请来信或来电告之，本网站将立即删除。
-                </p>
-
-            </div>
 
 
 
-            <div class="wo benwang">
-                <h1>关于本网站</h1>
-                <p>
-                    本网站于2019年12月08日写，用于记录本人的学习心得
-                    <br>日常问题记录以及生活记录
-                    <br>因为不懂后台，后台因此为空，后期慢慢改善
-                    <br>技术有限，欢迎指导，勿喷
-                </p>
-            </div>
 
 
 
@@ -302,29 +285,8 @@
 
 
     </div>
-    <script>
-
-        var tishiii=document.querySelector('.yqts');
-                function monitoring () {
-                    var width=window.innerWidth;
-                      if (width<1300){
-                             tishiii.style.display='none';
-                    }else if (width>=1300) {
-                        tishiii.style.display='block';
-                    }
-
-                }
-
-                  monitoring ();
 
 
-
-                window.onresize = function(){
-                   monitoring ();
-
-                };
-
-    </script>
 
 </body>
 
