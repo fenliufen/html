@@ -1,251 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>留言板</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_srd9nc3esze.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../hint.css">
+    <link rel="stylesheet" href="./situation.css">
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="../gundongtiao.js"></script>
     <style>
-        body {
-            margin: 0;
-            height: 100%;
-            width: 100%;
-        }
-        
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        a {
-            text-decoration: none;
-            outline: none;
-        }
-        
-        .demo {
-            margin: 0 auto;
-            width: 100%;
-            height: 100%;
-        }
-
-        .demo:before {
-            content: ' ';
-            position: fixed;
-            z-index: -1;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            /*background:#a4daff ;*/
-            background-image: url("../images/3.jpg");
-            background-size: cover;
-            background-position:center ;
-
-        }
-        
-        .titer {
-            width: 100%;
-            min-height: 60px;
-            opacity: 0.9;
-            position: fixed;
-            background-color: rgba(255, 255, 255, 1);
-            z-index: 11002;
-            top: 0;
-            left: 0;
-            border-bottom: 1px solid #e8e9e7;
-            font-size: 14px;
-        }
-        
-        .libiao {
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-        }
-        
-        .hang {
-            margin-left: 10px;
-            margin-right: 10px;
-            position: relative;
-        }
-        
-        .hang a:nth-of-type(1) {
-            font-size: 200%;
-            font-family: 'STXingkai';
-            color: #444647;
-            line-height: 60px;
-            text-align: center;
-            position: absolute;
-            left: 0;
-        }
-        
-        .daohang li {
-            display: block;
-            float: right;
-            margin: 10px 10px;
-            position: relative;
-        }
-        
-        .daohang li:nth-of-type(1) {
-            margin-right: 250px;
-        }
-        
-        .daohang li a {
-            display: block;
-            line-height: 32px;
-            padding: 4px 28px;
-            color: #212220;
-            font-weight: 400;
-            font-size: 15px;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
-            -webkit-transition: all .2s;
-            transition: all .2s;
-        }
-        
-        .daohang li a:hover {
-            color: blue;
-            font-weight: bold;
-        }
-        
-        .dengru {
-            right: 0;
-            position: absolute;
-            line-height: 60px;
-            font-size: 24px;
-        }
-        
-        .dengru i {
-            display: inline-block;
-            font: normal normal normal 14px/1 FontAwesome;
-            text-rendering: auto;
-            font-size: 30px;
-        }
-        
-        .dengru i:hover {
-            color: pink;
-        }
-        
-        .demo1 {
-            margin-top: 40px;
-            scrollbar-width: none;
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            background: rgb(0, 0, 0, 0);
-            overflow: auto;
-            overflow-x: hidden;
-            padding-top:30px ;
-        }
-        
-        .demo1::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .msg-remark {
-            width: 100%;
-            min-height: 184px;
-            background: #FFF;
-            text-align: center;
-
-        }
-        
-
-        
-        .msg-remark h1 {
-            padding-top: 10px;
-            font-size: 400%;
-            font-family: 'STXingkai';
-        }
-        
-        .msg-remark p {
-            margin-left: 2%;
-            font-size: 200%;
-            font-family: 'STXingkai';
-        }
-        
-        #test {
-            width: 100%;
-            min-height: 112px;
-            border: 1px solid #cccccc;
-            font-size: 20px;
-        }
-        
-        .output {
-            background-color: white;
-            height: 180px;
-        }
-        
-        .btn-info{
-            display: inline-block;
-            height: 38px;
-            line-height: 38px;
-            padding: 0 20px;
-            background-color: #009688;
-            font-size: 14px;
-            margin-top: 10px;
-            margin-left: 10px;
-        }
-        /*留言板留言内容区域*/
-        
-        .liuyan {
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column-reverse;
-            align-items: center;
-            width: 100%;
-            min-height: 300px;
-            border-top: 1px solid #cccccc;
-            margin-top: 50px;
-            background-color: white;
-        }
-        
-        .yonghu {
-            position: relative;
-            border-bottom: 1px dashed #cccccc;
-            width: 100%;
-            min-height: 100px;
-            margin-left: 20px;
-            margin-top: 20px;
-        }
-        
-        .yonghu a {
-            max-width: 45px;
-            height: 45px;
-            border-radius: 50%;
-        }
-        
-        .yonghu a img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-        }
-        
-        .yonghu span:nth-of-type(1) {
-            position: absolute;
-            margin-top: 0;
-            color: blue;
-            font-family: 'STXingkai';
-            font-size: 18px;
-        }
-        
-        .yonghu span:nth-of-type(2) {
-            position: absolute;
-            margin-top: -20px;
-            left: 80px;
-            color: black;
-            font-size: 14px;
-        }
-        
-        .yonghu p {
-            position: absolute;
-            font-size: 14px;
-            color: #b8b9b4;
-            left: 50px;
-        }
 
     </style>
 </head>
@@ -253,7 +17,7 @@
 
 <body>
 
-    <div class="demo">
+    <div class="demo" id="app">
         <div class="titer">
             <div class="libiao">
 
@@ -267,6 +31,11 @@
                         <li>
                             <a href="../关于我/guanyu.html">关于我</a>
                         </li>
+
+                      <li>
+                            <a href="../博客日志/index.html">博客日记</a>
+                         </li>
+
 
                         <li>
                             <a href="../留言/liuyan.html">留言板</a>
@@ -302,48 +71,23 @@
             </div>
 
             <div class="output">
-                <!--<input type="text"  placeholder="请输入留言">-->
-                <textarea class="form-control" rows="1" id="test"></textarea>
-                <button type="button" class="btn btn-info">提交</button>
+                <span class="test_ne">您的昵称：</span>
+                <input type="text" class="form-control niceng" v-model="test_01">
+                <span class="test_ne">你要留言的内容：</span>
+                <textarea class="form-control" rows="1" id="test" v-model="test_02"></textarea>
+                <button type="button" class="btn btn-info" @click="add">提交</button>
 
             </div>
 
             <div class="liuyan">
 
-                <div class="yonghu">
+                <div class="yonghu"v-for="(mydataa,index) in mydataa">
                     <a><img src="images/1.jpg"></a>
-                    <span>管理员</span><br>
-                    <span>博主我爱你</span>
-                    <p>2019-12-08 12:28:00 星期天 回复</p>
+                    <span>{{mydataa.nickname}}</span><br>
+                    <span>{{mydataa.content}}</span>
+                    <p>{{mydataa.time}}</p>
 
                 </div>
-
-                <div class="yonghu">
-                    <a><img src="images/1.jpg"></a>
-                    <span>管理员</span><br>
-                    <span>博主我爱你，我喜欢你</span>
-                    <p>2019-12-08 12:28:00 星期天 回复</p>
-
-                </div>
-
-                <div class="yonghu">
-                    <a><img src="images/1.jpg"></a>
-                    <span>管理员</span><br>
-                    <span>博主我爱你，么么哒</span>
-                    <p>2019-12-08 12:28:00 星期天 回复</p>
-
-                </div>
-
-                <div class="yonghu">
-                    <a><img src="images/1.jpg"></a>
-                    <span>管理员</span><br>
-                    <span>博主我爱你，么么哒😳😳😳</span>
-                    <p>2019-12-08 12:50:00 星期天 回复</p>
-
-                </div>
-
-
-
 
             </div>
         </div>
@@ -359,9 +103,7 @@
                     <div class="iconfont icon-weixin"></div>
                     <div class="iconfont icon-weibo"></div>
                 </div>
-
                 <p>Copyright © 2019 - 赣ICP备9678122号, All Rights Reserved Powered By 从小就疯了 1.0.0</p>
-
             </div>
         </div>
     </div>
@@ -370,10 +112,11 @@
 
     <script>
 
-        var but = document.querySelector(".btn-info");
-        var luban = document.querySelector('.liuyan');
-        var text = document.querySelector('#test'); //不是2两位数的时候前面加0
 
+
+
+
+       //不是2两位数的时候前面加0
         function panduan(date) {
             if (date < 10) {
                 return "0" + date;
@@ -396,42 +139,166 @@
             var fen = time.getMinutes();
             var miao = time.getSeconds();
             newDate = panduan(nian) + "-" + panduan(yue) + "-" + panduan(ri) + " " + panduan(shi) + ":" + panduan(fen) + ":" + panduan(miao);
-            return newDate + "  " + week + "  " + "回复";
-        } //添加标签的操作
-
-
-        function tianjia() {
-            var val = text.value;
-
-            if (val == '') {
-                text.focus();
-                alert('请输入内容在添加');
-            } else {
-                var str = " <div class=\"yonghu\">\n                      " +
-                    "<a><img src=\"images/1.jpg\"></a>\n                      " +
-                    "<span>\u7BA1\u7406\u5458</span><br>\n                      " +
-                    "<span>" + text.value + "</span>\n                     " +
-                    " <p>" + date() + "</p>\n\n                     " +
-                    " </div>";
-                return str;
-            }
-
-            return '';
+            return newDate + "  " + week + "  ";
         }
 
-        but.onclick = function() {
-            var timer = 0; // 保存私有的timer, 做节流
 
-            return function() {
-                clearTimeout(timer);
-                timer = setTimeout(function() {
-                    var str = tianjia();
-                    luban.innerHTML += str;
-                    text.value = '';
-                    text.focus();
-                }, 500);
-            };
-        }();
+        // vue模板
+       var vml = new Vue({
+
+            el: '#app', //获取dom节点
+
+
+            methods: { //点击事件控制区
+                add:function () {
+                    var  niceng=document.querySelector('.niceng')
+                    if (this.test_01=="" || this.test_02==""){
+                        niceng.focus()
+                        alert('请输入昵称或者内容')
+
+
+                    } else {
+                        this.mydata.push(
+                            {
+                                nickname:this.test_01,
+                                content:this.test_02,
+                                time:date()
+                            })
+
+                        this.test_02=''
+                        // window.location.href=''
+
+                    }
+
+                }
+
+            },
+
+            computed: { //逻辑计算处理数据，过滤数据
+
+
+            },
+           created(){
+                 var arr=localStorage.getItem(this.myinst)
+                  this.mydataa= JSON.parse(arr)
+           },
+
+            data: {
+                //你的数据
+                  test_01:'',
+                  test_02:'',
+                  mydataa:[],
+                    myinst:[],
+
+                mydata:[
+                    {
+                        nickname:'从小就疯了',
+                        content:'小哥哥你真帅',
+                        time:'2020-01-19 16:55:57 星期天  '
+                    },
+                    {
+                        nickname:'一如既往的峰',
+                        content:'你的博客好有很多的功能没有实现',
+                        time:'2020-01-19 16:55:57  星期天  '
+                    },
+                    {
+                        nickname:'安居啦',
+                        content:'还不错',
+                        time:'2020-01-19 16:55:57  星期天  '
+                    },
+                    {
+                        nickname:'小喵咪',
+                        content:'帅呆了',
+                        time:'2020-01-19 16:55:57  星期天  '
+                    },
+                    {
+                        nickname:'安其拉',
+                        content:'峡谷王者',
+                        time:'2020-01-19 16:55:57  星期天  ',
+                    },
+                    {
+                        nickname:'从小就疯了',
+                        content:'还可以啦',
+                        time:'2020-01-19 16:55:57  星期天  ',
+                    },
+
+                ]
+
+            },
+
+
+           components:{ //注册子组件
+
+
+           },
+
+
+            watch:{ //数据监控
+                mydata: function () {
+                    let arr=[]
+                     arr=JSON.stringify(this.mydata)
+                    localStorage.setItem(this.myinst,arr)
+                    console.log(arr)
+                }
+            },
+
+
+           filters:{ //处理特殊情况
+
+           },
+
+           directives:{ //自定义事件
+
+           }
+
+
+
+        })
+
+
+
+
+        // function tianjia() {
+        //     var val = text.value;
+        //     var val2=niceng.value
+        //
+        //     if (val == '') {
+        //         text.focus();
+        //         alert('请输入内容在添加');
+        //     } else if (val2==''){
+        //         alert('请输入昵称后添加')
+        //     } else {
+        //         var str =`
+        //
+        //         <div class="yonghu">
+        //             <a><img src="images/1.jpg"></a>
+        //             <span>${val2}</span><br>
+        //             <span>${val}</span>
+        //             <p>${date()}</p>
+        //
+        //         </div>
+        //
+        //         `
+        //         return str;
+        //     }
+        //
+        //     return '';
+        // }
+        //
+        // but.onclick = function() {
+        //     var timer = 0; // 保存私有的timer, 做节流
+        //     return function() {
+        //         clearTimeout(timer);
+        //         timer = setTimeout(function() {
+        //             var str = tianjia();
+        //             luban.innerHTML += str;
+        //             text.value='';
+        //         }, 500);
+        //     };
+        //
+        // }();
+        //
+
 
 
 

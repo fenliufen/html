@@ -6,6 +6,7 @@
     <title>动态</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_82r7g9ybfkv.css">
     <script src="../gundongtiao.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -25,11 +26,11 @@
         }
         
         .demo {
-            margin:auto;
+            margin: auto;
             width: 100%;
             height: 100%;
         }
-
+        
         .demo:before {
             content: ' ';
             position: fixed;
@@ -41,8 +42,7 @@
             /*background:#a4daff ;*/
             background-image: url("../images/3.jpg");
             background-size: cover;
-            background-position:center ;
-
+            background-position: center;
         }
         
         .titer {
@@ -121,21 +121,20 @@
             font: normal normal normal 14px/1 FontAwesome;
             text-rendering: auto;
             font-size: 30px;
-
         }
         
         .dengru i:hover {
             color: pink;
         }
         
-      .demo1{
-           margin-top: 64px;
+        .demo1 {
+            margin-top: 64px;
             overflow: auto;
-           overflow-y:hidden ;
-           overflow-x:hidden ;
+            overflow-y: hidden;
+            overflow-x: hidden;
             scrollbar-width: none;
-           padding-bottom: 10px;
-      }
+            padding-bottom: 10px;
+        }
         
         .demo1::-webkit-scrollbar {
             display: none;
@@ -161,14 +160,13 @@
             height: 20px;
             z-index: 21;
             background: blue;
-
         }
         
         .liuyan {
             position: absolute;
             width: 400px;
             height: 140px;
-           box-shadow:0 0 100px inset aliceblue;
+            box-shadow: 0 0 100px inset aliceblue;
             left: 20px;
             top: 30px;
             background: aliceblue;
@@ -178,8 +176,8 @@
             position: absolute;
             width: 400px;
             height: 140px;
-            box-shadow:0 0 100px inset aliceblue;
-            background:aliceblue;
+            box-shadow: 0 0 100px inset aliceblue;
+            background: aliceblue;
             right: 20px;
             top: 30px;
         }
@@ -210,6 +208,26 @@
             text-align: center;
         }
 
+
+                /*返回顶部*/
+
+        .top {
+            position: fixed;
+            right: 50px;
+            bottom: 100px;
+            z-index: 11;
+        }
+
+        .top:hover {
+            cursor: pointer
+        }
+
+        a:hover {
+            cursor: pointer
+        }
+
+
+
     </style>
 </head>
 
@@ -230,6 +248,11 @@
                         <li>
                             <a href="../关于我/guanyu.html">关于我</a>
                         </li>
+
+                        <li>
+                            <a href="../博客日志/index.html">博客日记</a>
+                         </li>
+
 
                         <li>
                             <a href="../留言/liuyan.html">留言板</a>
@@ -255,119 +278,119 @@
         </div>
 
         <div id="gotop" class="top">
-                <img id="img" src="images/Top.jpg"/>
+            <img id="img" src="images/Top.jpg" />
         </div>
 
         <div class="demo1">
-                <ul class="list">
+            <ul class="list">
 
-                     <li>
-                        <div class="liuyan1">
-                            <span class="date">2020.01.19</span>
-                            <div class="neir">
-                                <p>如果最基础的都不会，那么你就完了！</p>
-                            </div>
+                <li>
+                    <div class="liuyan1">
+                        <span class="date">2020.01.19</span>
+                        <div class="neir">
+                            <p>如果最基础的都不会，那么你就完了！</p>
                         </div>
-                        <i class="iconfont"></i>
+                    </div>
+                    <i class="iconfont"></i>
 
-                    </li>
+                </li>
 
 
-                    <li>
-                        <div class="liuyan">
-                            <span class="date">2020.01.16</span>
-                            <div class="neir">
-                                <p>只要坚持，就一定会有所收获！不管什么，努力就是了</p>
-                            </div>
+                <li>
+                    <div class="liuyan">
+                        <span class="date">2020.01.16</span>
+                        <div class="neir">
+                            <p>只要坚持，就一定会有所收获！不管什么，努力就是了</p>
                         </div>
-                        <i class="iconfont"></i>
+                    </div>
+                    <i class="iconfont"></i>
 
-                    </li>
+                </li>
 
-                    <li>
-                        <div class="liuyan1">
-                            <span class="date">2020.1.15</span>
-                            <div class="neir">
-                                <p>如果说学历重要的话，不如说能力比较重要，毕竟企业不是要的证书，而是能力</p>
-                            </div>
+                <li>
+                    <div class="liuyan1">
+                        <span class="date">2020.1.15</span>
+                        <div class="neir">
+                            <p>如果说学历重要的话，不如说能力比较重要，毕竟企业不是要的证书，而是能力</p>
                         </div>
-                        <i class="iconfont"></i>
-                    </li>
+                    </div>
+                    <i class="iconfont"></i>
+                </li>
 
-                    <li>
-                        <div class="liuyan">
-                            <span class="date">2019.12.19</span>
-                            <div class="neir">
-                                <p>基础不牢，地动山摇。</p>
-                            </div>
+                <li>
+                    <div class="liuyan">
+                        <span class="date">2019.12.19</span>
+                        <div class="neir">
+                            <p>基础不牢，地动山摇。</p>
                         </div>
-                        <i class="iconfont"></i>
+                    </div>
+                    <i class="iconfont"></i>
 
-                    </li>
+                </li>
 
-                    <li>
-                        <div class="liuyan1">
-                            <span class="date">2019.12.17</span>
-                            <div class="neir">
-                                <p>遇到最恐怖bug不是这为什么不能运行，而是这为什么能运行？？</p>
-                            </div>
+                <li>
+                    <div class="liuyan1">
+                        <span class="date">2019.12.17</span>
+                        <div class="neir">
+                            <p>遇到最恐怖bug不是这为什么不能运行，而是这为什么能运行？？</p>
                         </div>
-                        <i class="iconfont"></i>
-                    </li>
+                    </div>
+                    <i class="iconfont"></i>
+                </li>
 
-                    <li>
-                        <div class="liuyan">
-                            <span class="date">2019.12.14</span>
-                            <div class="neir">
-                                <p>好的测试是怎么样子的！需要具备哪些技能？开发:只是测试:开发&&测试😳😳😳</p>
-                            </div>
+                <li>
+                    <div class="liuyan">
+                        <span class="date">2019.12.14</span>
+                        <div class="neir">
+                            <p>好的测试是怎么样子的！需要具备哪些技能？开发:只是测试:开发&&测试😳😳😳</p>
                         </div>
-                        <i class="iconfont"></i>
+                    </div>
+                    <i class="iconfont"></i>
 
-                    </li>
+                </li>
 
-                    <li>
-                        <div class="liuyan1">
-                            <span class="date">2019.12.13</span>
-                            <div class="neir">
-                                <p>学逻辑，逐渐怀疑人生🙁🙁🙁</p>
-                            </div>
+                <li>
+                    <div class="liuyan1">
+                        <span class="date">2019.12.13</span>
+                        <div class="neir">
+                            <p>学逻辑，逐渐怀疑人生🙁🙁🙁</p>
                         </div>
-                        <i class="iconfont"></i>
+                    </div>
+                    <i class="iconfont"></i>
 
-                    </li>
+                </li>
 
 
-                    <li>
-                        <div class="liuyan">
-                            <span class="date">2019.12.12</span>
-                            <div class="neir">
-                                <p>⁣有些BUG不要随便改，因为你不知道它硬生生支撑起了多少个BUG😂😂😂</p>
-                            </div>
+                <li>
+                    <div class="liuyan">
+                        <span class="date">2019.12.12</span>
+                        <div class="neir">
+                            <p>⁣有些BUG不要随便改，因为你不知道它硬生生支撑起了多少个BUG😂😂😂</p>
                         </div>
-                        <i class="iconfont"></i>
+                    </div>
+                    <i class="iconfont"></i>
 
-                    </li>
+                </li>
 
-                         <li>
-                        <div class="liuyan1">
-                            <span class="date">2019.12.11</span>
-                            <div class="neir">
-                                <p>静下心来才能更好的思考，更好的去创作</p>
-                            </div>
+                <li>
+                    <div class="liuyan1">
+                        <span class="date">2019.12.11</span>
+                        <div class="neir">
+                            <p>静下心来才能更好的思考，更好的去创作</p>
                         </div>
-                        <i class="iconfont"></i>
+                    </div>
+                    <i class="iconfont"></i>
 
-                    </li>
+                </li>
 
-                </ul>
+            </ul>
         </div>
 
     </div>
 
 
 
-    </div>
+
 
 
 
@@ -375,83 +398,63 @@
 
 
     <script>
-        let shuju = {
+        // let shuju = {
+        //
+        //     neirong: [
+        //
+        //
+        //     ]
+        //
+        // }
+        //
+        //
+        // let ul = document.querySelector('.list')
+        //
+        // function tianjia() {
+        //     for (let i = 0; i < shuju.neirong.length; i++) {
+        //         let jj = `
+        //     <li>
+        //         <div class="liuyan">
+        //             <span class="date">${shuju.neirong.shijian}</span>
+        //             <div class="neir">
+        //                 <p>${shuju.neirong.wenben}</p>
+        //             </div>
+        //         </div>
+        //         <i class="iconfont"></i>
+        //
+        //     </li>`
+        //
+        //         ul.innerHTML += jj
+        //
+        //     }
+        // }
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        // let div = document.querySelectorAll('.list li div:nth-of-type(1)')
+        // let time = document.querySelectorAll('.date')
+        // let p = document.querySelectorAll('.neir p')
+        //
+        // function bangding() {
+        //     let arr = shuju.neirong
+        //     for (let i = 0; i < arr.length; i++) {
+        //
+        //         if (i % 2 == 0) {
+        //             div[i].style.right = 30 + 'px'
+        //
+        //         }
+        //
+        //         p[i].innerHTML = arr[i].wenben;
+        //         time[i].innerHTML = shuju.neirong[i].shijian
+        //
+        //     }
+        // }
 
-            neirong: [
-
-
-            ]
-
-        }
-
-
-        let ul = document.querySelector('.list')
-
-        function tianjia() {
-            for (let i = 0; i < shuju.neirong.length; i++) {
-                let jj = `
-            <li>
-                <div class="liuyan">
-                    <span class="date">${shuju.neirong.shijian}</span>
-                    <div class="neir">
-                        <p>${shuju.neirong.wenben}</p>
-                    </div>
-                </div>
-                <i class="iconfont"></i>
-
-            </li>`
-
-                ul.innerHTML += jj
-
-            }
-        }
-
-
-
-
-
-
-
-
-        let div = document.querySelectorAll('.list li div:nth-of-type(1)')
-        let time = document.querySelectorAll('.date')
-        let p = document.querySelectorAll('.neir p')
-
-        function bangding() {
-            let arr = shuju.neirong
-            for (let i = 0; i < arr.length; i++) {
-
-                if (i % 2 == 0) {
-                    div[i].style.right = 30 + 'px'
-
-                }
-
-                p[i].innerHTML = arr[i].wenben;
-                time[i].innerHTML = shuju.neirong[i].shijian
-
-            }
-        }
-
-
-        var tishiii=document.querySelector('.yqts');
-                function monitoring () {
-                    var width=window.innerWidth
-                      if (width<1300){
-                             tishiii.style.display='none';
-                    }else if (width>=1300) {
-                        tishiii.style.display='block';
-                    }
-
-                }
-
-                  monitoring ();
-
-
-
-                window.onresize = function(){
-                   monitoring ();
-
-                }
 
 
     </script>
