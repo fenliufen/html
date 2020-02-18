@@ -1,0 +1,172 @@
+   body {
+            margin: 0 0 0 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            color: black;
+
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .demo {
+            position: relative;
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .demo1 {
+            position: fixed;
+            left: 55px;
+            top: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: black;
+            font-size: 25px;
+            text-align: center;
+            line-height: 40px;
+            z-index: 99;
+            overflow-x: hidden;
+        }
+
+        .demo1:hover {
+            cursor: pointer
+        }
+        /*内容区域*/
+
+        .baidu_shou {
+            margin: 50px auto;
+            max-width: 650px;
+            height: 191px;
+        }
+
+        .log_top img {
+            display: block;
+            width: 270px;
+            height: 129px;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        .baidu_shou .shousuo {
+            max-width: 656px;
+            margin: auto;
+        }
+
+        .baidu_shou .shousuo input[type='text'] {
+            width: 540px;
+            max-width: 540px;
+            min-width: 0;
+
+        }
+
+
+
+        .list {
+            width: 100%;
+            display: block;
+            margin: auto;
+        }
+
+        .list ul {
+            display: block;
+            width: 540px;
+            box-shadow: 0 0 100px aliceblue inset;
+        }
+
+        .list ul list {
+            display: block;
+            margin: auto;
+        }
+        /*导航区域*/
+
+        .demo2 {
+            opacity: 0;
+            position: absolute;
+            height: 100%;
+            width: 328px;
+            left: 0;
+            transition-duration: 1s;
+            background: aliceblue;
+        }
+
+        .demo2 ul {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            z-index: 101;
+            font-size: 20px;
+        }
+
+        .demo2 li {
+            display: block;
+            text-align: left;
+            line-height: 80px;
+        }
+
+        .demo2 li a:hover {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .demo2 li a {
+            color: #686967;
+            display: inline-block;
+            line-height: 46px;
+            padding: 10px 50px;
+            font-size: 20px;
+            text-decoration: none;
+            -webkit-transition: color .6s linear;
+            transition: color .6s linear;
+            position: relative;
+        }
+
+        .demo2 h1 {
+            position: absolute;
+            display: block;
+            font-size: 200%;
+            font-family: 'STXingkai';
+            bottom: 0;
+            left: 20px;
+        }
+
+
+
+        .list_011 a{
+            text-decoration: none;
+            outline: none;
+            color: black;
+
+        }
+
+        .top {
+            position: fixed;
+            right: 50px;
+            bottom: 100px;
+            background: red;
+        }
+        .top img{
+            width: 300px;
+            height: 300px;
+        }
+
+        .sats{
+            position: absolute;
+            left: 0;
+           top: -40px;
+            font-size: 20px;
+            font-weight: bold;
+            background: red;
+            border-radius: 3px;
+        }
+

@@ -1,0 +1,448 @@
+
+/*样式初始化区域*/
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body a {
+    text-decoration: none;
+    outline: none;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.demo {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.demo:before {
+    content: ' ';
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("../images/3.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*标题导航栏区域*/
+
+.titer {
+    width: 100%;
+    min-height: 60px;
+    opacity: 0.9;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 11002;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #e8e9e7;
+    font-size: 14px;
+}
+
+.libiao {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.hang {
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.hang a:nth-of-type(1) {
+    font-size: 200%;
+    font-family: 'STXingkai';
+    color: #444647;
+    line-height: 60px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+}
+
+.daohang li {
+    display: block;
+    float: right;
+    margin: 10px 10px;
+    position: relative;
+}
+
+.daohang li:nth-of-type(1) {
+    margin-right: 250px;
+}
+
+.daohang li a {
+    display: block;
+    line-height: 32px;
+    padding: 4px 28px;
+    color: #212220;
+    font-weight: 400;
+    font-size: 15px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
+    -webkit-transition: all .2s;
+    transition: all .2s;
+     text-decoration: none;
+    outline: none;
+}
+
+.daohang li a:hover {
+    color: blue;
+    font-weight: bold;
+}
+
+.dengru {
+    right: 0;
+    position: absolute;
+    line-height: 60px;
+    font-size: 24px;
+}
+
+.dengru i {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    font-size: 30px;
+}
+
+.dengru i:hover {
+    color: pink;
+}
+
+
+/*内容区域*/
+
+.jianrong {
+    max-width: 1273px;
+    overflow: hidden;
+    margin: auto;
+    padding-top:90px ;
+
+}
+
+.demo1 {
+    position: relative;
+    max-width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0);
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /*火狐去掉滚动条*/
+    scrollbar-width: none;
+
+}
+
+.demo1::-webkit-scrollbar {
+    display: none;
+}
+
+
+/*文章展示区域样式*/
+
+.zhanshi {
+    max-width: 960px;
+    min-height: 800px;
+    height: 100%;
+
+}
+
+.zhanshi .tisi {
+    font-size: 25px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+}
+
+.zhanshi .list {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 960px;
+    height: 100%;
+}
+
+.zhanshi .list li {
+    position: relative;
+    margin-bottom: 20px;
+    max-width: 960px;
+    background-color: #fff;
+    animation-duration: 3s;
+    animation-name: donghua;
+     border-radius:9px ;
+}
+
+@keyframes donghua {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.list li .content-1 .list-title {
+    line-height: 30px;
+    padding: 5px 130px 5px 0;
+    border-bottom: 1px solid #e8e9e7;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.content-1 {
+    padding-left: 30px;
+}
+
+.list li .content-1 .list-title span {
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: bottom;
+    color: #2ea7e0;
+}
+
+.list li .content-1 .list-title a {
+    color: #212220;
+     text-decoration: none;
+     outline: none;
+}
+
+.list li .content-1 .tome {
+    font-family: SourceCodeProRegular, Menlo, Monaco, Consolas, "Courier New", monospace, 'Helvetica Neue', Arial, sans-serif;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    background-color: #fff;
+    padding: 0 20px 5px 20px;
+    line-height: 32px;
+}
+
+.list li .content-1 .tome span:nth-of-type(1) {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    color: #6bc30d;
+    position: relative;
+    top: 2px;
+}
+
+.list li .content-1 .tome span:nth-of-type(2) {
+    color: #989997;
+    font-size: 18px;
+}
+
+.list li .content-1 .tome span:nth-of-type(3) {
+    color: #989997;
+    font-size: 18px;
+}
+
+.list li .content-1 .content {
+    margin: 20px 0 0 0;
+    line-height: 28px;
+    position: relative;
+    min-height: 200px;
+    font-size: 14px;
+    color: #515250;
+    text-align: justify;
+    padding-right: 10px;
+}
+
+.list li .content-1 .content a {
+    display: block;
+    width: 300px;
+    height: 180px;
+    border: 1px solid #e8e9e7;
+    overflow: hidden;
+    float: left;
+    margin-right: 20px;
+    color: #3e8bc7;
+     text-decoration: none;
+     outline: none;
+}
+
+.list li .content-1 .content a img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.list li .content-1 .read-more {
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+
+.list li .content-1 .read-more div {
+    display: inline-block;
+    height: 1px;
+    top: 20px;
+    left: 100px;
+    right: 0;
+    position: absolute;
+    background-color: #d0d0d0;
+}
+
+.list li .content-1 .read-more a {
+    font-weight: bold;
+    font-size: 14px;
+    color: #383937;
+    padding-left: 6px;
+     text-decoration: none;
+     outline: none;
+}
+
+.list li .content-1 .read-more a:hover {
+    font-weight: bold;
+    color: red;
+}
+
+
+/*导航栏样式*/
+
+.daohanglan {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    float: right;
+    background: rgba(0, 0, 0, 0);
+}
+
+
+.seek{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background-color: rgba(255, 255, 255, 1);
+    text-align: center;
+    border-radius:9px ;
+   margin-bottom:20px ;
+
+}
+
+.seek input[type='text']{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #cccccc;
+     border-radius:3px ;
+    text-indent: 1em;
+
+}
+
+.seek .but_01{
+    width: 50px;
+    height: 30px;
+    background: red;
+    margin-top:30px ;
+    border: 1px solid #cccccc;
+    border-radius:3px ;
+
+
+}
+
+
+.daohang2 {
+    position: relative;
+    width: 300px;
+    background-color: #fff;
+    border-radius:9px ;
+
+}
+
+.daohang2 h5 {
+    margin: 10px 20px;
+    padding: 5px;
+    line-height: 30px;
+    font-weight: 400;
+    border-bottom: 1px solid #e8e9e7;
+    color: #383937;
+    position: relative;
+    font-size: 18px;
+}
+
+.daohang2 div {
+    margin: 0 20px;
+    padding-bottom: 10px;
+}
+
+.daohang2 div ul {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.daohang2 div ul li {
+    height: 40px;
+    width: 352px;
+    line-height: 32px;
+    position: relative;
+    margin: 3px 0;
+    overflow: hidden;
+    word-wrap: normal !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #787977;
+    font-size: 14px;
+}
+
+.daohang2 div ul li a {
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #f8f9f7;
+    color: #787977;
+    font-size: 14px;
+     text-decoration: none;
+     outline: none;
+}
+
+.daohang2 div ul li :hover {
+    font-weight: bold;
+    color: green;
+}
+
+
+.daohang3{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius:9px ;
+}
+
+
+.daohang3 h3{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.daohang3 img{
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+
