@@ -171,6 +171,15 @@ var vml = new Vue({
             day: '03',
             zhuan: './潭州课堂/index.html',
             kind: '网站开发'
+        },{
+            title: 'vue组件练习',
+            msg_url: './images/9.png',
+            content_wen:"在vue当中，子组件传值给父组件，需要自定义事件，把数据发射给父组件，父组件传值给子组件在子组件内部Prop选项中定义变量接收",
+            year: '2020',
+            month: '02',
+            day: '24',
+            zhuan: './学生管理表案例/index.html',
+            kind: '网站开发'
         }
 
         ]

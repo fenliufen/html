@@ -35,7 +35,7 @@ var mydata = {
         time: '2020-02-18',
         text: '对待好每一次的面试，今天有场面试被搞砸了，有点膨胀还是不太好！'
     }, {
-        time: '2019-12-15',
+        time: '2020-02-22',
         text: '有些BUG不要随便改，因为你不知道它硬生生支撑起了多少个BUG😂😂😂'
     }, {
         time: '2020-02-17',
@@ -54,13 +54,13 @@ function add() {
 }
 
 add();
+
 var text_01 = document.querySelectorAll('.neir p');
 var date_01 = document.querySelectorAll('.date');
 
 function binding() {
     //模拟数据绑定
     var arr = mydata.data;
-
     for (var i = 0; i < arr.length; i++) {
         text_01[i].innerHTML = arr[i].text;
         date_01[i].innerHTML = arr[i].time;
@@ -71,6 +71,7 @@ function seqencing() {
     mydata.data.sort(function(a, b) {
         return a.time < b.time ? 1 : -1;
     });
+
     binding();
 }
 

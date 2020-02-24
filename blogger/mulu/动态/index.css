@@ -164,6 +164,7 @@
          left: 20px;
          top: 30px;
          background: aliceblue;
+         border-radius: 3px;
      }
      
      .liuyan1 {
@@ -174,6 +175,7 @@
          background: aliceblue;
          right: 20px;
          top: 30px;
+         border-radius: 9px;
      }
      
      .date {
@@ -195,6 +197,7 @@
          box-shadow: 0 0 100px inset white;
          margin: auto;
          background: palegreen;
+         border-radius: 9px;
      }
      
      .neir p {
