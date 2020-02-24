@@ -34,6 +34,8 @@
             font-size: 20px;
         }
     </style>
+
+
 </head>
 
 <body>
@@ -52,10 +54,11 @@
     </div>
 
 
-    <!--添加学员信息标签-->
+    <!--添加学员信息组件-->
     <template id="add">
 
         <div class="test_01">
+
                     <h3 class="title">学生管理系统</h3>
 
                     <div class="form-group">
@@ -74,6 +77,7 @@
 
 
 
+    <!--展示学习信息表组件-->
     <template id="zhanshi">
 
         <div class="test_02">
@@ -97,8 +101,7 @@
 
 
     <script>
-
-        // 学生管理系统
+        // 添加学生信息组件
         Vue.component('my-component-name', {
             template: "#add",
             data: function() {
@@ -127,7 +130,7 @@
         })
 
 
-        // 展示信息组件
+        // 展示学生信息组件
         Vue.component("mydataa", {
             template: "#zhanshi",
             props: ['mydata'],
