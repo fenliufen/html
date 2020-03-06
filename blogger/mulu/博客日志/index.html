@@ -32,9 +32,9 @@
                             <a href="../关于我/guanyu.html">关于我</a>
                         </li>
 
-                          <li>
+                        <li>
                             <a href="../博客日志/index.html">博客日记</a>
-                         </li>
+                        </li>
 
 
                         <li>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="jianrong">
-            <div class="demo1"  >
+            <div class="demo1">
 
 
                 <!--文章展示区-->
@@ -101,18 +101,20 @@
 
 
 
+                <div id="gotop" class="top">
+                    <img id="img" src="images/Top.jpg" />
+                </div>
+
+
+
                 <!--导航栏-->
                 <div class="daohanglan visible-lg-*">
-
-
-                    <div class="seek">
-                         <input type="text" placeholder="请输入关键字搜索" v-model="chauxun" @keyup.13="guolu">
-                        <input type="button" class="but_01" value="搜索"  @click="guolu">
-                    </div>
-
-                        <div id="gotop" class="top">
-                            <img id="img" src="images/Top.jpg" />
+                    <div class=" navigation ">
+                        <div class="seek">
+                            <input type="text" placeholder="请输入关键字搜索" v-model="chauxun" @keyup.13="guolu">
+                            <input type="button" class="but_01" value="搜索" @click="guolu">
                         </div>
+
 
                         <div class="daohang2">
                             <h5>热门推荐</h5>
@@ -133,10 +135,12 @@
 
                         </div>
 
-                         <div class="daohang3">
-                             <h3><span>—</span> 加我微信 <span>—</span></h3>
-                                <img src="images/1.jpg">
-                         </div>
+
+                        <div class="daohang3">
+                            <h3><span>—</span> 加我微信 <span>—</span></h3>
+                            <img src="images/1.jpg">
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -159,8 +163,7 @@
 
     </div>
 
-  <script src="./situation.js"></script>
-
-
+    <script src="./situation.js"></script>
 </body>
+
 </html>

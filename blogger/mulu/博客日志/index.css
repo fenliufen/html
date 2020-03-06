@@ -164,7 +164,7 @@ input {
 
 .zhanshi {
     max-width: 960px;
-    min-height: 800px;
+    min-height: 1000px;
     height: 100%;
 
 }
@@ -313,6 +313,7 @@ input {
     padding-left: 6px;
      text-decoration: none;
      outline: none;
+
 }
 
 .list li .content-1 .read-more a:hover {
@@ -328,9 +329,15 @@ input {
     right: 0;
     top: 0;
     width: 300px;
-    float: right;
     background: rgba(0, 0, 0, 0);
 }
+
+
+.daohanglan .navigation{
+    position: fixed;
+}
+
+
 
 
 .seek{
@@ -343,6 +350,7 @@ input {
    margin-bottom:20px ;
 
 }
+
 
 .seek input[type='text']{
     width: 200px;
@@ -366,12 +374,14 @@ input {
 
 
 .daohang2 {
-    position: relative;
     width: 300px;
+    margin-top: 10px;
     background-color: #fff;
     border-radius:9px ;
-
 }
+
+
+
 
 .daohang2 h5 {
     margin: 10px 20px;

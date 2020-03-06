@@ -52,12 +52,7 @@ var vml = new Vue({
 
         ]
     },
-    filters: { //对数据进行操作
-    },
-    computed: { //放置计算属性
-    },
-    watch: { //数据监听
-    }
+
 });
 
 
@@ -68,9 +63,10 @@ var vml = new Vue({
 var tishiii = document.querySelector('.yqts');
 var zhanshi = document.querySelector('.zhanshi');
 var doahang = document.querySelector('.daohanglan');
+var daohang2=document.querySelector('.daohang2')
 
 function monitoring() {
-    var width = window.innerWidth
+    var  width = window.innerWidth
     if (width < 1300) {
         tishiii.style.display = 'none';
         doahang.style.display = 'none';

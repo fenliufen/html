@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>组件练习</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <style>
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+        
+        input {
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        
+        #app {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .home {
+            width: 1200px;
+            border: 1px solid #cccccc;
+        }
+        
+        .home ul li {
+            position: relative;
+            display: block;
+            margin: 10px auto;
+            width: 960px;
+            border: 1px solid #cccccc;
+        }
+        
+        .list li .content-1 .list-title {
+            line-height: 30px;
+            padding: 5px 130px 5px 0;
+            border-bottom: 1px solid #e8e9e7;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        
+        .content-1 {
+            padding-left: 30px;
+        }
+        
+        .list li .content-1 .list-title span {
+            font-size: 16px;
+            font-weight: 400;
+            display: inline-block;
+            vertical-align: bottom;
+            color: #2ea7e0;
+        }
+        
+        .list li .content-1 .list-title a {
+            color: #212220;
+            text-decoration: none;
+            outline: none;
+        }
+        
+        .list li .content-1 .tome {
+            font-family: SourceCodeProRegular, Menlo, Monaco, Consolas, "Courier New", monospace, 'Helvetica Neue', Arial, sans-serif;
+            position: absolute;
+            right: 0px;
+            top: 10px;
+            background-color: #fff;
+            padding: 0 20px 5px 20px;
+            line-height: 32px;
+        }
+        
+        .list li .content-1 .tome span:nth-of-type(1) {
+            display: block;
+            text-align: center;
+            font-weight: 700;
+            font-size: 40px;
+            color: #6bc30d;
+            position: relative;
+            top: 2px;
+        }
+        
+        .list li .content-1 .tome span:nth-of-type(2) {
+            color: #989997;
+            font-size: 18px;
+        }
+        
+        .list li .content-1 .tome span:nth-of-type(3) {
+            color: #989997;
+            font-size: 18px;
+        }
+        
+        .list li .content-1 .content {
+            margin: 20px 0 0 0;
+            line-height: 28px;
+            position: relative;
+            min-height: 200px;
+            font-size: 14px;
+            color: #515250;
+            text-align: justify;
+            padding-right: 10px;
+        }
+        
+        .list li .content-1 .content a {
+            display: block;
+            width: 300px;
+            height: 180px;
+            border: 1px solid #e8e9e7;
+            overflow: hidden;
+            float: left;
+            margin-right: 20px;
+            color: #3e8bc7;
+            text-decoration: none;
+            outline: none;
+        }
+        
+        .list li .content-1 .content a img {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        .list li .content-1 .read-more {
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+        }
+        
+        .list li .content-1 .read-more div {
+            display: inline-block;
+            height: 1px;
+            top: 20px;
+            left: 100px;
+            right: 0;
+            position: absolute;
+            background-color: #d0d0d0;
+        }
+        
+        .list li .content-1 .read-more a {
+            font-weight: bold;
+            font-size: 14px;
+            color: #383937;
+            padding-left: 6px;
+            text-decoration: none;
+            outline: none;
+        }
+        
+        .list-01 {
+            width: 1200px;
+            margin:auto;
+        }
+
+        .list-01 ul{
+            display: block;
+            margin:auto;
+        }
+        
+        .list-01 ul li {
+            width: 50px;
+            height: 30px;
+            border: 1px solid #cccccc;
+            float: left;
+            margin-right: 10px;
+            margin-top:20px ;
+            text-align: center;
+        }
+
+        .list-01 ul li a{
+            text-align: center;
+            line-height: 30px;
+
+        }
+
+        .journalism{
+            background: burlywood;
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app"><router-view></router-view></div>
+
+    <template id="home">
+    <div class="home">
+        <ul class="list">
+            <li  v-for="itme in  mydata.result" >
+                            <div class="content-1">
+                                <h5 class="list-title">
+                                    <span>【原创】</span>
+                                    <a :href="itme.path">{{itme.title}}</a>
+                                </h5>
+                                <div class="tome">{{itme.passtime}}</div>
+                                <div class="content">
+                                    <a :href="itme.path">
+                                        <img :src="itme.image">
+                                    </a>
+                                    <span></span>
+                                </div>
+                                <div class="read-more">
+                                    <div></div>
+                                    <a :href="itme.path">立即阅读</a>
+                                </div>
+                                <div></div>
+
+                            </div>
+            </li>
+        </ul>
+        <list @add="add"></list>
+    </div>
+</template>
+    <template id="list">
+        <div class="list-01">
+            <ul>
+                <li v-for="(item,index) in leng" @click="add(index)">
+                    <a>{{item}}</a>
+                </li>
+
+            </ul>
+        </div>
+    </template>
+
+
+    <script>
+
+        Vue.prototype.$axios = axios;
+        var list = {
+            template: "#list",
+            created() {
+                let that = this;
+                this.$axios.get('https://api.apiopen.top/getWangYiNews?page=0&count=150')
+                    .then(function(res) {
+                        that.leng = res.data.result.length / 10;
+                        console.log(that.leng)
+                    })
+
+                    .catch(function(err) {
+                        console.log(err)
+                    })
+
+            },
+
+            data: function() {
+                return {
+                    mydata: [],
+                    leng: '',
+                    isActive:false
+
+                }
+            },
+
+            methods: {
+                add: function(index) {
+                    let that = this;
+                    that.isActive=true;
+                    this.$axios.get("https://api.apiopen.top/getWangYiNews?page=" + (index * 10) + "&count=10")
+                        .then(function(res) {
+                            that.mydata = res.data;
+                            console.log(index);
+                            that.$emit('add',that.mydata,that.isActive)
+                        })
+                        .catch(function(err) {
+                            console.log(err)
+                        });
+
+
+                }
+
+            }
+
+        };
+
+
+        //home组件定义
+        var home = {
+            template: "#home",
+            created() {
+                let that = this;
+                this.$axios.get('https://api.apiopen.top/getWangYiNews?page=1&count=10')
+                    .then(function(res) {
+                        that.mydata = res.data
+                    })
+                    .catch(function(err) {
+                        console.log(err)
+                    })
+
+
+
+            },
+            data: function() {
+                return {
+                    mydata: [],
+                    isActive:""
+
+                }
+            },
+
+            methods: {
+                add(mydata,isActive) {
+                    console.log('触发了');
+                    this.mydata = mydata
+                    this.isActive=isActive
+                }
+
+            },
+            components: {
+                list
+            }
+        };
+
+
+
+        var routes = [{
+            path: '/',
+            component: home
+        }, ];
+
+
+
+        var router = new VueRouter({
+            routes // (缩写) 相当于 routes: routes
+        });
+
+
+
+
+        var vml = new Vue({
+            el: '#app', //获取dom节点
+            router,
+        })
+
+
+
+    </script>
+</body>
+
+</html>

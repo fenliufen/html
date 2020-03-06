@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>Title</title>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <style>
+        #app ul li img{
+            width:400px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="itme in mydata" v-html="itme">
+
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+<script>
+    Vue.prototype.$axios = axios;
+
+    var vlm=new Vue({
+        el:"#app",
+        created(){
+            $this=this
+            this.$axios.get("http://meiriyikan.cn/api/json.php")
+                .then(function (res) {
+                    console.log(res.data)
+                    $this.mydata.push(res.data)
+                })
+                .catch(function (err) {
+                    console.log(err)
+                })
+
+
+        },
+        data:{
+            mydata:[],
+        },
+
+        methods:{
+
+        }
+    })
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

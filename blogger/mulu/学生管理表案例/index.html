@@ -7,6 +7,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
+        #app{
+            max-width: 1200px;
+            margin:20px auto;
+
+        }
         .title {
             text-align: center;
             color: blue;
@@ -43,14 +48,11 @@
 
 
     <div id="app">
-
         <my-component-name v-on:add="add"></my-component-name>
         <mydataa :mydata="mydata" v-on:remove="remove"></mydataa>
         <div class="tisi" v-if="mydata==''">
             暂时没有数据
         </div>
-
-
     </div>
 
 
@@ -67,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">学生电话</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="学生电话" v-model="pack">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="学生电话" v-model="phone">
                     </div>
 
                     <button type="button" class="btn btn-default"  @click="add" >添加学生</button>
@@ -90,7 +92,7 @@
                 </tr>
                 <tr v-for="(itme,index) in mydata">
                     <td>{{itme.name}}</td>
-                    <td>{{itme.pack}}</td>
+                    <td>{{itme.phone}}</td>
                     <td><input type="button" value="删除" v-on:click="remove(index)"></td>
                 </tr>
             </table>
@@ -101,33 +103,34 @@
 
 
     <script>
+
         // 添加学生信息组件
         Vue.component('my-component-name', {
             template: "#add",
             data: function() {
                 return {
                     name: "",
-                    pack: "",
+                    phone: "",
                     state: ""
                 }
             },
 
-
             methods: {
+
                 //向父组件发射数据
                 add: function() {
-                    if (this.name == "" || this.pack == "") return alert('请输入姓名或者手机号')
+                    if (this.name == "" || this.phone == "") return alert('请输入姓名或者手机号')
                     var myreg = /^[1][3,4,5,7,8][0-9]{9}$/ //匹配电话的正则
-                    if (!myreg.test(this.pack)) {
+                    if (!myreg.test(this.phone)) {
                         return alert("请输入有效的手机号码")
                     }
-                    this.$emit("add", this.name, this.pack)
+                    this.$emit("add", this.name, this.phone)
                     this.name = ""
-                    this.pack = ""
+                    this.phone = ""
                 }
             },
 
-        })
+        });
 
 
         // 展示学生信息组件
@@ -145,16 +148,26 @@
         //跟组件
         var vml = new Vue({
             el: '#app', //获取dom节点
-            methods: { //点击事件控制区
-                add: function(name, pack) {
-                    console.log('拿到数据了')
+            methods: {
+
+                //添加事件
+                add: function(name, phone) {
+                    var a = false;
+                    this.mydata.forEach(function (itme, index, array) {
+                        if (itme.phone == phone) {
+                            a = true;
+                            return alert('电话号码重复')
+                        }
+                    });
+                    if (a) return;
                     this.mydata.push({
                         name: name,
-                        pack: pack,
+                        phone: phone,
                         state: false
-                    })
-                    console.log(this.mydata)
+                    });
                 },
+
+
                 //移除事件
                 remove: function remove(index) {
                     this.mydata.splice(index, 1);
@@ -166,17 +179,19 @@
             data: { //你的数据
                 mydata: [{
                     name: '小刘',
-                    pack: "13058420123",
+                    phone: "13058420123",
                     state: false
                 }, {
                     name: '小方',
-                    pack: "13058420103",
+                    phone: "13058420103",
                     state: false
                 }]
 
             },
 
         })
+
+
     </script>
 
 

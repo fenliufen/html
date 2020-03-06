@@ -190,6 +190,7 @@ input {
     background-color: #fff;
     animation-duration: 3s;
     animation-name: donghua;
+    border-radius: 3px;
 }
 
 @keyframes donghua {
@@ -332,6 +333,8 @@ input {
     width: 300px;
     height: 405px;
     background-color: #fff;
+    border-radius: 3px;
+
 }
 
 @media all and (max-height:1200px) {
@@ -433,6 +436,7 @@ input {
     width: 300px;
     background-color: #fff;
     top: 330px;
+    border-radius: 3px;
 }
 
 .daohang2 h5 {
