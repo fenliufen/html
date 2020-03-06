@@ -119,7 +119,7 @@ var vml = new Vue({
             kind: '网站测试'
         }, {
             title: 'vue购物车小案例',
-            msg_url: './images/3.png',
+            msg_url: './images/10.png',
             content_wen: '主要设计思路在商品列表页，我们将点击添加的商品放入一个对象中，而后将该对象放入数组中，一个对象可以说就是一个商品。在购物车页面将数据从对象中读取出来，然后再渲染到页面中。即可完成购物车的操作。',
             year: '2020',
             month: '01',
@@ -128,7 +128,7 @@ var vml = new Vue({
             kind: '网站开发'
         }, {
             title: '简易版的备忘录vue小实战',
-            msg_url: './images/4.jpg',
+            msg_url: './images/10.png',
             content_wen: '主要设计模式：在页面不刷新的情况下对后台传过来的数据进行筛选，根据不同状态进行无缝切换',
             year: '2020',
             month: '01',
@@ -172,13 +172,23 @@ var vml = new Vue({
             zhuan: './潭州课堂/index.html',
             kind: '网站开发'
         },{
-            title: 'vue组件开发练习',
-            msg_url: './images/9.png',
+            title: 'vue组件开发练习1',
+            msg_url: './images/10.png',
             content_wen:"在vue当中，子组件传值给父组件，需要自定义事件，把数据发射给父组件，父组件传值给子组件在子组件内部Prop选项中定义变量接收",
             year: '2020',
             month: '02',
             day: '24',
             zhuan: './学生管理表案例/index.html',
+            kind: '网站开发'
+        },{
+            title: 'vue组件开发练习2 ajax',
+            msg_url: './images/10.png',
+            content_wen:"vue结合axios进行开发，首先引入axios，在vue created选项中执行ajax请求，需要注意的是this的指向问题，执行时看this指向wind还是vue函数，如不是需要定义变量" +
+                "把this存起来，小编就遇到了这个问题",
+            year: '2020',
+            month: '03',
+            day: '06',
+            zhuan: './分页练习案例/index.html',
             kind: '网站开发'
         },
 

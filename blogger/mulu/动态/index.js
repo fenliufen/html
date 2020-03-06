@@ -40,7 +40,12 @@ var mydata = {
     }, {
         time: '2020-02-17',
         text: '有些BUG不要随便改，因为你不知道它硬生生支撑起了多少个BUG😂😂😂'
-    }]
+    },{
+        time: '2020-03-06',
+        text: '跟年轻人交流，你会发现年轻真好，我要是还年轻我也拼命学习'
+    }
+
+    ]
 };
 var list = document.querySelector('.list');
 
