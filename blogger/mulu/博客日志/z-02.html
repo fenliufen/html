@@ -444,6 +444,7 @@
 
         </div>
 
+
     </div>
 
 
@@ -459,7 +460,7 @@
         var but = document.querySelector('.but a');
 
         function searchData(keyword) {
-            var url = "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1421,21105,30210,30284&wd=" + ("" + encodeURI(keyword)) + "&req=2&bs=%E9%9C%88%E6%80%8E%E4%B9%88%E8%AF%BB&pbs=%E9%9C%88%E6%80%8E%E4%B9%88%E8%AF%BB&csor=4&pwd=%E9%9C%80&cb=fly&_=1577006650074";
+            var url = "https://www.baidu.com/sugrec?prod=pc&wd=" + ("" + encodeURI(keyword)) + "&cb=fly";
             var script = document.createElement("script"); //创建标签
 
             script.src = url;
@@ -476,7 +477,7 @@
             console.log(list)
             divlist.innerHTML = '';
             list.forEach(function(item) {
-                divlist.innerHTML += "<li class='list_011'><a href=\"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + item.q + "\">" + item.q + "</a></li>";
+                divlist.innerHTML += "<li class='list_011'><a href=\"https://www.baidu.com/s?wd=" + item.q + "\">" + item.q + "</a></li>";
             });
         }
 
@@ -496,7 +497,7 @@
             if (input.value == '') {
                 alert('请输入内容在进行百度');
             } else {
-                window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
+                window.location.href = "https://www.baidu.com/s?wd="+ input.value;
             }
         };
 
@@ -512,7 +513,7 @@
             var e = event || window.event
             if (input.value == '') return;
             if (e && e.keyCode == 13) {
-                window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + input.value;
+                window.location.href = "https://www.baidu.com/s?wd="+ input.value;
             }
         };
 
