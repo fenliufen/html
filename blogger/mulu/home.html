@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_etxp9llkd7.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css">
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./hint.css">
     <script src="./gundongtiao.js"></script>
@@ -28,7 +29,7 @@
                     <ul class="daohang">
 
                         <li>
-                            <a href="./关于我/guanyu.html">关于我</a>
+                            <a href="关于我/message%20.html">关于我</a>
                         </li>
 
                         <li>
@@ -37,21 +38,21 @@
 
 
                         <li>
-                            <a href="./留言/liuyan.html">留言板</a>
+                            <a href="留言/message.html">留言板</a>
                         </li>
 
                         <li>
-                            <a href="./动态/dongtai.html">动态</a>
+                            <a href="动态/dynamic.html">动态</a>
                         </li>
 
                         <li>
-                            <a href="./shouye.html">首页</a>
+                            <a href="./home.html">首页</a>
                         </li>
 
                     </ul>
                 </div>
 
-                <a class="dengru">
+                <a class="dengru" href="tencent://message/?Menu=yes&uin=1607187254&Site=80fans&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a545b1714f9d45">
                     <i class="iconfont icon-icon"></i>
                 </a>
 
@@ -70,7 +71,7 @@
 
 
                 <!--文章展示区-->
-                <div class="zhanshi">
+                <div class="zhanshi animated rotateInDownRight">
                     <p class="tisi" v-if="data_tsxt==''">暂无内容!</p>
                     <ul class="list">
                         <li v-for="(data_tsxt,index) in data_tsxt">
@@ -101,7 +102,6 @@
                             </div>
                         </li>
                     </ul>
-
                 </div>
 
 
@@ -208,6 +208,7 @@
         </div>
 
     </div>
+
 
     <!--全局的js文件引入-->
     <script src="situation.js"></script>

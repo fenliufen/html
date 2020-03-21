@@ -53,7 +53,7 @@ function add() {
     //添加标签操作
     for (var i = 0; i < mydata.data.length; i++) {
         var myclass = i % 2 == 0 ? "liuyan" : "liuyan1";
-        var jj = "\n                    <li>\n                        <div class=\"" + myclass + "\">\n                            <span class=\"date\">" + mydata.data.time + "</span>\n                            <div class=\"neir\">\n                                <p>" + mydata.data.text + "</p>\n                            </div>\n                        </div>\n                        <i class=\"iconfont\"></i>\n                   </li>\n                        ";
+        var jj = "\n                    <li>\n                        <div class='animated fadeInUp "+myclass+"'>\n                            <span class=\"date\">" + mydata.data.time + "</span>\n                            <div class=\"neir\">\n                                <p>" + mydata.data.text + "</p>\n                            </div>\n                        </div>\n                        <i class=\"iconfont\"></i>\n                   </li>\n                        ";
         list.innerHTML += jj;
     }
 }

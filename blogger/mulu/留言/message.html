@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1440236_srd9nc3esze.css">
     <link rel="stylesheet" href="../hint.css">
      <link rel="stylesheet" href="./situation.css">
+     <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css">
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
      <script src="../gundongtiao.js"></script>
+
     <style>
 
     </style>
@@ -28,7 +30,7 @@
                   <ul class="daohang">
 
                         <li>
-                            <a href="../关于我/guanyu.html">关于我</a>
+                            <a href="../关于我/message%20.html">关于我</a>
                         </li>
 
                       <li>
@@ -37,21 +39,22 @@
 
 
                         <li>
-                            <a href="../留言/liuyan.html">留言板</a>
+                            <a href="../留言/message.html">留言板</a>
                         </li>
 
                         <li>
-                            <a href="../动态/dongtai.html">动态</a>
+                            <a href="../动态/dynamic.html">动态</a>
                         </li>
 
                         <li>
-                            <a href="../shouye.html">首页</a>
+                            <a href="../home.html">首页</a>
                         </li>
 
                     </ul>
                 </div>
 
-                <a class="dengru">
+
+                <a class="dengru" href="tencent://message/?Menu=yes&uin=1607187254&Site=80fans&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a545b1714f9d45">
                     <i class="iconfont icon-icon"></i>
                 </a>
 
@@ -64,7 +67,7 @@
                 <img id="img" src="images/Top.jpg" />
             </div>
 
-            <div class="msg-remark">
+            <div class="msg-remark pulse animated">
                 <h1>留言板</h1>
                 <p>海内存知己，天涯若比邻</p>
             </div>
@@ -74,7 +77,7 @@
                 <input type="text" class="form-control niceng" v-model="test_01">
                 <span class="test_ne">你要留言的内容：</span>
                 <textarea class="form-control" rows="1" id="test" v-model="test_02"></textarea>
-                <button type="button" class="btn btn-info" @click="add">提交</button>
+                <a class="btn btn-info"@click="add">提交</a>
 
             </div>
 
@@ -97,14 +100,16 @@
         <div class="yqts">
             <div class="dsi">
                 <div class="list1">
-                    <div class="iconfont icon-github"></div>
-                    <div class="iconfont icon-youxiang"></div>
-                    <div class="iconfont icon-weixin"></div>
-                    <div class="iconfont icon-weibo"></div>
+                    <div class=""><a href="https://github.com/fenliufen?tab=repositories" class="iconfont icon-github"></a></div>
+                    <div class="iconfont icon-youxiang"><a></a></div>
+                    <div class="iconfont icon-weixin"><a></a></div>
+                    <div class="iconfont icon-weibo"><a></a></div>
                 </div>
                 <p>Copyright © 2019 - 赣ICP备9678122号, All Rights Reserved Powered By 从小就疯了 1.0.0</p>
             </div>
         </div>
+
+
     </div>
 
 

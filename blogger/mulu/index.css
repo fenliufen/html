@@ -193,14 +193,14 @@ input {
     border-radius: 3px;
 }
 
-@keyframes donghua {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/*@keyframes donghua {*/
+/*    from {*/
+/*        opacity: 0;*/
+/*    }*/
+/*    to {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
 
 .list li .content-1 .list-title {
     line-height: 30px;

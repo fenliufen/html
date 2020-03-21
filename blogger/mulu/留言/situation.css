@@ -158,10 +158,13 @@
         }
 
         #test {
+            display: block;
             width: 100%;
             min-height: 112px;
             border: 1px solid #cccccc;
-            font-size: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 9px;
         }
 
         .output {
@@ -177,11 +180,11 @@
             height: 30px;
             border-radius: 9px;
             border: 1px solid #cccccc;
+            font-size: 14px;
+            font-weight: bold;
         }
 
-        #test{
-            display: block;
-        }
+
 
         .test_ne{
             font-size: 15px;
@@ -202,6 +205,7 @@
             margin-top: 10px;
             margin-left: 10px;
             margin-bottom:10px ;
+            border-radius: 6px;
         }
         /*留言板留言内容区域*/
 
