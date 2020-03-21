@@ -25,6 +25,39 @@ var vml = new Vue({
 
     },
 
+    mounted() {
+
+        var tishiii = document.querySelector('.yqts');
+        var zhanshi = document.querySelector('.zhanshi');
+        var doahang = document.querySelector('.daohanglan');
+        var daohang2=document.querySelector('.daohang2')
+
+        function monitoring() {
+            var  width = window.innerWidth
+            if (width < 1300) {
+                tishiii.style.display = 'none';
+                doahang.style.display = 'none';
+                zhanshi.style.margin = 'auto';
+
+
+            } else if (width >= 1300) {
+                doahang.style.display = 'block';
+                tishiii.style.display = 'block';
+                zhanshi.style.margin = '0'
+            }
+
+        }
+
+        monitoring();
+
+
+
+        window.onresize = function() {
+            monitoring()
+        }
+
+    },
+
     data: {
         //数据放置
         chauxun: '',
@@ -60,29 +93,3 @@ var vml = new Vue({
 
 
 
-var tishiii = document.querySelector('.yqts');
-var zhanshi = document.querySelector('.zhanshi');
-var doahang = document.querySelector('.daohanglan');
-var daohang2=document.querySelector('.daohang2')
-
-function monitoring() {
-    var  width = window.innerWidth
-    if (width < 1300) {
-        tishiii.style.display = 'none';
-        doahang.style.display = 'none';
-        zhanshi.style.margin = 'auto';
-
-
-    } else if (width >= 1300) {
-        doahang.style.display = 'block';
-        tishiii.style.display = 'block';
-        zhanshi.style.margin = '0'
-    }
-
-}
-
-monitoring()
-
-window.onresize = function() {
-    monitoring()
-}

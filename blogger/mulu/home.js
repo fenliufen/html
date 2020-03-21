@@ -1,3 +1,5 @@
+
+
 var vml = new Vue({
     el: '#content-test',
     //获取dom节点
@@ -85,6 +87,36 @@ var vml = new Vue({
             this.data_tsxt = arr;
         }
     },
+    mounted(){
+        var tishiii = document.querySelector('.yqts');
+        var zhanshi = document.querySelector('.zhanshi');
+        var doahang = document.querySelector('.daohanglan');
+
+        function monitoring() {
+            var width = window.innerWidth
+            if (width < 1300) {
+                tishiii.style.display = 'none';
+                doahang.style.display = 'none';
+                zhanshi.style.margin = 'auto';
+
+
+            } else if (width >= 1300) {
+                doahang.style.display = 'block';
+                tishiii.style.display = 'block';
+                zhanshi.style.margin = '0'
+            }
+
+        }
+
+        monitoring();
+
+        window.onresize = function() {
+            monitoring()
+        }
+
+
+    },
+
 
     data: {
         //数据放置
@@ -198,33 +230,11 @@ var vml = new Vue({
 });
 
 
-//兼容性代码
-
-var tishiii = document.querySelector('.yqts');
-var zhanshi = document.querySelector('.zhanshi');
-var doahang = document.querySelector('.daohanglan');
-
-function monitoring() {
-    var width = window.innerWidth
-    if (width < 1300) {
-        tishiii.style.display = 'none';
-        doahang.style.display = 'none';
-        zhanshi.style.margin = 'auto';
 
 
-    } else if (width >= 1300) {
-        doahang.style.display = 'block';
-        tishiii.style.display = 'block';
-        zhanshi.style.margin = '0'
-    }
-
-}
-
-monitoring()
 
 
-window.onresize = function() {
-    monitoring()
-}
+
+
 
 
