@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+
+        
+        #app .sample {
+            margin: auto;
+        }
+
+        .list{
+            display: flex;
+            align-items: center;
+           justify-content: space-between;
+
+
+
+        }
+        
+        .list li {
+            display: block;
+            box-shadow: 0 0 10px #cccccc inset ;
+        }
+        
+        .list li h3 {
+            text-align: center;
+            color: #67abff;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        
+        .list li .count {
+            width: 800px;
+            height: 500px;
+
+
+        }
+        
+        .list li .count1 {
+            width: 800px;
+            height: 500px;
+        }
+        
+        .list li .count2 {
+            width: 800px;
+            height: 500px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="sample">
+
+            <ul class="list">
+                <li>
+                    <h3>31号bug修复情况</h3>
+                    <div class="count"></div>
+                </li>
+
+                <li>
+                    <h3>bug分布</h3>
+                    <div class="count1"></div>
+                </li>
+
+                <li class="bin">
+                    <h3>遗留分布</h3>
+                    <div class="count2"></div>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+
+
+    <script>
+        function list1() {
+
+            var count = echarts.init(document.querySelector('.count'));
+            var option = {
+                legend: {},
+                tooltip: {},
+                dataset: {
+                    dimensions: ['product', '每日新增bug', '当日解决bug', '遗留未解决bug'],
+                    source: [{
+                            product: '周一',
+                            '每日新增bug': 8,
+                            '当日解决bug': 13,
+                            '遗留未解决bug': 8
+                        }, {
+                            product: '周二',
+                            '每日新增bug': 7,
+                            '当日解决bug': 9,
+                            '遗留未解决bug':9
+                        }, {
+                            product: '周三',
+                        }, {
+                            product: '周四',
+                        }, {
+                            product: '周五',
+                        }, {
+                            product: '周六',
+                        }, {
+                            product: '周天',
+                        },
+
+                    ]
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {},
+                series: [{
+                    type: 'bar'
+                }, {
+                    type: 'bar'
+                }, {
+                    type: 'bar'
+                }]
+            };
+
+            count.setOption(option);
+
+
+
+        }
+
+
+
+
+
+        function list2() {
+            var count = echarts.init(document.querySelector('.count1'));
+            option = {
+                xAxis: {
+                    type: 'category',
+                    data: ['学峰', '亮宏', '代明', '水健', '郐庆', '汉城','文昊' ]
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [2, 0, 1, 1, 0, 1,2, ],
+                    type: 'bar'
+                }]
+            };
+
+            count.setOption(option);
+        }
+
+
+
+
+        function list3() {
+            var count = echarts.init(document.querySelector('.count2'));
+
+            option = {
+                title: {
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+
+                },
+                series: [{
+                    name: '姓名',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [{
+                        value: 2,
+                        name: '学峰 '
+                    }, {
+                        value: 1,
+                        name: '代明'
+                    }, {
+                        value: 1,
+                        name: '汉城'
+                    }, {
+                        value: 1,
+                        name: '水健'
+                    }, {
+                        value: 0,
+                        name: '亮宏'
+                    }, {
+                        value: 0,
+                        name: '郐庆'
+                    }, {
+                        value: 3,
+                        name: '其他'
+                    },
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+
+            count.setOption(option);
+
+        }
+
+
+
+        list1();
+        list2();
+        list3();
+
+    </script>
+
+</body>
+
+</html>
